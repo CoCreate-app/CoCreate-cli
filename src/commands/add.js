@@ -3,7 +3,7 @@
 // -> alternatives -> debian/ununtu -> run the 3 commands there consecutively
 // check node and nodejs version and remove old version if any
 // both node and nodejs --version should be the same and > then v12
-let glob = require("glob");
+
 const fs = require('fs')
 const path = require("path")
 const { promisify } = require('util');
