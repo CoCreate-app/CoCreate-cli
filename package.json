@@ -20,7 +20,9 @@
     "html5-framework",
     "javascript-framework"
   ],
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -40,7 +42,7 @@
   },
   "main": "index.js",
   "bin": {
-    "coc": ".src/coc.js"
+    "coc": "src/coc.js"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -57,12 +59,14 @@
     "webpack-cli": "^4.5.0",
     "webpack-log": "^3.0.1"
   },
-  "dependencies": { 
-    "@cocreate/docs": "^1.0.3", 
+  "dependencies": {
+    "@cocreate/docs": "^1.0.3",
     "@cocreate/hosting": "^1.0.0",
     "colors": "latest",
+    "glob": "^7.1.7",
     "got": "latest",
-    "minimist": "latest"
-
+    "minimist": "latest",
+    "prettier": "^2.3.2",
+    "prompt": "^1.1.0"
   }
 }
