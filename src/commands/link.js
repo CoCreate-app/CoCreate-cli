@@ -39,7 +39,7 @@ function complete(repos) {
 
 }
 let isLinked = {}
-module.exports = async function updateYarnInstall(repos) {
+module.exports =  async function updateYarnInstall(repos) {
 
 
     repos = complete(repos)

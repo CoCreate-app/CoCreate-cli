@@ -59,14 +59,7 @@ let repos, command, report = { success: 0, fail: 0 };
 command = args['_'].join(" ");
 
 
-let predefined = path.resolve(__dirname, 'commands', command + '.js');
-if (fs.existsSync(predefined)) {
-    console.warn('executing predefined a command'.red, `nodejs ./${command}`, path.dirname(predefined));
-    require(predefined)
-    process.exit()
 
-
-}
 
 function getRepositories(path) {
     try {
@@ -118,9 +111,14 @@ let reposMeta = repos.map(meta => {
 
 (async() => {
 
+    let predefined = path.resolve(__dirname, 'commands', command + '.js');
+    if (fs.existsSync(predefined)) {
+        console.warn('executing predefined a command'.red, `nodejs ./${command}`, path.dirname(predefined));
+        require(predefined)(reposMeta)
+        process.exit()
 
 
-    if (!s.existsSync(predefined)) {
+    } else {
         for (let repo of reposMeta) {
             // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
             try {

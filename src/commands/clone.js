@@ -15,7 +15,7 @@ const properties = [{
 
 
 
-modules.exports = function gitClone(repos) {
+module.exports = function gitClone(repos) {
     prompt.get(properties, async function(err, prompt) {
         if (err) { return console.error(err); }
         for (let meta of repos) {
@@ -37,13 +37,21 @@ modules.exports = function gitClone(repos) {
 
             })
 
-            p.stderr.on('data', (data) => {
-                console.error(data.red)
+
+            await new Promise((resolve, reject) => {
+
+                p.stderr.on('data', (data) => {
+                    console.error(data.red)
+                    reject()
+
+                })
+                p.on('close', () =>
+                    resolve()
+                );
 
             })
-            await new Promise((resolve,reject)=>)
         }
- 
-     
+
+
     });
 }
