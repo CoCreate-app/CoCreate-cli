@@ -1,44 +1,49 @@
-const utils_git = require('../utils/git.js');
-const shellJs = require('shelljs');
-const list_repositories = require('../repositories.js');
-
 const prompt = require('prompt');
-
+const spawn = require('child_process').spawn;
+const colors = require('colors');
 prompt.start();
 
-const properties = [
-    {
-        name: 'user_git',
+const properties = [{
+        name: 'gitUser',
     },
     {
-        name: 'password_git',
+        name: 'gitPassword',
         hidden: true
     }
 ];
 
-prompt.get(properties, async  function (err, result) {
-    if (err) { return console.error(err); }
-    let tmp_pwd = process.cwd()
-   // (async() => {
-        for(let i=0; i<list_repositories.length; i++){
-            let repo = list_repositories[i];
-             shellJs.cd(tmp_pwd);
-            var path_repo = repo.path.split('/');
-            path_repo.pop()
-            path_repo = path_repo.join('/')
-            console.log("Init path_repo ",path_repo)
-            shellJs.mkdir('-p', path_repo)
-            shellJs.cd(path_repo);
-            //console.log("Cd actual ",process.cwd())
-             await utils_git.cloneRepository(repo,result);
-             //await new Promise(r => setTimeout(r, 2000));
-      
+
+
+
+modules.exports = function gitClone(repos) {
+    prompt.get(properties, async function(err, prompt) {
+        if (err) { return console.error(err); }
+        for (let meta of repos) {
+            let { repo } = meta;
+            let usernamePrompt = true;
+            let p = spawn('git clone ' + repo, null, { shell: true })
+            p.stdout.on('data', (data) => {
+                if (data.endsWith('github.com\':')) {
+                    if (usernamePrompt) {
+                        usernamePrompt = false;
+                        p.stdin.write(prompt.gitUser + '\n')
+                    }
+                    else
+                        p.stdin.write(prompt.gitPassword + '\n')
+
+
+                }
+                console.log(data)
+
+            })
+
+            p.stderr.on('data', (data) => {
+                console.error(data.red)
+
+            })
+            await new Promise((resolve,reject)=>)
         }
-   // })()
-        /*
-    list_repositories.forEach( async repo=>{
-       
-    });*/
-});
-
-
+ 
+     
+    });
+}

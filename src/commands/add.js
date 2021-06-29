@@ -1,18 +1,10 @@
-// install nodejs 14 from: https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
-// install yarn from https://classic.yarnpkg.com/en/docs/install/#debian-stable
-// -> alternatives -> debian/ununtu -> run the 3 commands there consecutively
-// check node and nodejs version and remove old version if any
-// both node and nodejs --version should be the same and > then v12
 
 const fs = require('fs')
 const path = require("path")
 const { promisify } = require('util');
 const exec = promisify(require('child_process').exec)
-let list = require('../repositories.js');
 const prettier = require("prettier");
-// let excludeComponents = ['cocreate-hosting', 'cocreate-docs', 'cocreate-s3'];
-// let excludeLinking = ['cocreate-crdt'];
-// console.log(list);
+const colors = require('colors');
 
 let metaYarnLink = list.map(meta => {
     let name = path.basename(meta.path).toLowerCase();

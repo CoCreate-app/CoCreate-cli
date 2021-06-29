@@ -100,7 +100,8 @@ let reposMeta = repos.map(meta => {
     let ppath = path.resolve(meta.path);
     try {
         if (!fs.existsSync(ppath))
-            throw new Error('path can not be resolve')
+            throw new Error('path can not be resolve');
+
         return { ...meta, name, ppath }
     }
     catch (err) {
