@@ -126,7 +126,7 @@ let reposMeta = repos.map(meta => {
                 console.log(`running ${repo.name}: ${command} `)
                 let p;
                 if (args.showMessage)
-                    p = await spawn('node', ['--version'], { cwd: repo.ppath, shell: true, stdio: 'inherit' })
+                    p = await spawn(command, null, { cwd: repo.ppath, shell: true, stdio: 'inherit' })
                 else
                     p = await exec(command, { cwd: repo.ppath, })
 
