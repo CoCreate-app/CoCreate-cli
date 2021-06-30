@@ -118,27 +118,34 @@ let reposMeta = repos.map(meta => {
         // process.exit()
 
 
-    } else {
-        for (let repo of reposMeta) {
-            // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
-            try {
+    }
+    else {
+        if (path.basename(process.cwd()) === 'CoCreateJS')
+            for (let repo of reposMeta) {
+                // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
+                try {
 
-                console.log(`running ${repo.name}: ${command} `)
-                let p;
-                if (args.showMessage)
-                    p = await spawn(command, null, { cwd: repo.ppath, shell: true, stdio: 'inherit' })
-                else
-                    p = await exec(command, { cwd: repo.ppath, })
+                    console.log(`running ${repo.name}: ${command} `)
 
-                report.success++;
+                    if (args.showMessage)
+                        await spawn(command, null, { cwd: repo.ppath, shell: true, stdio: 'inherit' })
+                    else
+                        await exec(command, { cwd: repo.ppath, })
 
+                    report.success++;
+
+                }
+                catch (err) {
+                    report.fail++;
+                    console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
+
+                }
             }
-            catch (err) {
-                report.fail++;
-                console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
+        else if (args.showMessage)
+            await spawn(command, null, { cwd: process.cwd(), shell: true, stdio: 'inherit' })
+        else
+            await exec(command, { cwd: process.cwd() })
 
-            }
-        }
         console.log(`success: ${report.success}`.green, `failed: ${report.fail}`.red);
     }
 
