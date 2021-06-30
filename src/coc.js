@@ -21,24 +21,6 @@ const commandsToBeUsed = {};
 
 const configPath = path.resolve(process.cwd(), "./repositories.js")
 
-switch (require("os").platform()) {
-    case 'win32':
-        commandsToBeUsed['currentDirectory'] = 'cd';
-        commandsToBeUsed['cmdJoiner'] = '&';
-        break;
-    case 'linux':
-        commandsToBeUsed['currentDirectory'] = 'pwd'
-        commandsToBeUsed['cmdJoiner'] = '&&';
-        break;
-    case 'darwin':
-        commandsToBeUsed['currentDirectory'] = 'pwd'
-        commandsToBeUsed['cmdJoiner'] = '&&';
-        break;
-    default:
-        commandsToBeUsed['currentDirectory'] = 'pwd'
-        commandsToBeUsed['cmdJoiner'] = '&&';
-        break;
-}
 
 const argv = process.argv.slice(2);
 
@@ -49,16 +31,17 @@ if (argv.length < 1) {
 
 
 const args = minimist(argv, {
-    alias: { config: 'c', absolutePath: 'cf', showMessage: 's' },
+    alias: { config: 'c', absolutePath: 'cf', hideMessage: 'h' },
     default: { config: configPath },
     stopEarly: true
 });
 
+
 let repos, command, report = { success: 0, fail: 0 };
 
-command = args['_'].join(" ");
-
-
+command = args['_']
+    .map((part) => part.match(/ |'|"/) ? `'${part.replace(/'/,'\\\'')}'` : part)
+    .join(" ");
 
 
 function getRepositories(path) {
@@ -114,37 +97,37 @@ let reposMeta = repos.map(meta => {
     let predefined = path.resolve(__dirname, 'commands', command + '.js');
     if (fs.existsSync(predefined)) {
         console.warn('executing predefined a command'.red, `nodejs ./${command}`, path.dirname(predefined));
-        require(predefined)(reposMeta)
-        // process.exit()
+        let r
+        if (path.basename(process.cwd()) === 'CoCreateJS')
+            require(predefined)(reposMeta)
+        else
+            require(predefined)([reposMeta.find(m => m.name === 'cocreatejs')])
 
 
     }
     else {
-        if (path.basename(process.cwd()) === 'CoCreateJS')
-            for (let repo of reposMeta) {
-                // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
-                try {
 
-                    console.log(`running ${repo.name}: ${command} `)
+        for (let repo of reposMeta) {
+            // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
+            try {
 
-                    if (args.showMessage)
-                        await spawn(command, null, { cwd: repo.ppath, shell: true, stdio: 'inherit' })
-                    else
-                        await exec(command, { cwd: repo.ppath, })
+                console.log(`running ${repo.name}: ${command} `)
 
-                    report.success++;
+                if (args.hideMessage)
+                    await exec(command, { cwd: repo.ppath, })
+                else
+                    await spawn(command, null, { cwd: repo.ppath, shell: true, stdio: 'inherit' })
 
-                }
-                catch (err) {
-                    report.fail++;
-                    console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
+                report.success++;
 
-                }
             }
-        else if (args.showMessage)
-            await spawn(command, null, { cwd: process.cwd(), shell: true, stdio: 'inherit' })
-        else
-            await exec(command, { cwd: process.cwd() })
+            catch (err) {
+                report.fail++;
+                console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
+
+            }
+        }
+
 
         console.log(`success: ${report.success}`.green, `failed: ${report.fail}`.red);
     }
