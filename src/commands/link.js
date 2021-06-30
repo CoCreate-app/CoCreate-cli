@@ -4,6 +4,7 @@ const { promisify } = require('util');
 const spawn = require('../spawn');
 const colors = require('colors');
 let failed = [];
+
 function complete(repos) {
     return repos.map(repo => {
         let { name, ppath } = repo;
@@ -13,7 +14,7 @@ function complete(repos) {
         let packagejson = path.resolve(ppath, 'package.json');
         if (!fs.existsSync(packagejson)) {
             console.error('package json not found for', name);
-            failed.push({name, des:'package json not found' })
+            failed.push({ name, des: 'package json not found' })
             return false;
         }
         let packageObj = require(packagejson);
@@ -39,17 +40,26 @@ function complete(repos) {
 }
 let isLinked = {}
 module.exports = async function updateYarnInstall(repos) {
-
+    const failed = [];
     try {
         repos = complete(repos)
 
+    }
+    catch (err) {
+                failed.push({ name: 'GENERAL', des: err.message })
+        console.log(err)
+    }
+
+    try {
+
+
         for (let repo of repos) {
 
-            if(!repo)
-                return;
-            let res1, res2;
+            if (!repo)
+                continue;
+          
 
-            let { ppath, packageName, deps } = repo;
+            let { ppath, packageName, deps, name } = repo;
 
             console.log(packageName, 'configuring ...')
             for (let dep of deps) {
@@ -64,16 +74,21 @@ module.exports = async function updateYarnInstall(repos) {
 
                     if (!isLinked[depMeta.packageName]) {
                         isLinked[depMeta.packageName] = true;
-                        res1 = await spawn(`yarn link`, null, { cwd: depMeta.ppath, shell: true, stdio: 'inherit', });
+                        let exitCode = await spawn(`yarn link`, null, { cwd: depMeta.ppath, shell: true, stdio: 'inherit', });
+                        if (exitCode !== 0) {
+                            failed.push({ name: depMeta.name, des: `yarn link failed` })
+                        }
                     }
 
 
-                    res2 = await spawn(`yarn link ${depMeta.packageName}`, null, { cwd: ppath, shell: true, stdio: 'inherit', })
-
+                    let exitCode = await spawn(`yarn link ${depMeta.packageName}`, null, { cwd: ppath, shell: true, stdio: 'inherit', })
+                    if (exitCode !== 0) {
+                        failed.push({ name, des: `yarn link ${depMeta.packageName} failed` })
+                    }
 
                 }
                 catch (err) {
-                    failed.push({name:packageName, des:err.message })
+                    failed.push({ name: packageName, des: err.message })
                     console.error(packageName, 'had error for command', err)
                 }
 
@@ -81,13 +96,9 @@ module.exports = async function updateYarnInstall(repos) {
         }
     }
     catch (err) {
-               failed.push({name:'GENERAL', des:err.message })
+        failed.push({ name: 'GENERAL', des: err.message })
         console.log(err)
     }
-    
-    
-    for(let fail of failed)
-    {
-        console.error(`${fail.name}: ${fail.des}`.red)
-    }
+
+    return failed;
 }

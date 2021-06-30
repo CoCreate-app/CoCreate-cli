@@ -4,23 +4,9 @@ const minimist = require('minimist');
 const colors = require('colors');
 const path = require("path");
 const fs = require("fs");
-const { promisify } = require('util');
-const spawn = require('./spawn');
-const exec = promisify(require('child_process').exec);
-
-// (async() => {
-
-//     let p = await spawn('node --version', { shell: true, stdio: 'inherit' })
-
-// })();
-// process.exit(0);
-
-
-
-const commandsToBeUsed = {};
+const execute = require('./execute')
 
 const configPath = path.resolve(process.cwd(), "./repositories.js")
-
 
 const argv = process.argv.slice(2);
 
@@ -30,16 +16,16 @@ if (argv.length < 1) {
 }
 
 
-const args = minimist(argv, {
+const config = minimist(argv, {
     alias: { config: 'c', absolutePath: 'cf', hideMessage: 'h' },
     default: { config: configPath },
     stopEarly: true
 });
 
 
-let repos, command, report = { success: 0, fail: 0 };
+let repos, command;
 
-command = args['_']
+command = config['_']
     .map((part) => part.match(/ |'|"/) ? `'${part.replace(/'/,'\\\'')}'` : part)
     .join(" ");
 
@@ -55,14 +41,14 @@ function getRepositories(path) {
 }
 
 
-if (args['c']) {
-    let p = path.resolve(process.cwd(), args['c'])
+if (config['c']) {
+    let p = path.resolve(process.cwd(), config['c'])
     repos = getRepositories(p)
 }
 else
 if (fs.existsSync(configPath)) {
     console.warn(`using ${configPath} configuration`.yellow)
-    repos = getRepositories(args['c'])
+    repos = getRepositories(config['c'])
 
 }
 else {
@@ -71,7 +57,7 @@ else {
 }
 
 
-let reposMeta = repos.map(meta => {
+let repoFullMeta = repos.map(meta => {
     let name = path.basename(meta.path).toLowerCase();
     let ppath = path.resolve(meta.path);
     try {
@@ -87,53 +73,16 @@ let reposMeta = repos.map(meta => {
 
 });
 
-
-
-
-
-
 (async() => {
 
-    let predefined = path.resolve(__dirname, 'commands', command + '.js');
-    if (fs.existsSync(predefined)) {
-        console.warn('executing predefined a command'.red, `nodejs ./${command}`, path.dirname(predefined));
-        let r
-        if (path.basename(process.cwd()) === 'CoCreateJS')
-            require(predefined)(reposMeta)
-        else
-            require(predefined)([reposMeta.find(m => m.name === 'cocreatejs')])
-
-
-    }
+    let failed = await execute(command, repoFullMeta, config)
+    if (failed === 0)
+        process.exit(0);
     else {
+        console.log(' **************** failures **************** '.red)
+        for (let failure of failed)
+            console.log(`${failure.name}: ${failure.des}`.red)
 
-        for (let repo of reposMeta) {
-            // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
-            try {
-
-                console.log(`running ${repo.name}: ${command} `)
-
-                if (args.hideMessage)
-                    await exec(command, { cwd: repo.ppath, })
-                else
-                    await spawn(command, null, { cwd: repo.ppath, shell: true, stdio: 'inherit' })
-
-                report.success++;
-
-            }
-            catch (err) {
-                report.fail++;
-                console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
-
-            }
-        }
-
-
-        console.log(`success: ${report.success}`.green, `failed: ${report.fail}`.red);
     }
-
-
-
-
-
+    // console.log(`success: ${report.success}`.green, `failed: ${report.fail}`.red);
 })();
