@@ -72,8 +72,8 @@ function getRepositories(path) {
 }
 
 
-if (args['cf']) {
-    let p = path.resolve(process.cwd(), args['cf'])
+if (args['c']) {
+    let p = path.resolve(process.cwd(), args['c'])
     repos = getRepositories(p)
 }
 else
@@ -92,14 +92,14 @@ let reposMeta = repos.map(meta => {
     let name = path.basename(meta.path).toLowerCase();
     let ppath = path.resolve(meta.path);
     try {
-        if (!fs.existsSync(ppath))
-            throw new Error('path can not be resolve');
+        // if (!fs.existsSync(ppath))
+        //     throw new Error('path can not be resolve');
 
         return { ...meta, name, ppath }
     }
     catch (err) {
         console.error(name.red, err.message.red, ppath);
-        process.exit(1)
+        // process.exit(1)
     }
 
 });
@@ -115,7 +115,7 @@ let reposMeta = repos.map(meta => {
     if (fs.existsSync(predefined)) {
         console.warn('executing predefined a command'.red, `nodejs ./${command}`, path.dirname(predefined));
         require(predefined)(reposMeta)
-        process.exit()
+        // process.exit()
 
 
     } else {

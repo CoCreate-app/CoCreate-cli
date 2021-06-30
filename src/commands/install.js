@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require("path")
 const { promisify } = require('util');
-const exec = promisify(require('child_process').exec)
+const spawn = require('../spawn');
 const colors = require('colors');
 
 
@@ -9,7 +9,7 @@ module.exports = async function updateYarnInstall(repos) {
 
     for (let meta of repos) {
 
-        let {ppath, packageName } = meta;
+        let {path: ppath, name } = meta;
 
         try {
             let node_modules = path.resolve(ppath, 'node_modules');
@@ -17,20 +17,20 @@ module.exports = async function updateYarnInstall(repos) {
                 fs.rmdirSync(node_modules, { recursive: true })
         }
         catch (err) {
-            console.error(packageName, 'had error for command', err.cmd, 'with response:', err)
+            console.error(name, 'had error for command', err.cmd, 'with response:', err)
         }
 
         let res;
 
 
         try {
-            console.log('yarn installing ', packageName)
-            res = await exec(`yarn install`, { cwd: ppath })
+            console.log('yarn installing ', name)
+            res = await spawn(`yarn install`, null, { shell: true, stdio:'inherit', cwd: ppath })
 
 
         }
         catch (err) {
-            console.error(packageName, 'had error for command', err.cmd, 'with response:', err)
+            console.error(name, 'had error for command', err.cmd, 'with response:', err)
         }
     }
 }

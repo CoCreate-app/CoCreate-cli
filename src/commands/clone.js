@@ -1,57 +1,22 @@
-const prompt = require('prompt');
-const spawn = require('child_process').spawn;
+// const spawn = require('child_process').spawn;
+const spawn = require('../spawn');
 const colors = require('colors');
-prompt.start();
+const path = require('path');
 
-const properties = [{
-        name: 'gitUser',
-    },
-    {
-        name: 'gitPassword',
-        hidden: true
+
+module.exports = async function gitClone(repos) {
+
+    for (let meta of repos) {
+        console.log(meta)
+        let { repo, path:ppath } = meta;
+        let usernamePrompt = true;
+        let command = `git clone https://${repo}`;
+        let dirPath = path.dirname(ppath);
+        let p = await spawn(`mkdir -p ${dirPath}`, null, { shell: true, stdio:'inherit', cwd: process.cwd() })
+        p =  await spawn(command, null, { shell: true, stdio:'inherit', cwd: dirPath })
+      
     }
-];
 
 
 
-
-module.exports = function gitClone(repos) {
-    prompt.get(properties, async function(err, prompt) {
-        if (err) { return console.error(err); }
-        for (let meta of repos) {
-            let { repo } = meta;
-            let usernamePrompt = true;
-            let p = spawn('git clone ' + repo, null, { shell: true })
-            p.stdout.on('data', (data) => {
-                if (data.endsWith('github.com\':')) {
-                    if (usernamePrompt) {
-                        usernamePrompt = false;
-                        p.stdin.write(prompt.gitUser + '\n')
-                    }
-                    else
-                        p.stdin.write(prompt.gitPassword + '\n')
-
-
-                }
-                console.log(data)
-
-            })
-
-
-            await new Promise((resolve, reject) => {
-
-                p.stderr.on('data', (data) => {
-                    console.error(data.red)
-                    reject()
-
-                })
-                p.on('close', () =>
-                    resolve()
-                );
-
-            })
-        }
-
-
-    });
 }
