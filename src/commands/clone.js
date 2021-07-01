@@ -8,14 +8,15 @@ module.exports = async function gitClone(repos) {
     for (let meta of repos) {
         let { repo, path: ppath, name } = meta;
         let usernamePrompt = true;
-        let command = `git clone https://${repo}`;
+
         let dirPath = path.dirname(ppath);
-        let exitCode = await spawn(`mkdir -p ${dirPath}`, null, { shell: true, stdio: 'inherit', cwd: process.cwd() })
+        let exitCode = await spawn('mkdir', ['-p', dirPath], { stdio: 'inherit', cwd: process.cwd() })
         if (exitCode !== 0) {
             failed.push({ name, des: `creating directory failed` })
 
         }
-        exitCode = await spawn(command, null, { shell: true, stdio: 'inherit', cwd: dirPath })
+
+        exitCode = await spawn('git', ['clone', `https://${repo}`], { stdio: 'inherit', cwd: dirPath })
         if (exitCode !== 0) {
             failed.push({ name, des: `cloning ${name} failed` })
 
