@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.4.0...v1.4.1) (2021-07-01)
+
+
+### Bug Fixes
+
+* remove cdn from workflow ([0783544](https://github.com/CoCreate-app/CoCreate-cli/commit/0783544201c330c659f533bd510c8af02f6674ab))
+
 # 1.0.0 (2021-07-01)
 
 
