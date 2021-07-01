@@ -15,6 +15,7 @@ module.exports = async function execute(command, repos, config = { hideMessage: 
         if (path.basename(process.cwd()) === 'CoCreateJS')
             failed = require(predefined)(repos)
         else
+        
             failed = require(predefined)([repos.find(m => m.name === 'cocreatejs')])
 
 
