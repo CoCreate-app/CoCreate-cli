@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.5.0...v1.6.0) (2021-07-01)
+
+
+### Features
+
+* testing ([be679cf](https://github.com/CoCreate-app/CoCreate-cli/commit/be679cf742b6d75ac515908fe332913d63120bf6))
+
 # [1.5.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.4.1...v1.5.0) (2021-07-01)
 
 
