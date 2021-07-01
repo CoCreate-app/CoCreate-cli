@@ -71,17 +71,17 @@ module.exports = async function updateYarnInstall(repos) {
                         continue;
                     }
 
-                    console.log(packageName, 'linking', depMeta.packageName, '...')
+                   
 
                     if (!isLinked[depMeta.packageName]) {
                         isLinked[depMeta.packageName] = true;
-                        let exitCode = await spawn('yarn', 'link', { cwd: depMeta.ppath, stdio: 'inherit', });
+                        let exitCode = await spawn('yarn', ['link'], { cwd: depMeta.ppath, stdio: 'inherit', });
                         if (exitCode !== 0) {
                             failed.push({ name: depMeta.name, des: `yarn link failed` })
                             console.error(`${depMeta.name}: yarn link failed`.red)
                         }
                     }
-
+                    console.log(packageName, 'linking', depMeta.packageName, '...')
 
                     let exitCode = await spawn('yarn', ['link', depMeta.packageName], { cwd: ppath, stdio: 'inherit', })
                     if (exitCode !== 0) {
