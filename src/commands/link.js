@@ -46,10 +46,11 @@ module.exports = async function updateYarnInstall(repos) {
 
     }
     catch (err) {
-                failed.push({ name: 'GENERAL', des: err.message })
+        failed.push({ name: 'GENERAL', des: err.message })
         console.log(err)
     }
-
+    // console.log(repos)
+    // return failed;
     try {
 
 
@@ -57,7 +58,7 @@ module.exports = async function updateYarnInstall(repos) {
 
             if (!repo)
                 continue;
-          
+
 
             let { ppath, packageName, deps, name } = repo;
 
@@ -66,7 +67,8 @@ module.exports = async function updateYarnInstall(repos) {
                 let depMeta = repos.find(meta => meta.packageName === dep);
                 try {
                     if (!depMeta) {
-                        console.error('1error: ', dep, 'component can not be found in repositories.js')
+                        failed.push({ name, des: `"${depMeta.packageName}" component can not be found in repositories.js` })
+                        console.error(`${name}: "${depMeta.packageName}" component can not be found in repositories.js`.red)
                         continue;
                     }
 
@@ -77,26 +79,29 @@ module.exports = async function updateYarnInstall(repos) {
                         let exitCode = await spawn(`yarn link`, null, { cwd: depMeta.ppath, shell: true, stdio: 'inherit', });
                         if (exitCode !== 0) {
                             failed.push({ name: depMeta.name, des: `yarn link failed` })
+                             console.error(`${depMeta.name}: yarn link failed`.red)
                         }
                     }
 
 
                     let exitCode = await spawn(`yarn link ${depMeta.packageName}`, null, { cwd: ppath, shell: true, stdio: 'inherit', })
                     if (exitCode !== 0) {
-                        failed.push({ name, des: `yarn link ${depMeta.packageName} failed` })
+                        failed.push({ name, des: `yarn link ${depMeta.packageName} failed` });
+                         console.error(`${name}: yarn link ${depMeta.packageName} failed`.red)
                     }
 
                 }
                 catch (err) {
-                    failed.push({ name: packageName, des: err.message })
-                    console.error(packageName, 'had error for command', err)
+                    // failed.push({ name: packageName, des: err.message })
+                    // console.error(packageName, err.message)
+                    console.error(err)
                 }
 
             }
         }
     }
     catch (err) {
-        failed.push({ name: 'GENERAL', des: err.message })
+        // failed.push({ name: 'GENERAL', des: err.message })
         console.log(err)
     }
 

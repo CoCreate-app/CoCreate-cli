@@ -76,7 +76,7 @@ let repoFullMeta = repos.map(meta => {
 (async() => {
 
     let failed = await execute(command, repoFullMeta, config)
-    if (failed === 0)
+    if (failed.length === 0)
         process.exit(0);
     else {
         console.log(' **************** failures **************** '.red)

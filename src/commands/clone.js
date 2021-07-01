@@ -6,7 +6,6 @@ const path = require('path');
 module.exports = async function gitClone(repos) {
     const failed = [];
     for (let meta of repos) {
-        console.log(meta)
         let { repo, path: ppath, name } = meta;
         let usernamePrompt = true;
         let command = `git clone https://${repo}`;

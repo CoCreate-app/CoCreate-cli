@@ -1,12 +1,8 @@
 const spawn = require('child_process').spawn;
 module.exports = async function spawnPromise() {
-
-
-    let ls = spawn.apply(this, arguments);
-    await new Promise((resolve, reject) => {
-        ls.on('error', (err) => reject(err))
-        ls.on('close', () =>
-            resolve()
-        );
+    let proc = spawn.apply(this, arguments);
+    return new Promise((resolve, reject) => {
+        proc.on('error', (err) => reject(err))
+        proc.on('close', (code) => resolve(code));
     })
 }
