@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.4.1...v1.5.0) (2021-07-01)
+
+
+### Features
+
+* add badge to readme ([9e73bbd](https://github.com/CoCreate-app/CoCreate-cli/commit/9e73bbd3ea8c87a2222edbff611ad85a55fff61b))
+
 ## [1.4.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.4.0...v1.4.1) (2021-07-01)
 
 
