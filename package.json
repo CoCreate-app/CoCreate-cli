@@ -24,9 +24,7 @@
         "access": "public"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "sudo npm i -g"
-
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
