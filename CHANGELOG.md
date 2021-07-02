@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.3...v1.7.4) (2021-07-02)
+
+
+### Bug Fixes
+
+* add.js ([58d10f6](https://github.com/CoCreate-app/CoCreate-cli/commit/58d10f6e46c9aa16756852314c5f59ad6710c28e))
+
 ## [1.7.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.2...v1.7.3) (2021-07-02)
 
 
