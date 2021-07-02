@@ -4,19 +4,25 @@ const prettier = require("prettier");
 const path = require("path")
 
 function globUpdater(er, files) {
-    if (er)
-        console.log(files, 'glob resolving issue')
-    else
-        files.forEach(filename => update(filename))
+
+  if (er)
+    console.log(files, 'glob resolving issue')
+  else
+    files.forEach(filename => {
+
+      console.log(filename + '/automated.yml', 'glob resolving issue')
+      update(filename + '/automated.yml')
+    })
+
 }
 
 
 
 
 function update(YmlPath) {
-    // component name
-    let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substr(9);
-    let fileContent = `name: Automated
+  // component name
+  let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substr(9);
+  let fileContent = `name: Automated Workflow
 'on':
   push:
     branches:
@@ -102,27 +108,26 @@ jobs:
         uses: CoCreate-app/CoCreate-docs@master
 
 `;
-    let formated = prettier.format(fileContent, { semi: false, parser: "yaml" });
-    // console.log(fileContent);
-    // process.exit()
-    if (fs.existsSync(YmlPath))
-        fs.unlinkSync(YmlPath)
-        fs.writeFileSync(YmlPath, formated)
-    
+  let formated = prettier.format(fileContent, { semi: false, parser: "yaml" });
+  // console.log(fileContent);
+  // process.exit()
+  if (fs.existsSync(YmlPath))
+  fs.unlinkSync(YmlPath)
+  fs.writeFileSync(YmlPath, formated)
 
 }
 
 
 
-// glob("../CoCreate-components/CoCreate-action/.github/workflows/automation.yml", globUpdater)
-glob("../CoCreate-components/*/.github/workflows/automation.yml", globUpdater)
-glob("../CoCreate-modules/*/.github/workflows/automation.yml", globUpdater)
-glob("../CoCreate-plugins/*/.github/workflows/automation.yml", globUpdater)
+// glob("../CoCreate-components/CoCreate-action/.github/workflows", globUpdater)
+glob("../CoCreate-components/*/.github/workflows/", globUpdater)
+glob("../CoCreate-modules/*/.github/workflows/", globUpdater)
+glob("../CoCreate-plugins/*/.github/workflows/", globUpdater)
 
 // substrin (9) removes CoCreateC leving namme as SS
-// glob("../CoCreateCSS/.github/workflows/automation.yml", globUpdater)
+// glob("../CoCreateCSS/.github/workflows/", globUpdater)
 
 // does not need to add name... will require for name to be removed from destination
-// glob("../CoCreateJS/.github/workflows/automation.yml", globUpdater)
+// glob("../CoCreateJS/.github/workflows/", globUpdater)
 
 console.log('finished')
