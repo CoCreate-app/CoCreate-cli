@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.4...v1.7.5) (2021-07-02)
+
+
+### Bug Fixes
+
+* clean commands ([aac0de2](https://github.com/CoCreate-app/CoCreate-cli/commit/aac0de291961b935d9b329c92327def4db880009))
+
 ## [1.7.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.3...v1.7.4) (2021-07-02)
 
 
