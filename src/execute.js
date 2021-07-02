@@ -12,7 +12,7 @@ module.exports = async function execute(command, repos, config = { hideMessage: 
     if (fs.existsSync(predefined)) {
         console.warn('executing predefined a command'.red, `nodejs ./${command}`, path.dirname(predefined));
 
-        console.log([repos.find(m => path.resolve(m.path) === path.resolve(process.cwd()))]);
+        // console.log([repos.find(m => path.resolve(m.path) === path.resolve(process.cwd()))]);
         
         // if (path.basename(process.cwd()) === 'CoCreateJS')
             failed = require(predefined)(repos)
