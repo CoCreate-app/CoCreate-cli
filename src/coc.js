@@ -16,7 +16,7 @@ if (argv.length < 1) {
 }
 
 
-const config = minimist(argv, {
+let config = minimist(argv, {
     alias: { config: 'c', absolutePath: 'cf', hideMessage: 'h' },
     stopEarly: true
 });
@@ -41,23 +41,26 @@ function getRepositories(path) {
 
 const currentRepoPath = path.resolve(process.cwd(), "./repositories.js")
 let cliRepoPath = path.resolve(__dirname, '..', 'repositories.js');
-let repoDir;
+let repoDir, doAllRepo;
 console.log(cliRepoPath)
 if (fs.existsSync(config['c'])) {
     repos = getRepositories(config['c']);
         repoDir = path.dirname(config['c']);
+        doAllRepo = false;
       console.warn(`using ${config['c']} configuration`.yellow)
 }
 else if(fs.existsSync(currentRepoPath))
 {
         repos = getRepositories(currentRepoPath);
         repoDir = path.dirname(currentRepoPath);
+        doAllRepo = true;
           console.warn(`using ${currentRepoPath} configuration`.yellow);
 }
 else if (fs.existsSync(cliRepoPath)) {
   
     repos = getRepositories(cliRepoPath)
         repoDir = path.dirname(cliRepoPath);
+        doAllRepo = false;
       console.warn(`using ${cliRepoPath} configuration`.yellow)
 
 }
@@ -65,7 +68,7 @@ else {
     console.error(`a condfiguration file can not be found`.red)
     process.exit(1)
 }
-config.repoDir = repoDir;
+config = {hideMessage: false, ...config, repoDir, doAllRepo };
 
 let repoFullMeta = repos.map(meta => {
     let name = path.basename(meta.path).toLowerCase();

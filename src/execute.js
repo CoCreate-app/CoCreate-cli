@@ -7,16 +7,14 @@ const {
 const spawn = require('./spawn');
 const exec = promisify(require('child_process').exec);
 
-module.exports = async function execute(command, repos, config = {
-    hideMessage: false
-}) {
+module.exports = async function execute(command, repos, config) {
 
     let failed = [];
     let predefined = path.resolve(__dirname, 'commands', command + '.js');
     if (fs.existsSync(predefined)) {
-        console.warn('executing a predefined command:'.blue);
+        console.warn('executing a predefined command'.blue);
 
-        if (path.basename(process.cwd()) === 'CoCreateJS') {
+        if (config.doAllRepo) {
             console.log('running on all repos'.blue)
             failed = require(predefined)(repos, repos )
         }
