@@ -1,7 +1,7 @@
 const spawn = require('../spawn');
 const execute = require('../execute')
 module.exports = async function(repos) {
-    let failed;
+    let failed = [];
     try {
         
         let cloneFailed = await require('./clone.js')(repos)
