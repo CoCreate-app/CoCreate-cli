@@ -5,59 +5,19 @@ const {
 } = require('util');
 const spawn = require('../spawn');
 const colors = require('colors');
-let failed = [];
-
-
-function complete(repos) {
-    return repos.map(repo => {
-        let {
-            name,
-            ppath
-        } = repo;
+const addMeta = require('../addMeta');
 
 
 
-        let packagejson = path.resolve(ppath, 'package.json');
-        if (!fs.existsSync(packagejson)) {
-            console.error('package json not found for', name);
-            failed.push({
-                name,
-                des: 'package json not found'
-            })
-            return false;
-        }
-        let packageObj = require(packagejson);
 
-        let packageName = name.startsWith('cocreate-') ?
-            '@cocreate/' + name.substr(9) : packageObj.name;
 
-        let deps = Object.keys(packageObj['dependencies'] || {})
-            .concat(Object.keys(packageObj['devDependencies'] || {}))
-            .filter(packageName => packageName.startsWith('@cocreate/'))
-        // let nodeModulePath = path.resolve(ppath, './node_modules/@cocreate');
+module.exports = async function updateYarnInstall(repos, allrepo) {
 
-        // let deps  = fs.existsSync(nodeModulePath) ?
-        // fs.readdirSync(nodeModulePath).map(name => '@cocreate/' + name):
-        // [];
-
-        return { ...repo,
-            name,
-            packageName,
-            ppath,
-            deps
-        }
-
-        return repo;
-
-    })
-
-}
-let isLinked = {}
-module.exports = async function updateYarnInstall(repos, allrepo ) {
-    const failed = [];
+    const failed = [],
+        isLinked = {};
     try {
-        repos = complete(repos)
-        allrepo = complete(allrepo)
+        repos = addMeta(repos, failed)
+        allrepo = addMeta(allrepo, failed)
 
     }
     catch (err) {
@@ -81,68 +41,74 @@ module.exports = async function updateYarnInstall(repos, allrepo ) {
                 ppath,
                 packageName,
                 deps,
+                devDeps,
                 name
             } = repo;
 
             console.log(packageName, 'configuring ...')
-            for (let dep of deps) {
-                let depMeta = allrepo.find(meta => meta.packageName === dep);
-                //                 console.log(depMeta)
-                // return failed;
-                try {
-                    if (!depMeta) {
-                        failed.push({
-                            name,
-                            des: `"${depMeta.packageName}" component can not be found in repositories.js`
-                        })
-                        console.error(`${name}: "${depMeta.packageName}" component can not be found in repositories.js`.red)
-                        continue;
-                    }
-
-
-
-                    if (!isLinked[depMeta.packageName]) {
-                        isLinked[depMeta.packageName] = true;
-                        let exitCode = await spawn('yarn', ['link'], {
-                            cwd: depMeta.ppath,
-                            stdio: 'inherit',
-                        });
-                        if (exitCode !== 0) {
-                            failed.push({
-                                name: depMeta.name,
-                                des: `yarn link failed`
-                            })
-                            console.error(`${depMeta.name}: yarn link failed`.red)
-                        }
-                    }
-                    console.log(packageName, 'linking', depMeta.packageName, '...')
-
-                    let exitCode = await spawn('yarn', ['link', depMeta.packageName], {
-                        cwd: ppath,
-                        stdio: 'inherit',
-                    })
-                    if (exitCode !== 0) {
-                        failed.push({
-                            name,
-                            des: `yarn link ${depMeta.packageName} failed`
-                        });
-                        console.error(`${name}: yarn link ${depMeta.packageName} failed`.red)
-                    }
-
-                }
-                catch (err) {
-                    // failed.push({ name: packageName, des: err.message })
-                    // console.error(packageName, err.message)
-                    console.error(err)
-                }
-
-            }
+            await doLink(deps, repo, allrepo, failed, isLinked)
+            await doLink(devDeps, repo, allrepo, failed, isLinked)
         }
     }
     catch (err) {
-        // failed.push({ name: 'GENERAL', des: err.message })
-        console.log(err)
+        failed.push({ name: 'GENERAL', des: err.message })
+        console.error(err.red)
     }
 
     return failed;
+}
+
+
+async function doLink(deps, repo, allrepo, failed, isLinked) {
+    for (let dep of deps) {
+        let depMeta = allrepo.find(meta => meta.packageName === dep);
+        //                 console.log(depMeta)
+        // return failed;
+        try {
+            if (!depMeta) {
+                failed.push({
+                    name: repo.name,
+                    des: `"${depMeta.packageName}" component can not be found in repositories.js`
+                })
+                console.error(`${repo.name}: "${depMeta.packageName}" component can not be found in repositories.js`.red)
+                continue;
+            }
+
+
+
+            if (!isLinked[depMeta.packageName]) {
+                isLinked[depMeta.packageName] = true;
+                let exitCode = await spawn('yarn', ['link'], {
+                    cwd: depMeta.ppath,
+                    stdio: 'inherit',
+                });
+                if (exitCode !== 0) {
+                    failed.push({
+                        name: depMeta.name,
+                        des: `yarn link failed`
+                    })
+                    console.error(`${depMeta.name}: yarn link failed`.red)
+                }
+            }
+            console.log(repo.packageName, 'linking', depMeta.packageName, '...')
+
+            let exitCode = await spawn('yarn', ['link', depMeta.packageName], {
+                cwd: repo.ppath,
+                stdio: 'inherit',
+            })
+            if (exitCode !== 0) {
+                failed.push({
+                    name: repo.name,
+                    des: `yarn link ${depMeta.packageName} failed`
+                });
+                console.error(`${repo.name}: yarn link ${depMeta.packageName} failed`.red)
+            }
+
+        }
+        catch (err) {
+            failed.push({ name: repo.packageName, des: err.message })
+            console.error(err.red)
+        }
+
+    }
 }
