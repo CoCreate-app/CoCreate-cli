@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.2...v1.7.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* remove post install ([c2cf8dc](https://github.com/CoCreate-app/CoCreate-cli/commit/c2cf8dc6fd8ecabb1fa8120ff6d7fabab3fe6f19))
+
 ## [1.7.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.1...v1.7.2) (2021-07-02)
 
 
