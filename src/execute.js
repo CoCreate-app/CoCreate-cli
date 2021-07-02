@@ -12,7 +12,7 @@ module.exports = async function execute(command, repos, config) {
     let failed = [];
     let predefined = path.resolve(__dirname, 'commands', command + '.js');
     if (fs.existsSync(predefined)) {
-        console.warn('executing a predefined command'.blue);
+        console.warn(`executing a predefined command in ${predefined}`.blue);
 
         if (config.doAllRepo) {
             console.log('running on all repos'.blue)

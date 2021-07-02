@@ -1,10 +1,9 @@
 const fs = require('fs')
 const path = require("path")
 const spawn = require('../spawn');
-const prettier = require("prettier");
 const colors = require('colors');
 const addMeta = require('../addMeta');
-async function updateYarnLink(repos) {
+module.exports = async function updateYarnLink(repos) {
     let failed = [];
 
     try {
@@ -16,10 +15,11 @@ async function updateYarnLink(repos) {
             name: 'GENERAL',
             des: err.message
         })
- 
+
     }
-    
-    
+
+    // console.log(repos)
+    // return [];
     for (let repo of repos) {
         await reAdd(repo.deps, repo, failed)
         await reAdd(repo.devDeps, repo, failed, '-D')
@@ -34,8 +34,8 @@ async function reAdd(deps, repo, failed, param = '') {
         console.log(`yarn add ${dep}`)
         try {
 
-            let exitCode = await spawn(`yarn add ${param} ${dep}`, {
-                cwd: repo.ppath
+            let exitCode = await spawn(`yarn`, ['add', ...param && [param], dep], {
+                cwd: repo.ppath, stdio: 'inherit',
             });
             if (exitCode !== 0) {
                 failed.push({
@@ -50,7 +50,7 @@ async function reAdd(deps, repo, failed, param = '') {
                 name: repo.name,
                 des: err.message
             })
-            console.error(`${repo.name}: err.message`.red)
+            console.error(`${repo.name}: ${err.message}`.red)
         }
     }
 

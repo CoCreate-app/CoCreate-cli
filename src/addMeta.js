@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require("path")
 
-exports.module = function addMeta(repos, failed) {
+module.exports = function addMeta(repos, failed) {
     return repos.map(repo => {
         let {
             name,
