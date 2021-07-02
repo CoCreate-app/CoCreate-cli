@@ -1,6 +1,6 @@
 const spawn = require('../spawn');
 const execute = require('../execute')
-module.exports = async function(repos) {
+module.exports = async function( repos, allRepos,) {
     let failed = [];
     try {
         
@@ -8,7 +8,7 @@ module.exports = async function(repos) {
 
         let installFailed = await execute('yarn install', repos)
 
-        let linkFailed = await require('./link.js')(repos)
+        let linkFailed = await require('./link.js')( repos, allRepos)
         failed = [...cloneFailed, ...installFailed, ...linkFailed];
 
         let exitCode = spawn('yarn', ['start', '-w'], { cwd: '../CoCreateJS' })

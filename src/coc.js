@@ -6,7 +6,7 @@ const path = require("path");
 const fs = require("fs");
 const execute = require('./execute')
 
-const configPath = path.resolve(process.cwd(), "./repositories.js")
+
 
 const argv = process.argv.slice(2);
 
@@ -18,7 +18,6 @@ if (argv.length < 1) {
 
 const config = minimist(argv, {
     alias: { config: 'c', absolutePath: 'cf', hideMessage: 'h' },
-    default: { config: configPath },
     stopEarly: true
 });
 
@@ -40,29 +39,42 @@ function getRepositories(path) {
     }
 }
 
-
-if (config['c']) {
-    let p = path.resolve(process.cwd(), config['c'])
-    repos = getRepositories(p)
+const currentRepoPath = path.resolve(process.cwd(), "./repositories.js")
+let cliRepoPath = path.resolve(__dirname, '..', 'repositories.js');
+let repoDir;
+console.log(cliRepoPath)
+if (fs.existsSync(config['c'])) {
+    repos = getRepositories(config['c']);
+        repoDir = path.dirname(config['c']);
+      console.warn(`using ${config['c']} configuration`.yellow)
 }
-else
-if (fs.existsSync(configPath)) {
-    console.warn(`using ${configPath} configuration`.yellow)
-    repos = getRepositories(config['c'])
+else if(fs.existsSync(currentRepoPath))
+{
+        repos = getRepositories(currentRepoPath);
+        repoDir = path.dirname(currentRepoPath);
+          console.warn(`using ${currentRepoPath} configuration`.yellow);
+}
+else if (fs.existsSync(cliRepoPath)) {
+  
+    repos = getRepositories(cliRepoPath)
+        repoDir = path.dirname(cliRepoPath);
+      console.warn(`using ${cliRepoPath} configuration`.yellow)
 
 }
 else {
     console.error(`a condfiguration file can not be found`.red)
     process.exit(1)
 }
-
+config.repoDir = repoDir;
 
 let repoFullMeta = repos.map(meta => {
     let name = path.basename(meta.path).toLowerCase();
-    let ppath = path.resolve(meta.path);
+    if (name === 'cocreate-calculation')
+        console.log(repoDir, meta.path)
+    let ppath = path.resolve(repoDir, meta.path);
     try {
-        // if (!fs.existsSync(ppath))
-        //     throw new Error('path can not be resolve');
+        if (!fs.existsSync(ppath))
+            console.error(`${ppath} not found`.red)
 
         return { ...meta, name, ppath }
     }

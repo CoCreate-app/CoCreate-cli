@@ -1,6 +1,8 @@
 const fs = require('fs')
 const path = require("path")
-const { promisify } = require('util');
+const {
+    promisify
+} = require('util');
 const spawn = require('../spawn');
 const colors = require('colors');
 let failed = [];
@@ -8,14 +10,20 @@ let failed = [];
 
 function complete(repos) {
     return repos.map(repo => {
-        let { name, ppath } = repo;
+        let {
+            name,
+            ppath
+        } = repo;
 
 
 
         let packagejson = path.resolve(ppath, 'package.json');
         if (!fs.existsSync(packagejson)) {
             console.error('package json not found for', name);
-            failed.push({ name, des: 'package json not found' })
+            failed.push({
+                name,
+                des: 'package json not found'
+            })
             return false;
         }
         let packageObj = require(packagejson);
@@ -26,13 +34,18 @@ function complete(repos) {
         let deps = Object.keys(packageObj['dependencies'] || {})
             .concat(Object.keys(packageObj['devDependencies'] || {}))
             .filter(packageName => packageName.startsWith('@cocreate/'))
-            // let nodeModulePath = path.resolve(ppath, './node_modules/@cocreate');
+        // let nodeModulePath = path.resolve(ppath, './node_modules/@cocreate');
 
         // let deps  = fs.existsSync(nodeModulePath) ?
         // fs.readdirSync(nodeModulePath).map(name => '@cocreate/' + name):
         // [];
 
-        return {...repo, name, packageName, ppath, deps }
+        return { ...repo,
+            name,
+            packageName,
+            ppath,
+            deps
+        }
 
         return repo;
 
@@ -40,19 +53,23 @@ function complete(repos) {
 
 }
 let isLinked = {}
-module.exports = async function updateYarnInstall(repos) {
+module.exports = async function updateYarnInstall(repos, allrepo ) {
     const failed = [];
     try {
         repos = complete(repos)
+        allrepo = complete(allrepo)
 
-    } catch (err) {
-        failed.push({ name: 'GENERAL', des: err.message })
+    }
+    catch (err) {
+        failed.push({
+            name: 'GENERAL',
+            des: err.message
+        })
         console.log(err)
     }
-    // console.log(repos)
-    // return failed;
-    try {
 
+    try {
+        //   console.log(repos)
 
         for (let repo of repos) {
 
@@ -60,14 +77,24 @@ module.exports = async function updateYarnInstall(repos) {
                 continue;
 
 
-            let { ppath, packageName, deps, name } = repo;
+            let {
+                ppath,
+                packageName,
+                deps,
+                name
+            } = repo;
 
             console.log(packageName, 'configuring ...')
             for (let dep of deps) {
-                let depMeta = repos.find(meta => meta.packageName === dep);
+                let depMeta = allrepo.find(meta => meta.packageName === dep);
+                //                 console.log(depMeta)
+                // return failed;
                 try {
                     if (!depMeta) {
-                        failed.push({ name, des: `"${depMeta.packageName}" component can not be found in repositories.js` })
+                        failed.push({
+                            name,
+                            des: `"${depMeta.packageName}" component can not be found in repositories.js`
+                        })
                         console.error(`${name}: "${depMeta.packageName}" component can not be found in repositories.js`.red)
                         continue;
                     }
@@ -76,21 +103,34 @@ module.exports = async function updateYarnInstall(repos) {
 
                     if (!isLinked[depMeta.packageName]) {
                         isLinked[depMeta.packageName] = true;
-                        let exitCode = await spawn('yarn', ['link'], { cwd: depMeta.ppath, stdio: 'inherit', });
+                        let exitCode = await spawn('yarn', ['link'], {
+                            cwd: depMeta.ppath,
+                            stdio: 'inherit',
+                        });
                         if (exitCode !== 0) {
-                            failed.push({ name: depMeta.name, des: `yarn link failed` })
+                            failed.push({
+                                name: depMeta.name,
+                                des: `yarn link failed`
+                            })
                             console.error(`${depMeta.name}: yarn link failed`.red)
                         }
                     }
                     console.log(packageName, 'linking', depMeta.packageName, '...')
 
-                    let exitCode = await spawn('yarn', ['link', depMeta.packageName], { cwd: ppath, stdio: 'inherit', })
+                    let exitCode = await spawn('yarn', ['link', depMeta.packageName], {
+                        cwd: ppath,
+                        stdio: 'inherit',
+                    })
                     if (exitCode !== 0) {
-                        failed.push({ name, des: `yarn link ${depMeta.packageName} failed` });
+                        failed.push({
+                            name,
+                            des: `yarn link ${depMeta.packageName} failed`
+                        });
                         console.error(`${name}: yarn link ${depMeta.packageName} failed`.red)
                     }
 
-                } catch (err) {
+                }
+                catch (err) {
                     // failed.push({ name: packageName, des: err.message })
                     // console.error(packageName, err.message)
                     console.error(err)
@@ -98,7 +138,8 @@ module.exports = async function updateYarnInstall(repos) {
 
             }
         }
-    } catch (err) {
+    }
+    catch (err) {
         // failed.push({ name: 'GENERAL', des: err.message })
         console.log(err)
     }
