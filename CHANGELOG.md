@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.0...v1.7.1) (2021-07-02)
+
+
+### Bug Fixes
+
+* ghfgd ([42b2ac3](https://github.com/CoCreate-app/CoCreate-cli/commit/42b2ac3a99c09dc443b1fc2324faa2b88afa417b))
+
 # [1.6.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.5.0...v1.6.0) (2021-07-01)
 
 
