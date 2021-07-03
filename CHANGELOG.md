@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.5...v1.8.0) (2021-07-03)
+
+
+### Features
+
+* add symbolic to replace crdt link ([d8cc209](https://github.com/CoCreate-app/CoCreate-cli/commit/d8cc2098a816ee2067db2b8acb55d6bf3d05670e))
+
 ## [1.7.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.4...v1.7.5) (2021-07-02)
 
 
