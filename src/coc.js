@@ -72,14 +72,13 @@ config = {hideMessage: false, ...config, repoDir, doAllRepo };
 
 let repoFullMeta = repos.map(meta => {
     let name = path.basename(meta.path).toLowerCase();
-    if (name === 'cocreate-calculation')
-        console.log(repoDir, meta.path)
+    let plainName = name.substr(9);
     let ppath = path.resolve(repoDir, meta.path);
     try {
         if (!fs.existsSync(ppath))
             console.error(`${ppath} not found`.red)
 
-        return { ...meta, name, ppath }
+        return { ...meta, name, ppath, plainName }
     }
     catch (err) {
         console.error(name.red, err.message.red, ppath);
