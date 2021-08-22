@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.8.0...v1.8.1) (2021-08-22)
+
+
+### Bug Fixes
+
+* coc add will now add each packge in package.json ([78356a4](https://github.com/CoCreate-app/CoCreate-cli/commit/78356a4a1d755313342356061f6d486f4d13427d))
+
 # [1.8.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.7.5...v1.8.0) (2021-07-03)
 
 
