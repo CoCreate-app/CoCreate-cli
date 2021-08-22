@@ -23,8 +23,8 @@ module.exports = async function updateYarnLink(repos) {
     // console.log(repos)
     // return [];
     for (let repo of repos) {
-        await reAdd(repo.deps, repo, failed, '--non-interactive')
-        await reAdd(repo.devDeps, repo, failed, '-D --non-interactive')
+        await reAdd(repo.deps, repo, failed, '')
+        await reAdd(repo.devDeps, repo, failed, '-D ')
     }
     return failed;
 
@@ -33,8 +33,14 @@ module.exports = async function updateYarnLink(repos) {
 
 async function reAdd(deps, repo, failed, param = '') {
         try {
-            let packageList = deps.join(' ');
-            let exitCode = await spawn(`yarn`, ['add', ...param && [param], packageList], {
+            if(!deps.length)
+            return;
+            deps.unshift("add")
+            let packageList = deps;
+            console.log('add ', deps.join(' '))
+            console.log(`running: ${repo.name}`)
+            // let exitCode = await spawn(`yarn`, ['add', ...param && [param], packageList], {
+            let exitCode = await spawn(  'yarn', packageList, {
                 cwd: repo.ppath, stdio: 'inherit',
             });
             if (exitCode !== 0) {
