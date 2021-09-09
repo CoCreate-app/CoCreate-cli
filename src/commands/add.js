@@ -37,8 +37,8 @@ async function reAdd(deps, repo, failed, param = '') {
             return;
             deps.unshift("add")
             let packageList = deps;
-            console.log('add ', deps.join(' '))
-            console.log(`running: ${repo.name}`)
+            let packageListLog = deps.join(' ');
+            console.log(`${repo.name}: `.green, `${packageListLog}`);
             // let exitCode = await spawn(`yarn`, ['add', ...param && [param], packageList], {
             let exitCode = await spawn(  'yarn', packageList, {
                 cwd: repo.ppath, stdio: 'inherit',
@@ -46,9 +46,9 @@ async function reAdd(deps, repo, failed, param = '') {
             if (exitCode !== 0) {
                 failed.push({
                     name: repo.name,
-                    des: `yarn add ${param} ${packageList}`
+                    des: `yarn add ${param} ${packageListLog}`
                 })
-                console.error(`${repo.name}: yarn add ${param} ${packageList}`.red)
+                console.error(`${repo.name}: yarn ${param} ${packageListLog}`.red)
             }
         }
         catch (err) {
