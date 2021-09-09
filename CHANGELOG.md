@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.8.1...v1.9.0) (2021-09-09)
+
+
+### Bug Fixes
+
+* improved log for add.js ([fe37edf](https://github.com/CoCreate-app/CoCreate-cli/commit/fe37edf088971c8d4ba3909ffd9db6e003c6695d))
+* syntax in package.json ([d8a4393](https://github.com/CoCreate-app/CoCreate-cli/commit/d8a43934f139dae6c78e3e434ac567aa2f9677e4))
+
+
+### Features
+
+* Added command to generate, remove, update, remove, find and replace files ([55cd056](https://github.com/CoCreate-app/CoCreate-cli/commit/55cd0560e7d0a71258c661f31e4192189e2d79f7))
+
 ## [1.8.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.8.0...v1.8.1) (2021-08-22)
 
 
