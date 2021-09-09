@@ -24,7 +24,17 @@
         "access": "public"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "config": "nodejs src/commands/fs/automated.js",
+        "config": "nodejs src/commands/fs/config.js",
+        "gitignore": "nodejs src/commands/fs/gitignore.js",
+        "manual": "nodejs src/commands/fs/manual.js",
+        "package": "nodejs src/commands/fs/package.js",
+        "readme": "nodejs src/commands/fs/readme.js",
+        "remove": "nodejs src/commands/remove.js"
+        "replace": "nodejs src/commands/replace.js"
+        "symbolic": "nodejs src/commands/symbolic-link.js",
+        "webpack": "nodejs src/commands/fs/webpack.js",
     },
     "repository": {
         "type": "git",
