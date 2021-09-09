@@ -40,7 +40,7 @@ module.exports = async function execute(command, repos, config) {
                 const {
                     name
                 } = repo;
-                console.log(`running ${name}: ${command} `.green)
+                console.log(`${name}: `.green, command)
                 let exitCode;
                 if (config.hideMessage)
                     exitCode = await exec(command, {
