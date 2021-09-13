@@ -46,7 +46,7 @@ async function reAdd(deps, repo, failed, param = '') {
             if (exitCode !== 0) {
                 failed.push({
                     name: repo.name,
-                    des: `yarn add ${param} ${packageListLog}`
+                    des: `yarn ${param} ${packageListLog}`
                 })
                 console.error(`${repo.name}: yarn ${param} ${packageListLog}`.red)
             }
