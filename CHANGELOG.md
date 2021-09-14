@@ -3,6 +3,27 @@
 
 ### Bug Fixes
 
+* bump version ([310ce2a](https://github.com/CoCreate-app/CoCreate-cli/commit/310ce2ab490c366b0ae1244c83a110f93b6aae55))
+* bump version ([95772ad](https://github.com/CoCreate-app/CoCreate-cli/commit/95772addacd4b5e2da17e9abded9bcf753fccf26))
+* faile log for add.js ([99e581c](https://github.com/CoCreate-app/CoCreate-cli/commit/99e581c5333a52518ce90acf471a4ea499f518bb))
+* improve add log ([5d04d69](https://github.com/CoCreate-app/CoCreate-cli/commit/5d04d69c3b56268111d535270a43421ec6744231))
+* improved coc log ([22e8859](https://github.com/CoCreate-app/CoCreate-cli/commit/22e8859233c608cd45117b6da7740666b5bc75ae))
+* improved log for add.js ([fe37edf](https://github.com/CoCreate-app/CoCreate-cli/commit/fe37edf088971c8d4ba3909ffd9db6e003c6695d))
+* release ([9a69869](https://github.com/CoCreate-app/CoCreate-cli/commit/9a69869be6b6b89217c747bdefa2222411ee342b))
+* syntax in package.json ([d8a4393](https://github.com/CoCreate-app/CoCreate-cli/commit/d8a43934f139dae6c78e3e434ac567aa2f9677e4))
+* to resolve issue with ci release ([2b66a76](https://github.com/CoCreate-app/CoCreate-cli/commit/2b66a762162d95ad51e7fe9022ae6ee77a70c392))
+
+
+### Features
+
+* Added command to generate, remove, update, remove, find and replace files ([55cd056](https://github.com/CoCreate-app/CoCreate-cli/commit/55cd0560e7d0a71258c661f31e4192189e2d79f7))
+* to resolve issue with ci release ([2000357](https://github.com/CoCreate-app/CoCreate-cli/commit/20003577fd067cf3a20904384b6558825141d31d))
+
+# [1.9.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.8.1...v1.9.0) (2021-09-14)
+
+
+### Bug Fixes
+
 * bump version ([95772ad](https://github.com/CoCreate-app/CoCreate-cli/commit/95772addacd4b5e2da17e9abded9bcf753fccf26))
 * faile log for add.js ([99e581c](https://github.com/CoCreate-app/CoCreate-cli/commit/99e581c5333a52518ce90acf471a4ea499f518bb))
 * improve add log ([5d04d69](https://github.com/CoCreate-app/CoCreate-cli/commit/5d04d69c3b56268111d535270a43421ec6744231))
