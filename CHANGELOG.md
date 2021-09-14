@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.9.0...v1.9.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* add cocreate.app to domains ([62e5e74](https://github.com/CoCreate-app/CoCreate-cli/commit/62e5e745c8151bdfee24e8bd25468bd3ff261654))
+
 # [1.9.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.8.1...v1.9.0) (2021-09-14)
 
 
