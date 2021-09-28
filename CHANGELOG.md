@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.9.2...v1.9.3) (2021-09-28)
+
+
+### Bug Fixes
+
+* update dependencies ([dd23f92](https://github.com/CoCreate-app/CoCreate-cli/commit/dd23f9245ee40b088efce59f9c2cc72f8ca864ff))
+
 ## [1.9.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.9.1...v1.9.2) (2021-09-16)
 
 
