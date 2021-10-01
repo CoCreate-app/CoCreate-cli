@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.10.0...v1.11.0) (2021-10-01)
+
+
+### Features
+
+* if repository.js is not found will run on current repo using package.json repository url ([5d21460](https://github.com/CoCreate-app/CoCreate-cli/commit/5d2146071ac181f2089787918515d8b8ec602e79))
+
 # [1.10.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.9.4...v1.10.0) (2021-10-01)
 
 
