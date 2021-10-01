@@ -35,6 +35,8 @@ module.exports = async function execute(command, repos, config) {
 
 
         for (let repo of repos) {
+            if (!repo)
+                console.log(repo, repos)
             // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
             try {
                 const {
