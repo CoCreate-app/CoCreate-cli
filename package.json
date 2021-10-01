@@ -77,6 +77,6 @@
         "got": "latest",
         "minimist": "latest",
         "prettier": "^2.3.2",
-        "prompt": "^1.1.0"
+        "prompt": "^1.2.0"
     }
 }
