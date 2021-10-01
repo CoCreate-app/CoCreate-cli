@@ -1,3 +1,15 @@
+# [1.10.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.9.4...v1.10.0) (2021-10-01)
+
+
+### Bug Fixes
+
+* update packages ([09cd124](https://github.com/CoCreate-app/CoCreate-cli/commit/09cd1249e290fe0c1a61fa37e8148bbac9f5e787))
+
+
+### Features
+
+* add credintials to each repos config for pushing ([24b780f](https://github.com/CoCreate-app/CoCreate-cli/commit/24b780fe48bedb8baa1e4a8f214d330ef43b1903))
+
 ## [1.9.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.9.3...v1.9.4) (2021-10-01)
 
 
