@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.11.0...v1.12.0) (2021-10-02)
+
+
+### Features
+
+* ability to add git crdentials to one or more repos.. command coc gitConfig will initiate prompts ([8ee4a36](https://github.com/CoCreate-app/CoCreate-cli/commit/8ee4a361513be84b45243ed7c9b60715936c6bdc))
+
 # [1.11.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.10.0...v1.11.0) (2021-10-01)
 
 
