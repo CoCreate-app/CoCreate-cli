@@ -1,6 +1,8 @@
+const getRepoList = require('../repoList');
 let fs = require('fs');
 const path = require("path");
-let list = require('../../repositories.js');
+let list = getRepoList()
+console.log(list)
 
 const prompt = require('prompt');
 

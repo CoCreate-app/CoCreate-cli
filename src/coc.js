@@ -97,7 +97,11 @@ let repoFullMeta = repos.map(meta => {
 });
 
 (async() => {
-
+    if(command == 'gitConfig'){
+        let predefined = path.resolve(__dirname, 'commands', command + '.js');
+        require(predefined)(repos, repos )
+    }
+    else {
     let failed = await execute(command, repoFullMeta, config);
     if (failed.length === 0)
         process.exit(0);
@@ -106,6 +110,7 @@ let repoFullMeta = repos.map(meta => {
         for (let failure of failed)
             console.log(`${failure.name}: ${failure.des}`.red);
 
+    }
     }
     // console.log(`success: ${report.success}`.green, `failed: ${report.fail}`.red);
 })();
