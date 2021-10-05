@@ -1,3 +1,11 @@
+## [1.12.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.2...v1.12.3) (2021-10-05)
+
+
+### Bug Fixes
+
+* update dependencies ([7e7b514](https://github.com/CoCreate-app/CoCreate-cli/commit/7e7b51465af8cc6fafcd34f2ce97d5e7280b917a))
+* website_id in CoCreate.config ([401427a](https://github.com/CoCreate-app/CoCreate-cli/commit/401427a2b204f5af36a40dd323b1c29cf3781b9b))
+
 ## [1.12.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.1...v1.12.2) (2021-10-04)
 
 
