@@ -1,6 +1,6 @@
 # CoCreate-cli
 
-A simple cli component in vanilla javascript. Easily configured using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/cli)
+A simple cli component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/cli)
 
 ![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreate-cli?flat-square)
 ![GitHub](https://img.shields.io/github/license/CoCreate-app/CoCreate-cli?style=flat-square)
