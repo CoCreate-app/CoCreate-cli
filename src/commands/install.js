@@ -6,7 +6,7 @@ module.exports = async function( repos, allRepos,) {
         
         let cloneFailed = await require('./clone.js')(repos)
 
-        let installFailed = await execute('yarn install', repos)
+        let installFailed = await require('./yarnInstall.js')(repos)
 
         let linkFailed = await require('./link.js')( repos, allRepos)
         failed = [...cloneFailed, ...installFailed, ...linkFailed];
