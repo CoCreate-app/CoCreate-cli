@@ -1,5 +1,5 @@
-const fs = require('fs')
-const path = require("path")
+const fs = require('fs');
+const path = require("path");
 const spawn = require('../spawn');
 const colors = require('colors');
 const addMeta = require('../addMeta');
@@ -9,46 +9,36 @@ module.exports = async function updateYarnLink(repos) {
     let failed = [];
 
     try {
-        repos = addMeta(repos, failed)
+        repos = addMeta(repos, failed);
 
     }
     catch (err) {
         failed.push({
             name: 'GENERAL',
             des: err.message
-        })
+        });
 
     }
 
-    // console.log(repos)
-    // return [];
     for (let repo of repos) {
-        await yarnInstall(repo.deps, repo, failed, '')
-        await yarnInstall(repo.devDeps, repo, failed, '-D ')
+        await yarnInstall(repo, failed, '');
     }
     return failed;
 
-}
+};
 
 
-async function yarnInstall(deps, repo, failed, param = '') {
+async function yarnInstall(repo, failed, param = '') {
         try {
-            if(!deps.length)
-            return;
-            deps.unshift("install")
-            let packageList = deps;
-            let packageListLog = deps.join(' ');
-            console.log(`${repo.name}: `.green, `yarn ${packageListLog}`);
-            // let exitCode = await spawn(`yarn`, ['add', ...param && [param], packageList], {
-            let exitCode = await spawn(  'yarn', packageList, {
+            let exitCode = await spawn(  'yarn', ['install'], {
                 cwd: repo.ppath, stdio: 'inherit',
             });
             if (exitCode !== 0) {
                 failed.push({
                     name: repo.name,
-                    des: `yarn ${param} ${packageListLog}`
+                    des: `yarn ${param}`
                 })
-                console.error(`${repo.name}: yarn ${param} ${packageListLog}`.red)
+                console.error(`${repo.name}: yarn ${param}`.red)
             }
         }
         catch (err) {
