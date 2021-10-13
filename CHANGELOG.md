@@ -1,3 +1,10 @@
+## [1.12.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.6...v1.12.7) (2021-10-13)
+
+
+### Bug Fixes
+
+* removed deps from install ([0f1e111](https://github.com/CoCreate-app/CoCreate-cli/commit/0f1e11197471e19a5c0b26f3b3aa4f160630a0f8))
+
 ## [1.12.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.5...v1.12.6) (2021-10-13)
 
 
