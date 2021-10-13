@@ -1,3 +1,10 @@
+## [1.12.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.5...v1.12.6) (2021-10-13)
+
+
+### Bug Fixes
+
+* CoC install failed on yarn install command ([4a44251](https://github.com/CoCreate-app/CoCreate-cli/commit/4a44251818929eb4becdae34dd75564f23bffa1c))
+
 ## [1.12.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.4...v1.12.5) (2021-10-13)
 
 
