@@ -30,6 +30,7 @@ module.exports = async function updateYarnLink(repos) {
 
 async function yarnInstall(repo, failed, param = '') {
         try {
+            console.log(`${repo.name}: `.green, `yarn install`);
             let exitCode = await spawn(  'yarn', ['install'], {
                 cwd: repo.ppath, stdio: 'inherit',
             });
