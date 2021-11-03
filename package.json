@@ -71,7 +71,7 @@
     },
     "dependencies": {
         "@cocreate/docs": "^1.2.44",
-        "@cocreate/hosting": "^1.2.38",
+        "@cocreate/hosting": "^1.2.39",
         "colors": "latest",
         "glob": "^7.1.7",
         "got": "latest",
