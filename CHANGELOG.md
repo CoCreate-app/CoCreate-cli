@@ -1,3 +1,10 @@
+## [1.12.26](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.25...v1.12.26) (2021-11-20)
+
+
+### Bug Fixes
+
+* updated script tags and link tags ([b1ca00d](https://github.com/CoCreate-app/CoCreate-cli/commit/b1ca00dc0e7feed8ccc0d25054c273e5c14c3a1a))
+
 ## [1.12.25](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.24...v1.12.25) (2021-11-20)
 
 
