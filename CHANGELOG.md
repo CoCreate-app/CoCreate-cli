@@ -1,3 +1,10 @@
+## [1.12.30](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.29...v1.12.30) (2021-11-26)
+
+
+### Bug Fixes
+
+* add nav and sidenav to docs ([e3fb1f5](https://github.com/CoCreate-app/CoCreate-cli/commit/e3fb1f578a2e7fd4c8a60d14c13aaab067ea509b))
+
 ## [1.12.29](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.28...v1.12.29) (2021-11-26)
 
 
