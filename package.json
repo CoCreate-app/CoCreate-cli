@@ -1,6 +1,6 @@
 {
     "name": "@cocreate/cli",
-    "version": "1.12.32",
+    "version": "1.12.33",
     "description": "A simple cli component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API.",
     "keywords": [
         "cli",
