@@ -1,3 +1,10 @@
+## [1.12.31](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.30...v1.12.31) (2021-11-27)
+
+
+### Bug Fixes
+
+* update docs api and cocreateJS script ([7b4f8e5](https://github.com/CoCreate-app/CoCreate-cli/commit/7b4f8e5a44a0c816c0e26668976a5c7160a2ef8d))
+
 ## [1.12.30](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.29...v1.12.30) (2021-11-26)
 
 
