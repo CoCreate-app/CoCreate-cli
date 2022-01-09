@@ -1,7 +1,7 @@
 {
     "name": "@cocreate/cli",
     "version": "1.12.36",
-    "description": "A simple cli component in vanilla javascript. Easily configured using HTML5 attributes and/or JavaScript API.",
+    "description": "Polyrepo management bash CLI tool. Run all git commands and yarn commands on multiple repositories. Also includes a few custom macros for cloning, installing, etc.",
     "keywords": [
         "cli",
         "cocreate",
