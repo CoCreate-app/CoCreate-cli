@@ -1,3 +1,10 @@
+## [1.12.37](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.36...v1.12.37) (2022-02-01)
+
+
+### Bug Fixes
+
+* update dependency versions ([40d4cb0](https://github.com/CoCreate-app/CoCreate-cli/commit/40d4cb087a13cf3abe8673f43399fd627bbe55a4))
+
 ## [1.12.36](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.35...v1.12.36) (2022-01-01)
 
 
