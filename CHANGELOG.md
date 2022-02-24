@@ -1,3 +1,10 @@
+## [1.12.42](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.41...v1.12.42) (2022-02-24)
+
+
+### Bug Fixes
+
+* CoCreate.config replace CoCreate.app with * ([7fb106e](https://github.com/CoCreate-app/CoCreate-cli/commit/7fb106e452f42c4943bf2aab7664e6fc0447cafa))
+
 ## [1.12.41](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.40...v1.12.41) (2022-02-16)
 
 
