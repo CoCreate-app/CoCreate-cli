@@ -1,6 +1,6 @@
 {
     "name": "@cocreate/cli",
-    "version": "1.12.42",
+    "version": "1.12.43",
     "description": "Polyrepo management bash CLI tool. Run all git commands and yarn commands on multiple repositories. Also includes a few custom macros for cloning, installing, etc.",
     "keywords": [
         "cli",
