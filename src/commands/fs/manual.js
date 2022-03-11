@@ -81,7 +81,7 @@ jobs:
 
 // glob("../CoCreate-components/CoCreate-action/.github/workflows", globUpdater)
 glob("../CoCreate-components/*/.github/workflows/", globUpdater)
-glob("../CoCreate-modules/*/.github/workflows/", globUpdater)
+glob("../CoCreate-apps/*/.github/workflows/", globUpdater)
 glob("../CoCreate-plugins/*/.github/workflows/", globUpdater)
 
 // substrin (9) removes CoCreateC leving namme as SS

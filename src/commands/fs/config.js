@@ -85,7 +85,7 @@ function update(MdPath) {
 
 // glob("../../CoCreate-components/CoCreate-filter/CoCreate.config.js", globUpdater);
 glob("../../CoCreate-components/*/CoCreate.config.js", globUpdater);
-glob("../../CoCreate-modules/*/CoCreate.config.js", globUpdater);
+glob("../../CoCreate-apps/*/CoCreate.config.js", globUpdater);
 glob("../../CoCreate-plugins/*/CoCreate.config.js", globUpdater);
 // glob("../CoCreateCSS/CoCreate.config.js", globUpdater);
 // glob("../CoCreateJS/CoCreate.config.js", globUpdater);

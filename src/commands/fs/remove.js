@@ -19,7 +19,7 @@ function update(YmlPath) {
 
 glob("../CoCreate-components/CoCreate-action/dist", globUpdater)
 // glob("../CoCreate-components/*/.github/workflows/automation.yml", globUpdater)
-// glob("../CoCreate-modules/*/.github/workflows/automation.yml", globUpdater)
+// glob("../CoCreate-apps/*/.github/workflows/automation.yml", globUpdater)
 // glob("../CoCreate-plugins/*/.github/workflows/automation.yml", globUpdater)
 
 // substrin (9) removes CoCreateC leving namme as SS

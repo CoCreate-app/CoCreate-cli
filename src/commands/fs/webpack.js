@@ -161,7 +161,7 @@ optimization: {
 
 
 glob("../CoCreate-components/*/webpack.config.js", globUpdater)
-glob("../CoCreate-modules/*/webpack.config.js", globUpdater)
+glob("../CoCreate-apps/*/webpack.config.js", globUpdater)
 glob("../CoCreate-plugins/*/webpack.config.js", globUpdater)
 glob("../CoCreateCSS/webpack.config.js", globUpdater)
 

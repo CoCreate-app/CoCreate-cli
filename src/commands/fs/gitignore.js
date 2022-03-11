@@ -38,7 +38,7 @@ dist
 // glob("./.gitignore", globUpdater)
 // glob("../CoCreate-adminUI/.gitignore", globUpdater)
 glob("../CoCreate-components/*/.gitignore", globUpdater)
-glob("../CoCreate-modules/*/.gitignore", globUpdater)
+glob("../CoCreate-apps/*/.gitignore", globUpdater)
 glob("../CoCreate-plugins/*/.gitignore", globUpdater)
 // glob("../CoCreate-website/.gitignore", globUpdater)
 // glob("../CoCreate-website-template/.gitignore", globUpdater)

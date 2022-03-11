@@ -38,7 +38,7 @@ function update(mdPath) {
 glob("./docs/", globUpdater)
 // glob("../CoCreate-docs/docs/*.html", globUpdater)
 // glob("../CoCreate-components/*/docs/*.html", globUpdater)
-// glob("../CoCreate-modules/*/docs/*.html", globUpdater)
+// glob("../CoCreate-apps/*/docs/*.html", globUpdater)
 // glob("../CoCreate-plugins/*/docs/*.html", globUpdater)
 
 console.log('finished')
