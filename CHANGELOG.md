@@ -1,3 +1,10 @@
+## [1.12.45](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.44...v1.12.45) (2022-05-19)
+
+
+### Bug Fixes
+
+* update document_id on link index.css ([6ded177](https://github.com/CoCreate-app/CoCreate-cli/commit/6ded17713f041110ae571f778f0404004b2c7f14))
+
 ## [1.12.44](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.43...v1.12.44) (2022-05-06)
 
 
