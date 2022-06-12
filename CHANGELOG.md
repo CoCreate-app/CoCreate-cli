@@ -1,3 +1,11 @@
+## [1.12.47](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.46...v1.12.47) (2022-06-12)
+
+
+### Bug Fixes
+
+* update dependencies ([60b0e63](https://github.com/CoCreate-app/CoCreate-cli/commit/60b0e634b30834d6f9788ac5e28e573af3757dfb))
+* update docs css document_id ([eaf94a5](https://github.com/CoCreate-app/CoCreate-cli/commit/eaf94a50c154d145f5478133aafa8b5248da35a1))
+
 ## [1.12.46](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.45...v1.12.46) (2022-05-23)
 
 
