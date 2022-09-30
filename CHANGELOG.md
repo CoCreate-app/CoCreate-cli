@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.51...v1.13.0) (2022-09-30)
+
+
+### Features
+
+* bump.js - to update [@cocreate](https://github.com/cocreate) dependency versions in package.json ([ac56940](https://github.com/CoCreate-app/CoCreate-cli/commit/ac569409a1a1eaa9d4127b4c96a6eb8a5118c193))
+
 ## [1.12.51](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.12.50...v1.12.51) (2022-09-30)
 
 
