@@ -43,7 +43,7 @@ function getVersions(path, name) {
         return console.error('path doesn\'t exist:', path)
     let object = require(path)
     if (object.name && object.version) {
-        item[object.name] = object.version
+        item[object.name] = `^${object.version}`
     }
 }
 
