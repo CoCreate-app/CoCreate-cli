@@ -20,9 +20,7 @@
     "html5-framework",
     "javascript-framework"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "publishConfig": { "access": "public" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "automated": "nodejs src/commands/fs/automated.js",
@@ -43,18 +41,14 @@
   },
   "author": "CoCreate LLC",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-cli/issues"
-  },
+  "bugs": { "url": "https://github.com/CoCreate-app/CoCreate-cli/issues" },
   "homepage": "https://cocreate.app/docs/cli",
   "funding": {
     "type": "GitHub Sponsors ❤",
     "url": "https://github.com/sponsors/CoCreate-app"
   },
   "main": "index.js",
-  "bin": {
-    "coc": "src/coc.js"
-  },
+  "bin": { "coc": "src/coc.js" },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
@@ -71,8 +65,8 @@
     "webpack-log": "^3.0.1"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.3.11",
-    "@cocreate/hosting": "^1.3.11",
+    "@cocreate/docs": "^1.3.13",
+    "@cocreate/hosting": "^1.3.13",
     "colors": "latest",
     "glob": "^7.1.7",
     "got": "latest",
