@@ -273,11 +273,11 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-builder.git'
     },
     // {
-    //     'path':'../CoCreate-apps/CoCreate-calendar',
+    //     'path':'/home/ubuntu/CoCreateServer/CoCreate-apps/CoCreate-calendar',
     //     'repo' : 'github.com/CoCreate-app/CoCreate-calendar.git'
     // },
     // {
-    //     'path':'../CoCreate-apps/CoCreate-checkout',
+    //     'path':'/home/ubuntu/CoCreateServer/CoCreate-apps/CoCreate-checkout',
     //     'repo' : 'github.com/CoCreate-app/CoCreate-checkout.git'
     // },
     {
@@ -289,7 +289,7 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-datatable.git'
     },
     // {
-    //     'path':'../CoCreate-apps/CoCreate-email',
+    //     'path':'/home/ubuntu/CoCreateServer/CoCreate-apps/CoCreate-email',
     //     'repo' : 'github.com/CoCreate-app/CoCreate-email.git'
     // },
     {
@@ -405,5 +405,149 @@ module.exports = [
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-plugins/CoCreate-uppy',
         'repo': 'github.com/CoCreate-app/CoCreate-uppy.git'
-    }
+    },
+
+
+
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreateWS',
+    //     'repo': 'github.com/CoCreate-app/CoCreateWS.git'
+    // },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreateApi',
+    //     'repo': 'github.com/CoCreate-app/CoCreateApi.git'
+    // },
+    
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreateLB',
+        'repo': 'github.com/CoCreate-app/CoCreateLB.git'
+    },
+    
+    
+    // Components
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-auth',
+        'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-crud-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
+    },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-crdt-server',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
+    // },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-loadtest',
+        'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-message-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-message-server.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-metrics-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-node-autoscaler',
+        'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-permissions',
+        'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-server-side-render',
+        'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-socket-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-actions',
+        'repo': 'github.com/CoCreate-app/CoCreate-actions.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-api',
+        'repo': 'github.com/CoCreate-app/CoCreate-api.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-docs',
+        'repo': 'github.com/CoCreate-app/CoCreate-docs.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-hosting',
+        'repo': 'github.com/CoCreate-app/CoCreate-hosting.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-crud-client',
+        'repo': 'github.com/CoCreate-app/CoCreate-crud-client.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-elements',
+        'repo': 'github.com/CoCreate-app/CoCreate-elements.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-industry',
+        'repo': 'github.com/CoCreate-app/CoCreate-industry.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-observer',
+        'repo': 'github.com/CoCreate-app/CoCreate-observer.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-organizations',
+        'repo': 'github.com/CoCreate-app/CoCreate-organizations.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-render',
+        'repo': 'github.com/CoCreate-app/CoCreate-render.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-socket-client',
+        'repo': 'github.com/CoCreate-app/CoCreate-socket-client.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-unique',
+        'repo': 'github.com/CoCreate-app/CoCreate-unique.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-users',
+        'repo': 'github.com/CoCreate-app/CoCreate-users.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-utils',
+        'repo': 'github.com/CoCreate-app/CoCreate-utils.git'
+    },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-uuid',
+        'repo': 'github.com/CoCreate-app/CoCreate-uuid.git'
+    },
+
+    
+    
+    // Maybe depreciated
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-keepalived',
+        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
+    },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-mongodb',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
+    // },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-openebs',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-openebs.git'
+    // },
+    {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-ide',
+        'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
+    },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreateEmail',
+    //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
+    // },
+
 ];
