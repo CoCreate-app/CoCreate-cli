@@ -1,3 +1,10 @@
+## [1.13.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.3...v1.13.4) (2022-10-01)
+
+
+### Bug Fixes
+
+* added severside repos ([cccd29e](https://github.com/CoCreate-app/CoCreate-cli/commit/cccd29e44db4a3d5708d4a45b84c8a14dfe09503))
+
 ## [1.13.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.2...v1.13.3) (2022-10-01)
 
 
