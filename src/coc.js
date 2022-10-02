@@ -6,6 +6,7 @@ const path = require("path");
 const fs = require("fs");
 const execute = require('./execute');
 const argv = process.argv.slice(2);
+console.log('bumper')
 
 if (argv.length < 1) {
     console.error("enter some command to do something");
@@ -97,20 +98,23 @@ let repoFullMeta = repos.map(meta => {
 });
 
 (async() => {
+    if(command == 'bump'){
+       console.log('bumping')
+    }
     if(command == 'gitConfig'){
         let predefined = path.resolve(__dirname, 'commands', command + '.js');
         require(predefined)(repos, repos )
     }
     else {
-    let failed = await execute(command, repoFullMeta, config);
-    if (failed.length === 0)
-        process.exit(0);
-    else {
-        console.log(' **************** failures **************** '.red);
-        for (let failure of failed)
-            console.log(`${failure.name}: ${failure.des}`.red);
+        let failed = await execute(command, repoFullMeta, config);
+        if (failed.length === 0)
+            process.exit(0);
+        else {
+            console.log(' **************** failures **************** '.red);
+            for (let failure of failed)
+                console.log(`${failure.name}: ${failure.des}`.red);
 
-    }
+        }
     }
     // console.log(`success: ${report.success}`.green, `failed: ${report.fail}`.red);
 })();
