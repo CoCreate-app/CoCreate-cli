@@ -37,7 +37,7 @@ function update(MdPath) {
             "collection": "files",
             "document_id": "${document_id}",
             "key": "src",
-            "data":{
+            "document": {
                 "name": "index.html",
                 "path": "/docs/${name}/index.html",
                 "domains": [
