@@ -1,3 +1,11 @@
+## [1.13.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.6...v1.13.7) (2022-11-21)
+
+
+### Bug Fixes
+
+* add bump.js to commands/ for testing ([e0fd560](https://github.com/CoCreate-app/CoCreate-cli/commit/e0fd560ec6cada8ac7ecee36339be9217310bd7f))
+* repository.js list ([bb4013d](https://github.com/CoCreate-app/CoCreate-cli/commit/bb4013da20b8b793ad5231dc8539eae9da12dda9))
+
 ## [1.13.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.5...v1.13.6) (2022-10-02)
 
 
