@@ -1,3 +1,10 @@
+## [1.13.11](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.10...v1.13.11) (2022-11-22)
+
+
+### Bug Fixes
+
+* workflow docs ([d27cb13](https://github.com/CoCreate-app/CoCreate-cli/commit/d27cb13aa17a03f61584c18fd5ff7794e4505e42))
+
 ## [1.13.10](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.9...v1.13.10) (2022-11-22)
 
 
