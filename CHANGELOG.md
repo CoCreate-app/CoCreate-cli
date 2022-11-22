@@ -1,3 +1,12 @@
+## [1.13.10](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.9...v1.13.10) (2022-11-22)
+
+
+### Bug Fixes
+
+* apply src: {{source}} to CoCreate.config ([478da4f](https://github.com/CoCreate-app/CoCreate-cli/commit/478da4ff51eea812c589835d7cc31ca8889c45c3))
+* removed duplicate repos ([012b68b](https://github.com/CoCreate-app/CoCreate-cli/commit/012b68b4b67de2bf43dd04196f9b1f13469c4e2f))
+* replaced document_id with document._id ([f850009](https://github.com/CoCreate-app/CoCreate-cli/commit/f85000937c402017d273ca163ecdd63396e5139a))
+
 ## [1.13.9](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.8...v1.13.9) (2022-11-21)
 
 
