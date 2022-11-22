@@ -35,11 +35,11 @@ function update(MdPath) {
     "sources": [{
             "entry": "./docs/index.html",
             "collection": "files",
-            "document_id": "${document_id}",
-            "key": "src",
             "document": {
+                "_id": "${document_id}",
                 "name": "index.html",
                 "path": "/docs/${name}/index.html",
+                "src": "{{source}}",
                 "domains": [
                     "general.cocreate.app"
                 ],
@@ -49,22 +49,7 @@ function update(MdPath) {
                 "website_id": "5ffbceb7f11d2d00103c4535"
             }
         }
-    ],
-
-	"extract": {
-		"directory": "./src/",
-		"extensions": [
-			"js",
-			"css",
-			"html"
-		],
-		"ignores": [
-			"node_modules",
-			"vendor",
-			"bower_components",
-			"archive"
-		]
-	}
+    ]
 }
 
 `;
