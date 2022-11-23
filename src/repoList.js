@@ -7,7 +7,7 @@ module.exports = async function getRepoList(){
     
     let repos, repoDir, doAllRepo;
     
-    if(fs.existsSync(currentRepoPath)) {
+    if (fs.existsSync(currentRepoPath)) {
         repos = getRepositories(currentRepoPath);
         repoDir = path.dirname(currentRepoPath);
         doAllRepo = true;

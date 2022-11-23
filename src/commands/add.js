@@ -33,7 +33,7 @@ module.exports = async function updateYarnLink(repos) {
 
 async function reAdd(deps, repo, failed, param = '') {
         try {
-            if(!deps.length)
+            if (!deps.length)
             return;
             deps.unshift("add")
             let packageList = deps;

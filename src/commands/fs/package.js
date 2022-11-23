@@ -22,7 +22,7 @@ let nameList = pathList.map(fn => path.basename(fn).toLowerCase());
 function addPackage(path, name) {
    
 
-    if(!fs.existsSync(path))
+    if (!fs.existsSync(path))
         return console.error('path doesn\'t exist:', path)
     let object = require(name)
 

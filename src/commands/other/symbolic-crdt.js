@@ -58,7 +58,7 @@ let doInstall = process.argv[2];
     for (let [index, name] of nameList.entries()) {
         if (ignore.includes(name.toLowerCase()))
         {
-            if(doInstall == "true")
+            if (doInstall == "true")
          await updateYarnInstall(pathList[index], name)
         }
         else
@@ -102,7 +102,7 @@ async function updateYarnInstall(dpath, name) {
 
     try {
         let node_modules = path.resolve(dpath, 'node_modules');
-        if(fs.existsSync(node_modules))
+        if (fs.existsSync(node_modules))
             fs.rmdirSync(node_modules,{ recursive: true })
         console.log('yarn install inside', name);
         res2 = await exec(`yarn install `, { cwd: dpath })

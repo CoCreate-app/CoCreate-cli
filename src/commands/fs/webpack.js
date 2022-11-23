@@ -30,7 +30,7 @@ function update(webpackPath) {
   
   let entry;
   
-  if(fs.existsSync( path.resolve(dir, './src/index.js') ))
+  if (fs.existsSync( path.resolve(dir, './src/index.js') ))
   entry = "./src/index.js";
   else
   entry = './src/' + name + '.js';

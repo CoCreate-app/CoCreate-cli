@@ -67,7 +67,7 @@ async function run() {
 }
 
 function getVersions(path, name) {
-    if(!fs.existsSync(path))
+    if (!fs.existsSync(path))
         return console.error('path doesn\'t exist:', path)
     let object = require(path)
     if (object.name && object.version) {
@@ -76,7 +76,7 @@ function getVersions(path, name) {
 }
 
 function bumpVersion(filePath, name) {
-    if(!fs.existsSync(filePath))
+    if (!fs.existsSync(filePath))
         return console.error('path doesn\'t exist:', path)
     let object = require(filePath)
     let newObject = {...object}

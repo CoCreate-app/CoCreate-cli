@@ -48,7 +48,7 @@ if (fs.existsSync(config['c'])) {
         doAllRepo = false;
       console.warn(`using ${config['c']} configuration`.yellow);
 }
-else if(fs.existsSync(currentRepoPath)) {
+else if (fs.existsSync(currentRepoPath)) {
     repos = getRepositories(currentRepoPath);
     repoDir = path.dirname(currentRepoPath);
     doAllRepo = true;
@@ -98,10 +98,10 @@ let repoFullMeta = repos.map(meta => {
 });
 
 (async() => {
-    if(command == 'bump'){
+    if (command == 'bump'){
        console.log('bumping')
     }
-    if(command == 'gitConfig'){
+    if (command == 'gitConfig'){
         let predefined = path.resolve(__dirname, 'commands', command + '.js');
         require(predefined)(repos, repos )
     }

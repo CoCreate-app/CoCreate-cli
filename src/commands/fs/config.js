@@ -4,7 +4,7 @@ const prettier = require("prettier");
 const path = require("path");
 
 function globUpdater(er, files) {
-    if(er)
+    if (er)
         console.log(files, 'glob resolving issue');
     else
         files.forEach(filename => update(filename));
@@ -54,13 +54,13 @@ function update(MdPath) {
 
 `;
 
-    if(!document_id.length)
+    if (!document_id.length)
         console.log("Document_id Undefined: ", MdPath);
     if (document_id.length != 24 && document_id.length != 0 )
         console.log("Document_id not valid! please check your config: ", MdPath);
     else {
         console.log(MdPath, " -> document_id : ", document_id);
-        if(fs.existsSync(MdPath))
+        if (fs.existsSync(MdPath))
             fs.unlinkSync(MdPath);
         fs.writeFileSync(MdPath, fileContent);
 
