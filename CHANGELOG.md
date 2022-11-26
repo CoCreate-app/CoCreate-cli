@@ -1,3 +1,10 @@
+## [1.13.15](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.14...v1.13.15) (2022-11-26)
+
+
+### Bug Fixes
+
+* json formating on bump ([6a4f780](https://github.com/CoCreate-app/CoCreate-cli/commit/6a4f78077f85f8fca20fc71fe8c9294ee7f07678))
+
 ## [1.13.14](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.13...v1.13.14) (2022-11-25)
 
 
