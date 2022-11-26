@@ -99,7 +99,9 @@ let repoFullMeta = repos.map(meta => {
 
 (async() => {
     if (command == 'bump'){
-       console.log('bumping')
+        console.log('bumping')
+        let predefined = path.resolve(__dirname, 'commands', command + '.js');
+        require(predefined)(repos, repos )
     }
     if (command == 'gitConfig'){
         let predefined = path.resolve(__dirname, 'commands', command + '.js');

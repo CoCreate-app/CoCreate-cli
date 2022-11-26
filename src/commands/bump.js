@@ -28,6 +28,26 @@ let item = {}
 
 // })();
 
+// module.exports = async function run() {
+//     try {
+//         for (let [index, name] of nameList.entries()) {
+//             getVersions(pathList[index] + '/package.json', `@${name}`)
+//          }
+//          console.log('bump versions', item)
+     
+//          for (let [index, name] of nameList.entries()) {
+//              await bumpVersion(pathList[index] + '/package.json', name)
+//          }
+//     } catch (err) {
+//         failed.push({ name: 'GENERAL', des: err.message })
+//     }
+
+//     console.log('completed')
+//     return failed
+//     // process.exit()  
+// }
+
+
 async function run() {
 //     let failed = [];
 
@@ -90,8 +110,8 @@ function bumpVersion(filePath, name) {
             }
         }
 
-        let str = JSON.stringify(object)
-        let formated = prettier.format(str, { semi: false, parser: "json" });
+        // let str = JSON.stringify(object, null, 2)
+        // let formated = prettier.format(str, { semi: false, parser: "json" });
 
         filePath = filePath.replace('/package.json', '')
         let Path = path.resolve(filePath, 'package.json')
@@ -99,7 +119,7 @@ function bumpVersion(filePath, name) {
             fs.unlinkSync(Path)
         }
 
-        fs.writeFileSync(Path, formated)
+        fs.writeFileSync(Path, JSON.stringify(object, null, 2))
     }
 }
 
