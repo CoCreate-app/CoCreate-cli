@@ -8,10 +8,10 @@ module.exports = [
         'path': '/home/ubuntu/CoCreateServer/CoCreateCSS',
         'repo': 'github.com/CoCreate-app/CoCreateCSS.git'
     },
-    {
-        'path': '/home/ubuntu/CoCreateServer/CoCreate-admin',
-        'repo': 'github.com/CoCreate-app/CoCreate-admin.git'
-    },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-admin',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-admin.git'
+    // },
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-website',
         'repo': 'github.com/CoCreate-app/CoCreate-website.git'
