@@ -458,7 +458,7 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
     },
     {
-        'path': './home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-mongodb',
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-mongodb',
         'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
     },
     {
