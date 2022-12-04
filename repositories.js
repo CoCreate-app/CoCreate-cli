@@ -442,6 +442,10 @@ module.exports = [
     //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
     // },
     {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-file-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-file-server.git'
+    },
+    {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-loadtest',
         'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
     },
@@ -452,6 +456,10 @@ module.exports = [
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-metrics-server',
         'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
+    },
+    {
+        'path': './home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-mongodb',
+        'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
     },
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-node-autoscaler',
