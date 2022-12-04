@@ -1,3 +1,16 @@
+# [1.14.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.20...v1.14.0) (2022-12-04)
+
+
+### Bug Fixes
+
+* bump dependencies ([f6bf46c](https://github.com/CoCreate-app/CoCreate-cli/commit/f6bf46c3968989c18db039d491792a896689a080))
+* typo mongodb repo ([feab3a4](https://github.com/CoCreate-app/CoCreate-cli/commit/feab3a4498fcce2e6eabaf43bf535762f1d44d77))
+
+
+### Features
+
+* add file-server and mongodb to repositiory list ([eaddba7](https://github.com/CoCreate-app/CoCreate-cli/commit/eaddba79e7cc6c4f536ab4b4dd9085fc194bc913))
+
 ## [1.13.20](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.13.19...v1.13.20) (2022-12-02)
 
 
