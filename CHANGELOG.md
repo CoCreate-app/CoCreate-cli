@@ -1,3 +1,10 @@
+## [1.14.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.6...v1.14.7) (2022-12-13)
+
+
+### Bug Fixes
+
+* removed un used devDependencies ([01dc36c](https://github.com/CoCreate-app/CoCreate-cli/commit/01dc36caf8de76fcc848db4a67e3942b2a0232e9))
+
 ## [1.14.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.5...v1.14.6) (2022-12-13)
 
 
