@@ -43,6 +43,10 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-cli.git'
     },
     {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-codearea',
+        'repo': 'github.com/CoCreate-app/CoCreate-codearea.git'
+    },
+    {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-conditional-logic',
         'repo': 'github.com/CoCreate-app/CoCreate-conditional-logic.git'
     },
@@ -302,10 +306,6 @@ module.exports = [
         'path': '/home/ubuntu/CoCreateServer/CoCreate-plugins/CoCreate-charts',
         'repo': 'github.com/CoCreate-app/CoCreate-charts.git'
     },
-    // {
-    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-plugins/CoCreate-codemirror',
-    //     'repo': 'github.com/CoCreate-app/CoCreate-codemirror.git'
-    // },
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-plugins/CoCreate-croppie',
         'repo': 'github.com/CoCreate-app/CoCreate-croppie.git'
