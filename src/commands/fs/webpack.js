@@ -71,7 +71,6 @@ module.exports = {
     libraryExport: 'default',
     library: ${ componentName ? `['CoCreate', '${componentName}']` : 'CoCreate'},
     globalObject: "this",
-    // publicPath: 'https://server.cocreate.app/CoCreateJS/dist/'
   },
   
   
