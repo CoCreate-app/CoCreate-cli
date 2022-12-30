@@ -32,14 +32,14 @@ function update(MdPath) {
         "host": "general.cocreate.app"
     },
     
-    "sources": [{
-            "entry": "./docs/index.html",
+    "sources": [
+        {
             "collection": "files",
             "document": {
                 "_id": "${document_id}",
                 "name": "index.html",
                 "path": "/docs/${name}/index.html",
-                "src": "{{source}}",
+                "src": "{{./docs/index.html}}",
                 "domains": [
                     "general.cocreate.app"
                 ],
