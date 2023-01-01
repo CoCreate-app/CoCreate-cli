@@ -1,3 +1,10 @@
+## [1.14.19](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.18...v1.14.19) (2023-01-01)
+
+
+### Bug Fixes
+
+* docs sanbox overflow ([27c029b](https://github.com/CoCreate-app/CoCreate-cli/commit/27c029bf01df39e096dbfc2799fc410c327e3fb0))
+
 ## [1.14.18](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.17...v1.14.18) (2022-12-31)
 
 
