@@ -79,12 +79,16 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-element-config.git'
     },
     {
+        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-element-prototype',
+        'repo': 'github.com/CoCreate-app/CoCreate-element-prototype.git'
+    },
+    {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-elements',
         'repo': 'github.com/CoCreate-app/CoCreate-elements.git'
     },
     {
-        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-element-prototype',
-        'repo': 'github.com/CoCreate-app/CoCreate-element-prototype.git'
+        'path': '../CoCreate-components/CoCreate-events',
+        'repo': 'github.com/CoCreate-app/CoCreate-events.git'
     },
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-fetch',
@@ -234,10 +238,10 @@ module.exports = [
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-text',
         'repo': 'github.com/CoCreate-app/CoCreate-text.git'
     },
-    {
-        'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-toggle',
-        'repo': 'github.com/CoCreate-app/CoCreate-toggle.git'
-    },
+    // {
+    //     'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-toggle',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-toggle.git'
+    // },
     {
         'path': '/home/ubuntu/CoCreateServer/CoCreate-components/CoCreate-toolbar',
         'repo': 'github.com/CoCreate-app/CoCreate-toolbar.git'
