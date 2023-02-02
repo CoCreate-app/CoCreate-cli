@@ -1,3 +1,10 @@
+## [1.14.30](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.29...v1.14.30) (2023-02-02)
+
+
+### Bug Fixes
+
+* add CoCreate-actions to repo  list ([79e576e](https://github.com/CoCreate-app/CoCreate-cli/commit/79e576ebe9484d97dd9b1e62546da8d8f496d9f9))
+
 ## [1.14.29](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.28...v1.14.29) (2023-02-01)
 
 
