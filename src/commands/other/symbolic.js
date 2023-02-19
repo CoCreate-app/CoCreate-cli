@@ -3,9 +3,9 @@ const path = require("path")
 const {
     promisify
 } = require('util');
-const spawn = require('../spawn');
+const spawn = require('../../spawn');
 const colors = require('colors');
-const addMeta = require('../addMeta');
+const addMeta = require('../../addMeta');
 
 
 

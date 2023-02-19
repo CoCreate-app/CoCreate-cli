@@ -1,24 +1,33 @@
+const util = require('node:util');
+const exec = util.promisify(require('node:child_process').exec);
 const spawn = require('../spawn');
-const execute = require('../execute')
+
 module.exports = async function( repos, allRepos,) {
     let failed = [];
     try {
         
         let cloneFailed = await require('./clone.js')(repos)
 
-        let installFailed = await require('./yarnInstall.js')(repos)
-
         let linkFailed = await require('./link.js')( repos, allRepos)
-        failed = [...cloneFailed, ...installFailed, ...linkFailed];
-
-        let exitCode = spawn('yarn', ['start', '-w'], { cwd: '../CoCreateJS' })
+        failed = [...cloneFailed, ...linkFailed];
+        
+        let packageManager = 'npm'
+        const { error } = await exec('yarn --version');
+        if (!error)
+            packageManager = 'yarn';
+    
+            
+        let exitCode = spawn(packageManager, ['start'], { 
+            cwd: '../CoCreateJS',
+            shell: true,
+            stdio: 'inherit'
+        })
         if (exitCode !== 0) {
-            failed.push({ name: 'cocreatejs', des: `yarn start failed` })
+            failed.push({ name: 'cocreatejs', des: `${packageManager} start failed` })
         }
     } catch (err) {
         console.error(err);
         failed.push({ name: 'general', des: err.message })
-
     }
     return failed;
 }

@@ -1,11 +1,10 @@
 const colors = require('colors');
 const path = require("path");
 const fs = require("fs");
-const {
-    promisify
-} = require('util');
 const spawn = require('./spawn');
-const exec = promisify(require('child_process').exec);
+const util = require('node:util');
+const exec = util.promisify(require('node:child_process').exec);
+
 
 module.exports = async function execute(command, repos, config) {
 
@@ -44,11 +43,15 @@ module.exports = async function execute(command, repos, config) {
                 } = repo;
                 console.log(`${name}: `.green, command)
                 let exitCode;
-                if (config.hideMessage)
-                    exitCode = await exec(command, {
+                if (config.hideMessage) {
+                    const strCommand = command.join(' ');
+                    const { error } = await exec(strCommand, {
                         cwd: repo.ppath,
-                    })
-                else
+                    });
+                
+                    if (error)
+                        exitCode = 1
+                } else
                     exitCode = await spawn(command, null, {
                         cwd: repo.ppath,
                         shell: true,

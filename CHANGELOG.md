@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.30...v1.15.0) (2023-02-18)
+
+
+### Features
+
+* auto detects your chosen package manager, Currently supports npm and yarn ([c3349b3](https://github.com/CoCreate-app/CoCreate-cli/commit/c3349b3f3448ff27a1efd98e3b6d3eb14b09aced))
+
 ## [1.14.30](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.29...v1.14.30) (2023-02-02)
 
 

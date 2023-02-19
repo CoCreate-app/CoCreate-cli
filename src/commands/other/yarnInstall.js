@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require("path");
-const spawn = require('../spawn');
+const spawn = require('../../spawn');
 const colors = require('colors');
-const addMeta = require('../addMeta');
+const addMeta = require('../../addMeta');
 
 
 module.exports = async function updateYarnLink(repos) {
