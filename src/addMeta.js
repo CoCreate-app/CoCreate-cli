@@ -1,60 +1,65 @@
 const fs = require('fs')
 const path = require("path")
+const util = require('node:util');
+const exec = util.promisify(require('node:child_process').exec);
 
-module.exports = function addMeta(repos, failed) {
-    return repos.map(repo => {
-        let {
-            name,
-            ppath
-        } = repo;
+module.exports = async function addMeta(repos, failed, directory) {
+    let packageManager;
+    for (let i = 0; i < repos.length; i++) {
+        repos[i].name = path.basename(repos[i].path);
+        repos[i].plainName = repos[i].name.substr(9);
 
+        if (directory) {
+            repos[i].ppath = path.resolve(directory, repos[i].path);
+            repos[i].absolutePath = path.resolve(directory, repos[i].path);
+            repos[i].directory = directory;        
+        }
 
-
-        let packagejson = path.resolve(ppath, 'package.json');
+        let packagejson = path.resolve(repos[i].absolutePath, 'package.json');
         if (!fs.existsSync(packagejson)) {
-            console.error('package json not found for', name);
+            console.error('package json not found for', repos[i].name);
             failed.push({
-                name,
+                name: repos[i].name,
                 des: 'package json not found'
             })
-            return false;
         }
+
         let packageObj
         try {
             packageObj = require(packagejson);
-
         }
         catch (err) {
-            console.error(err.message)
-            return false;
+            console.error('packageObj', err.message)
         }
 
 
-        let packageName = name.startsWith('cocreate-') ?
-            '@cocreate/' + name.substr(9) : packageObj.name;
+        repos[i].packageName = packageObj.name;
 
-        let deps = Object.keys(packageObj['dependencies'] || {})
+        repos[i].deps = Object.keys(packageObj['dependencies'] || {})
             .filter(packageName => packageName.startsWith('@cocreate/'));
-        let devDeps = Object.keys(packageObj['devDependencies'] || {})
+        repos[i].devDeps = Object.keys(packageObj['devDependencies'] || {})
             .filter(packageName => packageName.startsWith('@cocreate/'));
-
-        // let nodeModulePath = path.resolve(ppath, './node_modules/@cocreate');
-
-        // let deps  = fs.existsSync(nodeModulePath) ?
-        // fs.readdirSync(nodeModulePath).map(name => '@cocreate/' + name):
-        // [];
-
-        return { ...repo,
-            name,
-            packageName,
-            ppath,
-            deps,
-            devDeps
-
+        
+        if (!repos[i].packageManager) {
+            if (packageManager)
+                repos[i].packageManager = packageManager
+            else {
+                repos[i].packageManager = 'npm'
+                let lockFile = path.resolve(repos[i].absolutePath, 'package-lock.json');
+                if (!fs.existsSync(lockFile)) {
+                    lockFile = path.resolve(repos[i].absolutePath, 'yarn.lock');
+                    if (fs.existsSync(lockFile))
+                        repos[i].packageManager = 'yarn'
+                    else {
+                        const { error } = await exec('yarn --version');
+                        if (!error)
+                            repos[i].packageManager = 'yarn'
+                    }
+                    packageManager = repos[i].packageManager
+                }
+            }
         }
+    }
 
-
-
-    })
-
+    return repos
 } 

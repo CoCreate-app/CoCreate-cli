@@ -66,5 +66,7 @@ async function updateConfig(repos, result){
         fs.writeFileSync(MdPath, fileContent);
         console.log('configured: ', meta.repo);
     }
-        console.log('finished');
+    console.log('finished');
+    return failed
+
 }

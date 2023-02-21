@@ -1,45 +1,16 @@
 const spawn = require('../spawn');
 const colors = require('colors');
-const addMeta = require('../addMeta');
 
-const util = require('node:util');
-const exec = util.promisify(require('node:child_process').exec);
-
-module.exports = async function linkPackages(repos, allrepo) {
-    let packageManager = 'npm'
-    const { error } = await exec('yarn --version');
-    if (!error)
-        packageManager = 'yarn';
-
+module.exports = async function linkPackages(repos) {
     const failed = [], isLinked = {};
-    try {
-        repos = addMeta(repos, failed)
-        allrepo = addMeta(allrepo, failed)
-
-    }
-    catch (err) {
-        failed.push({
-            name: 'GENERAL',
-            des: err.message
-        })
-        console.log(err)
-    }
 
     try {
         for (let repo of repos) {
+            if (!repo) continue;
 
-            if (!repo)
-                continue;
-
-            let {
-                packageName,
-                deps,
-                devDeps,
-            } = repo;
-
-            console.log(packageName, 'configuring ...')
-            await doLink(deps, repo, allrepo, failed, isLinked, packageManager)
-            await doLink(devDeps, repo, allrepo, failed, isLinked, packageManager)
+            console.log(repo.packageName, 'configuring ...')
+            await doLink(repo.deps, repo, repos, failed, isLinked)
+            await doLink(repo.devDeps, repo, repos, failed, isLinked)
         }
     }
     catch (err) {
@@ -51,16 +22,19 @@ module.exports = async function linkPackages(repos, allrepo) {
 }
 
 
-async function doLink(deps, repo, allrepo, failed, isLinked, packageManager) {
+async function doLink(deps, repo, repos, failed, isLinked) {
+    let { packageManager } = repo;
+
     for (let dep of deps) {
-        let depMeta = allrepo.find(meta => meta.packageName === dep);
+        let depMeta = repos.find(meta => meta.packageName === dep);
         try {
             if (!depMeta) {
+                // ToDo: search file system for a package.json containing the package.name
                 failed.push({
                     name: repo.name,
-                    des: `"${depMeta.packageName}" component can not be found in repositories.js`
+                    des: `"${dep}" component can not be found in repositories.js`
                 })
-                console.error(`${repo.name}: "${depMeta.packageName}" component can not be found in repositories.js`.red)
+                console.error(`${repo.name}: "${dep}" component can not be found in repositories.js`.red)
                 continue;
             }
 

@@ -5,22 +5,21 @@ const path = require('path');
 
 module.exports = async function gitClone(repos) {
     const failed = [];
-    for (let meta of repos) {
+    const cwdPath = path.resolve(process.cwd());
 
-        let { repo, path: ppath, name } = meta;
-        let usernamePrompt = true;
-
-        let dirPath = path.dirname(ppath);
-        let exitCode = await spawn('mkdir', ['-p', dirPath], { stdio: 'inherit', cwd: process.cwd() })
-        if (exitCode !== 0) {
-            failed.push({ name, des: `creating directory failed` })
-
-        }
-
-        exitCode = await spawn('git', ['clone', `https://${repo}`], { stdio: 'inherit', cwd: dirPath })
-        if (exitCode !== 0) {
-            failed.push({ name, des: `cloning ${name} failed` })
-
+    for (let i = 0; i < repos.length; i++) {
+        if (cwdPath !== repos[i].absolutePath) {
+            let exitCode = await spawn('mkdir', ['-p', repos[i].directory], { stdio: 'inherit', cwd: process.cwd() })
+            if (exitCode !== 0) {
+                failed.push({ name: repos[i].name, des: `creating directory failed` })
+            }
+    
+            exitCode = await spawn('git', ['clone', `https://${repos[i].repo}`], { stdio: 'inherit', cwd: repos[i].directory })
+            if (exitCode !== 0) {
+                failed.push({ name: repos[i].name, des: `cloning failed` })
+    
+            }
+    
         }
     }
 

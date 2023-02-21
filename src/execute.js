@@ -7,45 +7,29 @@ const exec = util.promisify(require('node:child_process').exec);
 
 
 module.exports = async function execute(command, repos, config) {
-
     let failed = [];
     let predefined = path.resolve(__dirname, 'commands', command + '.js');
+
     if (fs.existsSync(predefined)) {
         console.warn(`executing a predefined command in ${predefined}`.blue);
-
-        if (config.doAllRepo) {
+   
+        if (repos.length == 1)
+            console.log(`running on ${repos[0].name} repo`.blue)
+        else
             console.log('running on all repos'.blue)
-            failed = require(predefined)(repos, repos )
-        }
-        else {
-            let currentRepoConfig = repos.find(m => m.name === path.basename(process.cwd()).toLowerCase());
-            if (currentRepoConfig && currentRepoConfig.ppath == path.resolve(process.cwd())) {
-                console.log(`running on ${currentRepoConfig.name} repo`.blue)
-                failed = require(predefined)([currentRepoConfig], repos )
-            }
-            else {
-                console.error(`${currentRepoConfig.name} can not be found or have diferent path`.red)
-            }
-        }
 
+        failed = require(predefined)(repos)
 
-    }
-    else {
-
-
+    } else {
+        let type = command.split(' ')[0]
         for (let repo of repos) {
-            if (!repo)
-                console.log(repo, repos)
-            // let repo = {name: 'aa', ppath: '/home/ubuntu/environment/CoCreate-plugins/CoCreate-sendgrid'}
             try {
-                const {
-                    name
-                } = repo;
-                console.log(`${name}: `.green, command)
+                if (repo.exclude && repo.exclude.includes(type)) 
+                    continue
+                console.log(`${repo.name}: `.green, command)
                 let exitCode;
                 if (config.hideMessage) {
-                    const strCommand = command.join(' ');
-                    const { error } = await exec(strCommand, {
+                    const { error } = await exec(command, {
                         cwd: repo.ppath,
                     });
                 
@@ -60,27 +44,18 @@ module.exports = async function execute(command, repos, config) {
 
                 if (exitCode !== 0)
                     failed.push({
-                        name,
+                        name: repo.name,
                         des: 'command failed: ' + command
                     })
 
 
             }
             catch (err) {
-
                 console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
-
             }
         }
-
-
-
     }
 
-
-
     return failed;
-
-
 
 }
