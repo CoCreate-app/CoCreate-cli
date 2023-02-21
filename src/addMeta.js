@@ -10,7 +10,6 @@ module.exports = async function addMeta(repos, failed, directory) {
         repos[i].plainName = repos[i].name.substr(9);
 
         if (directory) {
-            repos[i].ppath = path.resolve(directory, repos[i].path);
             repos[i].absolutePath = path.resolve(directory, repos[i].path);
             repos[i].directory = directory;        
         }

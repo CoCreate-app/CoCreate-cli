@@ -30,14 +30,14 @@ module.exports = async function execute(command, repos, config) {
                 let exitCode;
                 if (config.hideMessage) {
                     const { error } = await exec(command, {
-                        cwd: repo.ppath,
+                        cwd: repo.absolutePath,
                     });
                 
                     if (error)
                         exitCode = 1
                 } else
                     exitCode = await spawn(command, null, {
-                        cwd: repo.ppath,
+                        cwd: repo.absolutePath,
                         shell: true,
                         stdio: 'inherit'
                     })
