@@ -10,10 +10,10 @@ let list = require('../repositories.js');
 let metaYarnLink = list.map(meta => {
     let name = path.basename(meta.path).toLowerCase();
     try {
-        let ppath = path.resolve(meta.path);
+        let absolutePath = path.resolve(meta.path);
 
 
-        let packagejson = path.resolve(ppath, 'package.json');
+        let packagejson = path.resolve(absolutePath, 'package.json');
         if (!fs.existsSync(packagejson)) {
             console.error('package json not found for', name);
             return false;
@@ -23,7 +23,7 @@ let metaYarnLink = list.map(meta => {
         let packageName = name.startsWith('cocreate-') ?
             '@cocreate/' + name.substr(9) : packageObj.name;
 
-        return { ...meta, name, packageName, ppath, packageObj }
+        return { ...meta, name, packageName, absolutePath, packageObj }
     }
     catch (err) {
         console.error('error: ', name, err.message);
@@ -43,7 +43,7 @@ let metaYarnLink = list.map(meta => {
 function update(param) {
     // component name
     if (!param) return;
-    let { packageObj, ppath } = param;
+    let { packageObj, absolutePath } = param;
     let { name, description } = packageObj;
     let shortName = name.substr(10);
     let fileContent = `# CoCreate-${shortName}
@@ -127,7 +127,7 @@ We appreciate your continued support, thank you!
 
 `;
 
-    let MdPath = path.resolve(ppath, 'README.md')
+    let MdPath = path.resolve(absolutePath, 'README.md')
     let formated = prettier.format(fileContent, { semi: false, parser: "markdown" });
     if (fs.existsSync(MdPath))
         fs.unlinkSync(MdPath)

@@ -28,23 +28,24 @@ async function doLink(deps, repo, repos, failed, isLinked) {
     for (let dep of deps) {
         let depMeta = repos.find(meta => meta.packageName === dep);
         try {
-            if (!depMeta) {
-                // ToDo: search file system for a package.json containing the package.name
-                failed.push({
-                    name: repo.name,
-                    des: `"${dep}" component can not be found in repositories.js`
-                })
-                console.error(`${repo.name}: "${dep}" component can not be found in repositories.js`.red)
-                continue;
-            }
+            // if (!depMeta) {
+            //     // ToDo: search file system for a package.json containing the package.name
+
+            //     failed.push({
+            //         name: repo.name,
+            //         des: `"${dep}" component can not be found in repositories.js`
+            //     })
+            //     console.error(`${repo.name}: "${dep}" component can not be found in repositories.js`.red)
+            //     continue;
+            // }
 
 
 
-            if (!isLinked[depMeta.packageName]) {
+            if (depMeta && !isLinked[depMeta.packageName]) {
 
                 isLinked[depMeta.packageName] = true;
                 let exitCode = await spawn(packageManager, ['link'], {
-                    cwd: depMeta.ppath,
+                    cwd: depMeta.absolutePath,
                     shell: true,
                     stdio: 'inherit'
                 });
@@ -57,10 +58,13 @@ async function doLink(deps, repo, repos, failed, isLinked) {
                     console.error(`${depMeta.name}: ${packageManager} link failed`.red)
                 }
             }
+
+            if (!depMeta)
+                depMeta = {packageName: dep}
             console.log(repo.packageName, 'linking', depMeta.packageName, '...')
 
             let exitCode = await spawn(packageManager, ['link', depMeta.packageName], {
-                cwd: repo.ppath,
+                cwd: repo.absolutePath,
                 shell: true,
                 stdio: 'inherit'
             })
