@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.15.0...v1.16.0) (2023-02-21)
+
+
+### Features
+
+* run symlink on coc install ([c4bdf15](https://github.com/CoCreate-app/CoCreate-cli/commit/c4bdf15d7b7f6c6cbe90a68904ca6042f2d6db38))
+
 # [1.15.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.14.30...v1.15.0) (2023-02-18)
 
 
