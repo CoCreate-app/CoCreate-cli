@@ -1,3 +1,11 @@
+## [1.16.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.16.0...v1.16.1) (2023-03-15)
+
+
+### Bug Fixes
+
+* replaced ppath with absolutePath ([4bf6e35](https://github.com/CoCreate-app/CoCreate-cli/commit/4bf6e35895f08d085f27d7159e95e2a62aa420e0))
+* replaced ppath with absolutePath ([b563d48](https://github.com/CoCreate-app/CoCreate-cli/commit/b563d48867d52e28467a6839d6991aeba2c4406d))
+
 # [1.16.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.15.0...v1.16.0) (2023-02-21)
 
 
