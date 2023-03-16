@@ -8,7 +8,7 @@ const exec = util.promisify(require('node:child_process').exec);
 let pathList, nameList, item = {}, failed = [];
 
 module.exports = async function bump(repos) {
-    pathList = repos.map(o => o.path)
+    pathList = repos.map(o => o.absolutePath)
     if (repos.length === 1) {
         let packageJsonPath = path.resolve(process.cwd(), './package.json');
 
