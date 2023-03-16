@@ -22,6 +22,8 @@ module.exports = async function execute(command, repos, config) {
 
     } else {
         let type = command.split(' ')[0]
+        let args = command.replace(type, '').replace("'", '"').trim()
+
         for (let repo of repos) {
             try {
                 if (repo.exclude && repo.exclude.includes(type)) 
@@ -35,12 +37,13 @@ module.exports = async function execute(command, repos, config) {
                 
                     if (error)
                         exitCode = 1
-                } else
-                    exitCode = await spawn(command, null, {
+                } else {
+                    exitCode = await spawn(type, [`${args}`], {
                         cwd: repo.absolutePath,
                         shell: true,
                         stdio: 'inherit'
                     })
+                }
 
                 if (exitCode !== 0)
                     failed.push({
