@@ -1,3 +1,15 @@
+# [1.18.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.17.2...v1.18.0) (2023-03-29)
+
+
+### Bug Fixes
+
+* else condition if file exist ([df1eaa0](https://github.com/CoCreate-app/CoCreate-cli/commit/df1eaa0bd4de9f1d7858e0d97655df0ef9784e62))
+
+
+### Features
+
+* if install true symlink will install packages then will run link. fixed directory path ([97103bf](https://github.com/CoCreate-app/CoCreate-cli/commit/97103bfd1949a5db26ac836e0ba385c108f25f20))
+
 ## [1.17.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.17.1...v1.17.2) (2023-03-16)
 
 
