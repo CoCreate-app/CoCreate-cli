@@ -21,40 +21,41 @@ module.exports = async function addMeta(repos, failed, directory) {
                 name: repos[i].name,
                 des: 'package json not found'
             })
-        }
+        } else {
 
-        let packageObj
-        try {
-            packageObj = require(packagejson);
-        }
-        catch (err) {
-            console.error('packageObj', err.message)
-        }
+            let packageObj
+            try {
+                packageObj = require(packagejson);
+            }
+            catch (err) {
+                console.error('packageObj', err.message)
+            }
 
 
-        repos[i].packageName = packageObj.name;
+            repos[i].packageName = packageObj.name;
 
-        repos[i].deps = Object.keys(packageObj['dependencies'] || {})
-            .filter(packageName => packageName.startsWith('@cocreate/'));
-        repos[i].devDeps = Object.keys(packageObj['devDependencies'] || {})
-            .filter(packageName => packageName.startsWith('@cocreate/'));
-        
-        if (!repos[i].packageManager) {
-            if (packageManager)
-                repos[i].packageManager = packageManager
-            else {
-                repos[i].packageManager = 'npm'
-                let lockFile = path.resolve(repos[i].absolutePath, 'package-lock.json');
-                if (!fs.existsSync(lockFile)) {
-                    lockFile = path.resolve(repos[i].absolutePath, 'yarn.lock');
-                    if (fs.existsSync(lockFile))
-                        repos[i].packageManager = 'yarn'
-                    else {
-                        const { error } = await exec('yarn --version');
-                        if (!error)
+            repos[i].deps = Object.keys(packageObj['dependencies'] || {})
+                .filter(packageName => packageName.startsWith('@cocreate/'));
+            repos[i].devDeps = Object.keys(packageObj['devDependencies'] || {})
+                .filter(packageName => packageName.startsWith('@cocreate/'));
+            
+            if (!repos[i].packageManager) {
+                if (packageManager)
+                    repos[i].packageManager = packageManager
+                else {
+                    repos[i].packageManager = 'npm'
+                    let lockFile = path.resolve(repos[i].absolutePath, 'package-lock.json');
+                    if (!fs.existsSync(lockFile)) {
+                        lockFile = path.resolve(repos[i].absolutePath, 'yarn.lock');
+                        if (fs.existsSync(lockFile))
                             repos[i].packageManager = 'yarn'
+                        else {
+                            const { error } = await exec('yarn --version');
+                            if (!error)
+                                repos[i].packageManager = 'yarn'
+                        }
+                        packageManager = repos[i].packageManager
                     }
-                    packageManager = repos[i].packageManager
                 }
             }
         }
