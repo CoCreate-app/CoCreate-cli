@@ -32,18 +32,6 @@ async function doLink(deps, repo, repos, failed, isLinked) {
     for (let dep of deps) {
         let depMeta = repos.find(meta => meta.packageName === dep);
         try {
-            // if (!depMeta) {
-            //     // ToDo: search file system for a package.json containing the package.name
-
-            //     failed.push({
-            //         name: repo.name,
-            //         des: `"${dep}" component can not be found in repositories.js`
-            //     })
-            //     console.error(`${repo.name}: "${dep}" component can not be found in repositories.js`.red)
-            //     continue;
-            // }
-
-
 
             if (depMeta && !isLinked[depMeta.packageName]) {
 
