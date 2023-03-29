@@ -1,15 +1,12 @@
 const fs = require('fs')
 const path = require("path")
 const util = require('node:util');
-const exec = util.promisify(require('node:child_process').exec);
 const spawn = require('../spawn');
 
 const cwdPath = path.resolve(process.cwd());
 let cwdNodeModulesPath = path.resolve(cwdPath, 'node_modules')
 
 
-// let doInstall = process.argv[2];
-// console.log('doInstall', doInstall)
 let reposLength, failed = [];
 
 module.exports = async function symlink(repos) {
@@ -88,6 +85,7 @@ async function install(repo, repos) {
         return console.error(dpath, 'not exist')
     }
     try {
+        console.log('installing', repo.name)
         let exitCode = await spawn(repo.packageManager, ['install'], {
             cwd: repo.absolutePath,
             shell: true,
@@ -101,24 +99,11 @@ async function install(repo, repos) {
             })
             console.error(`${repo.name}: ${repo.packageManager} install failed`.red)
         } else {
-            // ToDo: needs to run on defined repo but stiil require all repos in order to xecute on correct path
             let linkFailed = await require('./link.js')([repo], repos)
             if (linkFailed)
                 failed.push(linkFailed)
 
         }
-
-        // let {error} = await exec(`${repo.packageManager} install `, { cwd: dpath })
-        // if (!error) {
-        //     console.log(repo.name, 'installed')
-        //     let linkFailed = await require('./link.js')([repo])
-        //     if (linkFailed)
-        //         failed.push(linkFailed)
- 
-        // } else {
-        //     failed.push({name: 'install ', des: error})
-        //     console.error(repo.name, 'failed to install', error)
-        // }
 
     }
     catch (err) {
