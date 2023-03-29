@@ -1,3 +1,11 @@
+## [1.19.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.1...v1.19.2) (2023-03-29)
+
+
+### Bug Fixes
+
+* add try catch to test if yarn is availale ([52df538](https://github.com/CoCreate-app/CoCreate-cli/commit/52df538cbb7d74e8ef4e8ff85697f9484a0ca9fb))
+* try catch ([cac0941](https://github.com/CoCreate-app/CoCreate-cli/commit/cac094134aca97acb77c206d4e42e994b6049ffa))
+
 ## [1.19.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.0...v1.19.1) (2023-03-29)
 
 
