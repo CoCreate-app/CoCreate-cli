@@ -1,16 +1,20 @@
 const spawn = require('../spawn');
 const colors = require('colors');
 
-module.exports = async function linkPackages(repos) {
+module.exports = async function linkPackages(repos, repoList) {
     const failed = [], isLinked = {};
 
     try {
         for (let repo of repos) {
             if (!repo) continue;
+            if (repo.exclude && repo.exclude.includes('link')) 
+                continue
 
             console.log(repo.packageName, 'configuring ...')
-            await doLink(repo.deps, repo, repos, failed, isLinked)
-            await doLink(repo.devDeps, repo, repos, failed, isLinked)
+            if (!repoList)
+                repoList = repos
+            await doLink(repo.deps, repo, repoList, failed, isLinked)
+            await doLink(repo.devDeps, repo, repoList, failed, isLinked)
         }
     }
     catch (err) {
@@ -28,18 +32,6 @@ async function doLink(deps, repo, repos, failed, isLinked) {
     for (let dep of deps) {
         let depMeta = repos.find(meta => meta.packageName === dep);
         try {
-            // if (!depMeta) {
-            //     // ToDo: search file system for a package.json containing the package.name
-
-            //     failed.push({
-            //         name: repo.name,
-            //         des: `"${dep}" component can not be found in repositories.js`
-            //     })
-            //     console.error(`${repo.name}: "${dep}" component can not be found in repositories.js`.red)
-            //     continue;
-            // }
-
-
 
             if (depMeta && !isLinked[depMeta.packageName]) {
 
