@@ -7,6 +7,8 @@ module.exports = async function linkPackages(repos) {
     try {
         for (let repo of repos) {
             if (!repo) continue;
+            if (repo.exclude && repo.exclude.includes('link')) 
+                continue
 
             console.log(repo.packageName, 'configuring ...')
             await doLink(repo.deps, repo, repos, failed, isLinked)

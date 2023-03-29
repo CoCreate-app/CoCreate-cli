@@ -18,6 +18,7 @@ module.exports = async function symlink(repos) {
         if (repos[i].install == true) {
             reposLength -= 1
             await install(repos[i])
+
         } else if (cwdPath !== repos[i].absolutePath) {
             await createSymlink(repos[i])
         }
@@ -94,9 +95,13 @@ async function install(repo) {
         //     });
         // }
         let {error} = await exec(`${repo.packageManager} install `, { cwd: dpath })
-        if (!error)
+        if (!error) {
             console.log(repo.name, 'installed')
-        else {
+            let linkFailed = await require('./link.js')([repo])
+            if (linkFailed)
+                failed.push(linkFailed)
+ 
+        } else {
             failed.push({name: 'install ', des: error})
             console.error(repo.name, 'failed to install', error)
         }

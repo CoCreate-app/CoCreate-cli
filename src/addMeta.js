@@ -11,7 +11,8 @@ module.exports = async function addMeta(repos, failed, directory) {
 
         if (directory) {
             repos[i].absolutePath = path.resolve(directory, repos[i].path);
-            repos[i].directory = directory;        
+            const parsedPath = path.parse(repos[i].absolutePath);
+            repos[i].directory = parsedPath.dir       
         }
 
         let packagejson = path.resolve(repos[i].absolutePath, 'package.json');
