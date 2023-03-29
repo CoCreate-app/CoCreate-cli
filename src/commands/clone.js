@@ -8,6 +8,7 @@ module.exports = async function gitClone(repos) {
     const cwdPath = path.resolve(process.cwd());
 
     for (let i = 0; i < repos.length; i++) {
+        // ToDo: Check if path exist and if git.config or package.json  exist continue
         if (cwdPath !== repos[i].absolutePath) {
             let exitCode = await spawn('mkdir', ['-p', repos[i].directory], { stdio: 'inherit', cwd: process.cwd() })
             if (exitCode !== 0) {
