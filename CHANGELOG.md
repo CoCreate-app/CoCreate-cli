@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.0...v1.19.1) (2023-03-29)
+
+
+### Bug Fixes
+
+* execute replace with spawn ([1e8e538](https://github.com/CoCreate-app/CoCreate-cli/commit/1e8e538309ff7725d8423e7b734f87d6b9bfe926))
+
 # [1.19.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.18.0...v1.19.0) (2023-03-29)
 
 
