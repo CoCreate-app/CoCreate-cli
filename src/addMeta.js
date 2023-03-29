@@ -50,9 +50,13 @@ module.exports = async function addMeta(repos, failed, directory) {
                         if (fs.existsSync(lockFile))
                             repos[i].packageManager = 'yarn'
                         else {
-                            const { error } = await exec('yarn --version');
-                            if (!error)
-                                repos[i].packageManager = 'yarn'
+                            try {
+                                const { error } = await exec('yarn --version');
+                                if (!error)
+                                    repos[i].packageManager = 'yarn'
+                            } catch(e) {
+
+                            }
                         }
                         packageManager = repos[i].packageManager
                     }
