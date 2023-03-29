@@ -1,7 +1,7 @@
 const spawn = require('../spawn');
 const colors = require('colors');
 
-module.exports = async function linkPackages(repos) {
+module.exports = async function linkPackages(repos, repoList) {
     const failed = [], isLinked = {};
 
     try {
@@ -11,8 +11,10 @@ module.exports = async function linkPackages(repos) {
                 continue
 
             console.log(repo.packageName, 'configuring ...')
-            await doLink(repo.deps, repo, repos, failed, isLinked)
-            await doLink(repo.devDeps, repo, repos, failed, isLinked)
+            if (!repoList)
+                repoList = repos
+            await doLink(repo.deps, repo, repoList, failed, isLinked)
+            await doLink(repo.devDeps, repo, repoList, failed, isLinked)
         }
     }
     catch (err) {
