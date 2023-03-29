@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.18.0...v1.19.0) (2023-03-29)
+
+
+### Features
+
+* link supports defining repos to excute and repolist to link ([a8c50dc](https://github.com/CoCreate-app/CoCreate-cli/commit/a8c50dcf810280b2cb61aa6b23748768ca90485d))
+
 # [1.18.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.17.2...v1.18.0) (2023-03-29)
 
 
