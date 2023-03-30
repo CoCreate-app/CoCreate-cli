@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/cli",
-  "version": "1.19.2",
+  "version": "1.19.3",
   "description": "Polyrepo management bash CLI tool. Run all git commands and yarn commands on multiple repositories. Also includes a few custom macros for cloning, installing, etc.",
   "keywords": [
     "cli",
@@ -72,8 +72,8 @@
     "webpack-log": "^3.0.1"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.6.1",
-    "@cocreate/hosting": "^1.8.1",
+    "@cocreate/docs": "^1.6.2",
+    "@cocreate/hosting": "^1.8.2",
     "colors": "latest",
     "glob": "^7.1.7",
     "got": "latest",
