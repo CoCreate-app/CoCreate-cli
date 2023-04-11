@@ -38,7 +38,6 @@ module.exports = async function execute(command, repos, config) {
                     if (error)
                         exitCode = 1
                 } else {
-                    console.log(`args: `, `${args}`)
                     exitCode = await spawn(type, [`${args}`], {
                         cwd: repo.absolutePath,
                         shell: true,
