@@ -43,6 +43,10 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-cli.git'
     },
     {
+        'path': '../CoCreate-clone',
+        'repo': 'github.com/CoCreate-app/CoCreate-clone.git'
+    },
+    {
         'path': '../CoCreate-codearea',
         'repo': 'github.com/CoCreate-app/CoCreate-codearea.git'
     },
@@ -409,67 +413,67 @@ module.exports = [
     
     
 //     // Components
-//     {
-//         'path': '../CoCreate-auth',
-//         'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
-//     },
-//     {
-//         'path': '../CoCreate-crud-server',
-//         'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
-//     },
-//     // {
-//     //     'path': '../CoCreate-crdt-server',
-//     //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
-//     // },
-//     {
-//         'path': '../CoCreate-file-server',
-//         'repo': 'github.com/CoCreate-app/CoCreate-file-server.git'
-//     },
-//     {
-//         'path': '../CoCreate-loadtest',
-//         'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
-//     },
-//     {
-//         'path': '../CoCreate-message-server',
-//         'repo': 'github.com/CoCreate-app/CoCreate-message-server.git'
-//     },
-//     {
-//         'path': '../CoCreate-metrics-server',
-//         'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
-//     },
-//     {
-//         'path': '../CoCreate-mongodb',
-//         'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
-//     },
-//     {
-//         'path': '../CoCreate-node-autoscaler',
-//         'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
-//     },
-//     {
-//         'path': '../CoCreate-permissions',
-//         'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
-//     },
-//     {
-//         'path': '../CoCreate-server-side-render',
-//         'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
-//     },
-//     {
-//         'path': '../CoCreate-socket-server',
-//         'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
-//     },
+    {
+        'path': '../CoCreate-auth',
+        'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
+    },
+    {
+        'path': '../CoCreate-crud-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
+    },
+    // {
+    //     'path': '../CoCreate-crdt-server',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
+    // },
+    {
+        'path': '../CoCreate-file-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-file-server.git'
+    },
+    {
+        'path': '../CoCreate-loadtest',
+        'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
+    },
+    {
+        'path': '../CoCreate-message-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-message-server.git'
+    },
+    {
+        'path': '../CoCreate-metrics-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
+    },
+    {
+        'path': '../CoCreate-mongodb',
+        'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
+    },
+    {
+        'path': '../CoCreate-node-autoscaler',
+        'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
+    },
+    {
+        'path': '../CoCreate-permissions',
+        'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
+    },
+    {
+        'path': '../CoCreate-server-side-render',
+        'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
+    },
+    {
+        'path': '../CoCreate-socket-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
+    },
     
-//     // Maybe depreciated
-//     {
-//         'path': '../CoCreate-keepalived',
-//         'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
-//     },
-//     {
-//         'path': '../CoCreate-ide',
-//         'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
-//     },
-//     // {
-//     //     'path': '../CoCreateEmail',
-//     //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
-//     // },
+    // Maybe depreciated
+    {
+        'path': '../CoCreate-keepalived',
+        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
+    },
+    {
+        'path': '../CoCreate-ide',
+        'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
+    },
+    // {
+    //     'path': '../CoCreateEmail',
+    //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
+    // },
 
 ];
