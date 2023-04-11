@@ -22,7 +22,7 @@ for (let option of options) {
 }
 
 command = argv
-    .map((part) => part.match(/ |'|"/) ? `'${part.replace(/'/,'\\\'')}'` : part)
+    .map((part) => part.match(/ |'|"/) ? `'${part.replace(/'/, '\\\'')}'` : part)
     .join(" ");
 
 function getRepositories(path) {
@@ -61,9 +61,9 @@ if (config['c'] && fs.existsSync(config['c'])) {
     console.error(`a configuration file can not be found`.red);
     process.exit(1);
 }
-config = {hideMessage: false, ...config };
+config = { hideMessage: false, ...config };
 
-(async() => {
+(async () => {
     repos = await addMeta(repos, [], directory)
     let failed = await execute(command, repos, config);
     if (failed) {
