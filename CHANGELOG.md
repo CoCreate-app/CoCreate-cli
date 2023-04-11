@@ -1,3 +1,10 @@
+## [1.19.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.5...v1.19.6) (2023-04-11)
+
+
+### Bug Fixes
+
+* add @cocreate/clone repo list ([cb7a3e0](https://github.com/CoCreate-app/CoCreate-cli/commit/cb7a3e036f6ab9cea0cd2992bf25181bf8e12880))
+
 ## [1.19.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.4...v1.19.5) (2023-04-11)
 
 
