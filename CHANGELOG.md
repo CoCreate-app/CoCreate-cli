@@ -1,3 +1,12 @@
+## [1.19.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.3...v1.19.4) (2023-04-11)
+
+
+### Bug Fixes
+
+* renamed domains to hosts ([50f3e8b](https://github.com/CoCreate-app/CoCreate-cli/commit/50f3e8b3b8791f4965185e6cea573ecd7415fd46))
+* renamed domans to hosts ([74d952f](https://github.com/CoCreate-app/CoCreate-cli/commit/74d952fd7e90f9fb4f027874293de6df64962dc4))
+* replaceAll single quote with double quotes ([faf067e](https://github.com/CoCreate-app/CoCreate-cli/commit/faf067e2801e0243e249ddb193dc679a6b04f4c0))
+
 ## [1.19.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.2...v1.19.3) (2023-03-30)
 
 
