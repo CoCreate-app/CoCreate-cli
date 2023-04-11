@@ -22,7 +22,7 @@ module.exports = async function execute(command, repos, config) {
 
     } else {
         let type = command.split(' ')[0]
-        let args = command.replace(type, '').replace("'", '"').trim()
+        let args = command.replace(type, '').replaceAll("'", '"').trim()
 
         for (let repo of repos) {
             try {
@@ -38,6 +38,7 @@ module.exports = async function execute(command, repos, config) {
                     if (error)
                         exitCode = 1
                 } else {
+                    console.log(`args: `, `${args}`)
                     exitCode = await spawn(type, [`${args}`], {
                         cwd: repo.absolutePath,
                         shell: true,

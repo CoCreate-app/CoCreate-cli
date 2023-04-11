@@ -40,7 +40,7 @@ function update(MdPath) {
                 "name": "index.html",
                 "path": "/docs/${name}/index.html",
                 "src": "{{./docs/index.html}}",
-                "domains": [
+                "hosts": [
                     "general.cocreate.app"
                 ],
                 "directory": "/docs/${name}",
