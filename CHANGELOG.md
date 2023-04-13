@@ -1,3 +1,10 @@
+## [1.19.8](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.7...v1.19.8) (2023-04-13)
+
+
+### Bug Fixes
+
+* replaced substr with substring ([5e2d166](https://github.com/CoCreate-app/CoCreate-cli/commit/5e2d166a4dc8ee07616fc9aff38845bed98f2a1e))
+
 ## [1.19.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.6...v1.19.7) (2023-04-11)
 
 
