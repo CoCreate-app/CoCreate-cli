@@ -37,7 +37,8 @@
     "replace": "nodejs src/commands/replace.js",
     "webpack": "nodejs src/commands/fs/webpack.js",
     "docs": "node ./node_modules/@cocreate/docs/src/index.js",
-    "hosting": "node ./node_modules/@cocreate/hosting/src/index.js"
+    "hosting": "node ./node_modules/@cocreate/hosting/src/index.js",
+    "permissions": "chmod +rwx /home/ubuntu/.nvm/versions/node/v19.8.1/bin/coc"
   },
   "repository": {
     "type": "git",
