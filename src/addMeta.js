@@ -7,7 +7,7 @@ module.exports = async function addMeta(repos, failed, directory) {
     let packageManager;
     for (let i = 0; i < repos.length; i++) {
         repos[i].name = path.basename(repos[i].path);
-        repos[i].plainName = repos[i].name.substr(9);
+        repos[i].plainName = repos[i].name.substring(9);
 
         if (directory) {
             repos[i].absolutePath = path.resolve(directory, repos[i].path);

@@ -21,7 +21,7 @@ function globUpdater(er, files) {
 
 function update(YmlPath) {
   // component name
-  let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substr(9);
+  let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substring(9);
   let fileContent = `name: Manual Workflow
 on:
   workflow_dispatch:

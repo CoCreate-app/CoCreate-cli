@@ -15,7 +15,7 @@ function globUpdater(er, files) {
 
 function update(YmlPath) {
     // component name
-    let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substr(9);
+    let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substring(9);
     let fileContent = `# ignore
 node_modules
 dist

@@ -21,7 +21,7 @@ let metaYarnLink = list.map(meta => {
         let packageObj = require(packagejson);
 
         let packageName = name.startsWith('cocreate-') ?
-            '@cocreate/' + name.substr(9) : packageObj.name;
+            '@cocreate/' + name.substring(9) : packageObj.name;
 
         return { ...meta, name, packageName, absolutePath, packageObj }
     }
@@ -45,7 +45,7 @@ function update(param) {
     if (!param) return;
     let { packageObj, absolutePath } = param;
     let { name, description } = packageObj;
-    let shortName = name.substr(10);
+    let shortName = name.substring(10);
     let fileContent = `# CoCreate-${shortName}
 ${description} Take it for a spin in our [playground!](https://cocreate.app/docs/${shortName})
 

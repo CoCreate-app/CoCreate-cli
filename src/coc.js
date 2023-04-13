@@ -50,7 +50,7 @@ if (config['c'] && fs.existsSync(config['c'])) {
 } else if (fs.existsSync(packageJsonPath)) {
     let repoPath = path.resolve(process.cwd());
     let packageObj = require(packageJsonPath);
-    let repoUrl = packageObj.repository.url.substr(12);
+    let repoUrl = packageObj.repository.url.substring(12);
     repos = [{
         path: `${repoPath}`,
         repo: `${repoUrl}`

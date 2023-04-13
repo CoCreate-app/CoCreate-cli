@@ -14,15 +14,15 @@ function globUpdater(er, files) {
 
 
 function update(MdPath) {
-    let name = path.basename(path.resolve(path.dirname(MdPath), './')).substr(9);
+    let name = path.basename(path.resolve(path.dirname(MdPath), './')).substring(9);
     let document_id = '';
     let replaceContent = fs.readFileSync(MdPath).toString();
 
 
-    let content_source = replaceContent.substr(replaceContent.indexOf("sources"));
-    let content1 = content_source.substr(content_source.indexOf("document_id"));
-    let content2 = content1.substr(content1.indexOf(':'));
-    document_id = content2.substr(3, content2.indexOf(',') - 4);
+    let content_source = replaceContent.substring(replaceContent.indexOf("sources"));
+    let content1 = content_source.substring(content_source.indexOf("document_id"));
+    let content2 = content1.substring(content1.indexOf(':'));
+    document_id = content2.substring(3, content2.indexOf(',') - 4);
 
 
     let fileContent = `module.exports = {

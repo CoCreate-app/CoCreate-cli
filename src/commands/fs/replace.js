@@ -18,7 +18,7 @@ function update(mdPath) {
     do{
         nameDir = path.dirname(nameDir);
     }while(! path.basename(nameDir).startsWith('CoCreate-'))
-    let name = path.basename(nameDir).substr(9);
+    let name = path.basename(nameDir).substring(9);
     // console.log(name);
     // process.exit();
     let replaceContent = fs.readFileSync(mdPath).toString()

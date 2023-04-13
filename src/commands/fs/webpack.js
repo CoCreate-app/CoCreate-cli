@@ -38,7 +38,7 @@ function update(webpackPath) {
   // get component name in came case "cocreate" less
   let componentName = toCamelCase(name);
   if (componentName.startsWith('CoCreate'))
-    componentName = componentName.substr(8);
+    componentName = componentName.substring(8);
 
   if (componentName === componentName.toUpperCase())
     componentName = componentName.toLowerCase();
@@ -175,7 +175,7 @@ function toCamelCase(str) {
     if (index !== -1) {
       let t = str.substring(0, index);
       t += String.fromCharCode(str.charCodeAt(index + 1) - 32);
-      t += str.substr(index + 2);
+      t += str.substring(index + 2);
       str = t;
     }
     else break;
@@ -184,7 +184,7 @@ function toCamelCase(str) {
 }
 
 function lowerCaseFirstChar(str) {
-  return String.fromCharCode(str.charCodeAt(0) + 32) + str.substr(1);
+  return String.fromCharCode(str.charCodeAt(0) + 32) + str.substring(1);
 }
 
 
