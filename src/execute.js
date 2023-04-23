@@ -8,7 +8,10 @@ const exec = util.promisify(require('node:child_process').exec);
 
 module.exports = async function execute(command, repos, config) {
     let failed = [];
-    let predefined = path.resolve(__dirname, 'commands', command + '.js');
+    let type = command.split(' ')[0]
+    let args = command.replace(type, '').replaceAll("'", '"').trim()
+
+    let predefined = path.resolve(__dirname, 'commands', type + '.js');
 
     if (fs.existsSync(predefined)) {
         console.warn(`executing a predefined command in ${predefined}`.blue);
@@ -18,11 +21,11 @@ module.exports = async function execute(command, repos, config) {
         else
             console.log('running on all repos'.blue)
 
-        failed = require(predefined)(repos)
+        failed = require(predefined)(args, repos)
 
     } else {
-        let type = command.split(' ')[0]
-        let args = command.replace(type, '').replaceAll("'", '"').trim()
+        // let type = command.split(' ')[0]
+        // let args = command.replace(type, '').replaceAll("'", '"').trim()
 
         for (let repo of repos) {
             try {

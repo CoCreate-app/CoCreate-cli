@@ -2,7 +2,7 @@ let fs = require('fs');
 const path = require('path');
 const failed = [];
 
-module.exports = async function gitConfig(repos) {
+module.exports = async function gitConfig(repos, args) {
     try {
       await getPrompts(repos);
     }

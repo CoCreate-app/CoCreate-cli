@@ -1,7 +1,7 @@
 let fs = require('fs');
 const path = require("path");
 
-module.exports = async function linkPackages(repos) {
+module.exports = async function linkPackages(repos, args) {
     const failed = []
     const prompt = require('prompt');
 

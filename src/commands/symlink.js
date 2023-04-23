@@ -9,7 +9,7 @@ let cwdNodeModulesPath = path.resolve(cwdPath, 'node_modules')
 
 let reposLength, failed = [];
 
-module.exports = async function symlink(repos) {
+module.exports = async function symlink(repos, args) {
     reposLength = repos.length
 
     for (let i = 0; i < repos.length; i++) {

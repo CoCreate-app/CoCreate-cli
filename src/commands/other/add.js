@@ -5,7 +5,7 @@ const colors = require('colors');
 const addMeta = require('../../addMeta');
 
 
-module.exports = async function updateYarnLink(repos) {
+module.exports = async function updateYarnLink(repos, args) {
     let failed = [];
 
     try {

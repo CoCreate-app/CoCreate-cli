@@ -3,7 +3,7 @@ const spawn = require('../spawn');
 const colors = require('colors');
 const path = require('path');
 
-module.exports = async function gitClone(repos) {
+module.exports = async function gitClone(repos, args) {
     const failed = [];
     const cwdPath = path.resolve(process.cwd());
 
