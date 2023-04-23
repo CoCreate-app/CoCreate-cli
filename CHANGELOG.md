@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.8...v1.20.0) (2023-04-23)
+
+
+### Features
+
+* nodeCertManager and nginxConfigManager ([4e3d714](https://github.com/CoCreate-app/CoCreate-cli/commit/4e3d7148765951e1df3cd1fc06151723cc3434f6))
+
 ## [1.19.8](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.7...v1.19.8) (2023-04-13)
 
 
