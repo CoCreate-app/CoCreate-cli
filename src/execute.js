@@ -6,10 +6,11 @@ const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
 
 
-module.exports = async function execute(command, repos, config) {
+module.exports = async function execute(command, repos = [], config) {
     let failed = [];
-    let type = command.split(' ')[0]
-    let args = command.replace(type, '').replaceAll("'", '"').trim()
+    let args = command.replaceAll("'", '"').trim().split(' ')
+    let type = args[0]
+    args.shift()
 
     let predefined = path.resolve(__dirname, 'commands', type + '.js');
 
@@ -18,16 +19,13 @@ module.exports = async function execute(command, repos, config) {
    
         if (repos.length == 1)
             console.log(`running on ${repos[0].name} repo`.blue)
-        else
+        else if (repos.length)
             console.log('running on all repos'.blue)
 
-        failed = require(predefined)(args, repos)
+        failed = require(predefined)(repos, args)
 
     } else {
-        
-        // let type = command.split(' ')[0]
-        // let args = command.replace(type, '').replaceAll("'", '"').trim()
-
+    
         for (let repo of repos) {
             try {
                 if (repo.exclude && repo.exclude.includes(type)) 
@@ -42,7 +40,7 @@ module.exports = async function execute(command, repos, config) {
                     if (error)
                         exitCode = 1
                 } else {
-                    exitCode = await spawn(type, [`${args}`], {
+                    exitCode = await spawn(type, args, {
                         cwd: repo.absolutePath,
                         shell: true,
                         stdio: 'inherit'
