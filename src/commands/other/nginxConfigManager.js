@@ -78,13 +78,45 @@ server {
         let test = await exec(`sudo nginx -t`);
         if (test.stderr.includes('test is successful')) {
             await exec(`sudo systemctl reload nginx`);
-            console.log('test passed reloading nginx', host)
+            console.log(host, 'test passed reloading nginx')
             response[host] = true
         } else {
-            console.log('test failed', host)
+            console.log(host, 'test failed')
             response[host] = false
         }
     }
+
+
+    if (!fs.existsSync(`${enabled}main`)) {
+        let main = `server {
+            listen 80 default_server;
+            listen [::]:80 default_server;
+        
+        
+            server_name _;
+            return 301 https://$host$request_uri;
+        }`
+        
+        fs.writeFileSync(`${available}main`, main)
+        await exec(`sudo ln -s ${available}main ${enabled}`);
+
+        if (fs.existsSync(`${enabled}default`))
+            fs.unlinkSync(`${enabled}default`)
+        if (fs.existsSync(`${available}default`))
+            fs.unlinkSync(`${available}default`)
+        
+        let test = await exec(`sudo nginx -t`);
+        if (test.stderr.includes('test is successful')) {
+            await exec(`sudo systemctl reload nginx`);
+            console.log('main test passed reloading nginx')
+            response['main'] = true
+        } else {
+            console.log('main test failed')
+            response['main'] = false
+        }
+    
+    }
+
     return response
 }
 
@@ -93,13 +125,14 @@ async function deleteServer(hosts) {
     if (!Array.isArray(hosts))
         hosts = [hosts]
     for (let host of hosts) {
-        fs.unlinkSync(`${available}${host}`)
+        if (fs.existsSync(`${enabled}${host}`))
+            fs.unlinkSync(`${enabled}${host}`)
+        if (fs.existsSync(`${available}${host}`))
+            fs.unlinkSync(`${available}${host}`)
+            
         response[host] = true
     }
     return response
 }
-
-// createServer(['cocreate.app'])
-// deleteServer(['cocreate.app'])
 
 module.exports = {createServer, deleteServer}
