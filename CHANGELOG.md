@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.23.0...v1.24.0) (2023-04-23)
+
+
+### Features
+
+* default server is removed and replaced with main server, deleteServer removes from enabled and available ([5fed172](https://github.com/CoCreate-app/CoCreate-cli/commit/5fed172e7f2d48b413ef5a74d9ddfaf9313db066))
+
 # [1.23.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.22.0...v1.23.0) (2023-04-23)
 
 
