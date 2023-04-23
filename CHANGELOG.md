@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.21.0...v1.22.0) (2023-04-23)
+
+
+### Features
+
+* args sent to command ([79eecb1](https://github.com/CoCreate-app/CoCreate-cli/commit/79eecb13bc0ea15e5593dc834f584824bf009eb9))
+
 # [1.21.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.20.1...v1.21.0) (2023-04-23)
 
 
