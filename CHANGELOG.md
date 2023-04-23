@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.20.0...v1.20.1) (2023-04-23)
+
+
+### Bug Fixes
+
+* update demo domains clean code ([aafd70d](https://github.com/CoCreate-app/CoCreate-cli/commit/aafd70d2c29d7bb0837e8e90c0c12d8025899587))
+
 # [1.20.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.19.8...v1.20.0) (2023-04-23)
 
 
