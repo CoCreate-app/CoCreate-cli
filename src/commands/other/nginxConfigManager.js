@@ -101,7 +101,7 @@ async function deleteServer(hosts) {
     return response
 }
 
-// createServer(['cocreate.app', 'cocreate.ai'])
-// deleteServer(['cocreate.com'])
+// createServer(['cocreate.app'])
+// deleteServer(['cocreate.app'])
 
 module.exports = {createServer, deleteServer}

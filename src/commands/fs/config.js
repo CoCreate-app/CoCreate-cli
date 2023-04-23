@@ -1,6 +1,5 @@
 let glob = require("glob");
 let fs = require('fs');
-const prettier = require("prettier");
 const path = require("path");
 
 function globUpdater(er, files) {

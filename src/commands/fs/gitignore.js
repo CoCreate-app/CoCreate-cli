@@ -1,6 +1,5 @@
 let glob = require("glob");
 let fs = require('fs');
-const prettier = require("prettier");
 const path = require("path")
 
 function globUpdater(er, files) {
@@ -13,22 +12,16 @@ function globUpdater(er, files) {
 
 
 
-function update(YmlPath) {
-    // component name
-    let name = path.basename(path.resolve(path.dirname(YmlPath), '../..')).substring(9);
+function update(Path) {
     let fileContent = `# ignore
 node_modules
 dist
 .npmrc
 
 `;
-    let formated = prettier.format(fileContent, { semi: false, parser: "yaml" });
-    // console.log(fileContent);
-    // process.exit()
-    if (fs.existsSync(YmlPath))
-        fs.unlinkSync(YmlPath)
-    fs.writeFileSync(YmlPath, formated)
-    
+    if (fs.existsSync(Path))
+        fs.unlinkSync(Path)
+    fs.writeFileSync(Path, fileContent) 
 
 }
 

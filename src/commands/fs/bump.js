@@ -1,6 +1,5 @@
 
 let fs = require('fs');
-const prettier = require("prettier");
 let list = require('../../../repositories.js');
 const path = require("path")
 
@@ -62,16 +61,14 @@ function bumpVersion(filePath, name) {
             }
         }
 
-        let str = JSON.stringify(object)
-        let formated = prettier.format(str, { semi: false, parser: "json" });
+        let fileContent = JSON.stringify(object, null, 4)
 
         filePath = filePath.replace('/package.json', '')
         let Path = path.resolve(filePath, 'package.json')
-        if (fs.existsSync(Path)){
+        if (fs.existsSync(Path))
             fs.unlinkSync(Path)
-        }
 
-        fs.writeFileSync(Path, formated)
+        fs.writeFileSync(Path, fileContent)
     }
 }
 
