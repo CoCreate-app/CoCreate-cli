@@ -24,6 +24,7 @@ module.exports = async function execute(command, repos, config) {
         failed = require(predefined)(args, repos)
 
     } else {
+        
         // let type = command.split(' ')[0]
         // let args = command.replace(type, '').replaceAll("'", '"').trim()
 
