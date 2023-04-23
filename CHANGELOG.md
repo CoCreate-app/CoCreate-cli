@@ -1,3 +1,11 @@
+# [1.23.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.22.0...v1.23.0) (2023-04-23)
+
+
+### Features
+
+* repos not required, args is an array ([7329430](https://github.com/CoCreate-app/CoCreate-cli/commit/7329430ff526291ae1ca99f647000d5581b80734))
+* repos not required, args updated to an array ([43c8197](https://github.com/CoCreate-app/CoCreate-cli/commit/43c8197d2e5d07a34842ca17b7a1bef625171daf))
+
 # [1.22.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.21.0...v1.22.0) (2023-04-23)
 
 
