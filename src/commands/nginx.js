@@ -1,4 +1,4 @@
-const {createServer, deleteServer} = require('./other/nodeCertManager.js')
+const {createServer, deleteServer} = require('./other/nginxConfigManager.js')
 
 module.exports = async function nginx(repos, args) {
     let failed = [];

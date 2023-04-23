@@ -57,14 +57,16 @@ if (config['c'] && fs.existsSync(config['c'])) {
     }];
     directory = path.dirname(packageJsonPath);
     console.warn(`using ${packageJsonPath} configuration`.yellow);
-} else {
-    console.error(`a configuration file can not be found`.red);
-    process.exit(1);
-}
+} 
+// else {
+//     console.error(`a configuration file can not be found`.red);
+//     process.exit(1);
+// }
 config = { hideMessage: false, ...config };
 
 (async () => {
-    repos = await addMeta(repos, [], directory)
+    if (repos && repos.length)
+        repos = await addMeta(repos, [], directory)
     let failed = await execute(command, repos, config);
     if (failed) {
         if (failed.length === 0)
