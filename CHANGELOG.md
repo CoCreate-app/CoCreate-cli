@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.20.1...v1.21.0) (2023-04-23)
+
+
+### Features
+
+* nginx create and delete commands ie. coc nginx create <domain> ([6dfe58c](https://github.com/CoCreate-app/CoCreate-cli/commit/6dfe58c66ffd20b1e0005809ad769bc57b2bbffe))
+
 ## [1.20.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.20.0...v1.20.1) (2023-04-23)
 
 
