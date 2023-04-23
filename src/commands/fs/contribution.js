@@ -1,8 +1,6 @@
 let fs = require('fs');
 const prettier = require("prettier");
 const path = require("path")
-const { promisify } = require('util');
-const exec = promisify(require('child_process').exec)
 let list = require('../repositories.js');
 
 
@@ -35,13 +33,11 @@ let metaYarnLink = list.map(meta => {
 (async() => {
     for (let meta of metaYarnLink) {
         await update(meta)
-        // await updateYarnLink(metaYarnLink[0])
     }
 })();
 
 
 function update(param) {
-    // component name
     if (!param) return;
     let { packageObj, absolutePath } = param;
     let { name, description } = packageObj;

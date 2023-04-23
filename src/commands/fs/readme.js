@@ -2,7 +2,6 @@ let fs = require('fs');
 const prettier = require("prettier");
 const path = require("path")
 const { promisify } = require('util');
-const exec = promisify(require('child_process').exec)
 let list = require('../repositories.js');
 
 

@@ -31,9 +31,9 @@ function update(webpackPath) {
   let entry;
   
   if (fs.existsSync( path.resolve(dir, './src/index.js') ))
-  entry = "./src/index.js";
+    entry = "./src/index.js";
   else
-  entry = './src/' + name + '.js';
+    entry = './src/' + name + '.js';
 
   // get component name in came case "cocreate" less
   let componentName = toCamelCase(name);
