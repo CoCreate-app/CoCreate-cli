@@ -1,3 +1,10 @@
+## [1.27.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.1...v1.27.2) (2023-04-24)
+
+
+### Bug Fixes
+
+* node version 16 in build action ([7e260a8](https://github.com/CoCreate-app/CoCreate-cli/commit/7e260a8072aad0478d0ce88458bf35373a5445e0))
+
 ## [1.27.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.0...v1.27.1) (2023-04-24)
 
 
