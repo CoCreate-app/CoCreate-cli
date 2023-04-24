@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.26.1...v1.27.0) (2023-04-24)
+
+
+### Features
+
+* support for pnpm package manager ([187d866](https://github.com/CoCreate-app/CoCreate-cli/commit/187d866d41177aac1c05db284174377636b74645))
+
 ## [1.26.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.26.0...v1.26.1) (2023-04-24)
 
 
