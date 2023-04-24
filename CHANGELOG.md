@@ -1,3 +1,10 @@
+## [1.27.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.0...v1.27.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* workflow node verssion 16 ([876fa50](https://github.com/CoCreate-app/CoCreate-cli/commit/876fa50ed8aaa8241442d252c26da4d0a29c84bb))
+
 # [1.27.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.26.1...v1.27.0) (2023-04-24)
 
 
