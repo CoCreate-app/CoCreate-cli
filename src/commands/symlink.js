@@ -99,9 +99,7 @@ async function install(repo, repos) {
             })
             console.error(`${repo.name}: ${repo.packageManager} install failed`.red)
         } else {
-            let linkFailed = await require('./link.js')([repo], repos)
-            if (linkFailed)
-                failed.push(linkFailed)
+            console.log(`${repo.name}: ${repo.packageManager} install succesful`.green)
 
         }
 
