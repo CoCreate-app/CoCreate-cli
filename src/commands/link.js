@@ -10,10 +10,40 @@ module.exports = async function linkPackages(repos, args) {
             if (repo.exclude && repo.exclude.includes('link')) 
                 continue
 
-            console.log(repo.packageName, 'configuring ...')
+            if (process.cwd() === repo.absolutePath)
+                continue
             
-            await doLink(repo.deps, repo, repos, failed, isLinked)
-            await doLink(repo.devDeps, repo, repos, failed, isLinked)
+            let exitCode = await spawn(repo.packageManager, ['link'], {
+                cwd: repo.absolutePath,
+                shell: true,
+                stdio: 'inherit'
+            });
+
+            if (exitCode !== 0) {
+                failed.push({
+                    name: repo.name,
+                    des: `${repo.packageManager} link failed`
+                })
+                console.error(`${repo.name}: ${repo.packageManager} link failed`.red)
+            } else {
+                console.log(repo.packageManager, 'link', repo.packageName)
+
+                let exitCode = await spawn(repo.packageManager, ['link', repo.packageName], {
+                    cwd: process.cwd(),
+                    shell: true,
+                    stdio: 'inherit'
+                })
+                if (exitCode !== 0) {
+                    failed.push({
+                        name: repo.name,
+                        des: `${ repo.packageManager} link ${ repo.packageName} failed`
+                    });
+                    console.error(`${repo.name}: ${ repo.packageManager} link ${ repo.packageName} failed`.red)
+                }
+            }
+
+            // await doLink(repo.deps, repo, repos, failed, isLinked)
+            // await doLink(repo.devDeps, repo, repos, failed, isLinked)
         }
     }
     catch (err) {
