@@ -58,26 +58,11 @@
   "bin": {
     "coc": "src/coc.js"
   },
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^1.5.0",
-    "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "^5.1.1",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^5.24.4",
-    "webpack-cli": "^4.5.0",
-    "webpack-log": "^3.0.1"
-  },
   "dependencies": {
     "@cocreate/docs": "^1.6.5",
     "@cocreate/hosting": "^1.8.5",
     "colors": "latest",
     "glob": "^7.1.7",
-    "got": "latest",
     "prettier": "^2.3.2",
     "prompt": "^1.2.0"
   }
