@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.25.0...v1.26.0) (2023-04-24)
+
+
+### Features
+
+* pwa manifest ([b2fe852](https://github.com/CoCreate-app/CoCreate-cli/commit/b2fe85210a3f4c070617d25d7a333b4bb6558813))
+
 # [1.25.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.24.0...v1.25.0) (2023-04-24)
 
 
