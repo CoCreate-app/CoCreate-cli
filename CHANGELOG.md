@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.24.0...v1.25.0) (2023-04-24)
+
+
+### Features
+
+* removed dev dependencies, run link.js during install.js ([14fe135](https://github.com/CoCreate-app/CoCreate-cli/commit/14fe135578205e840127e76062e8b27c28d14553))
+
 # [1.24.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.23.0...v1.24.0) (2023-04-23)
 
 
