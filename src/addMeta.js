@@ -47,16 +47,21 @@ module.exports = async function addMeta(repos, failed, directory) {
                     repos[i].packageManager = 'npm'
                     let lockFile = path.resolve(repos[i].absolutePath, 'package-lock.json');
                     if (!fs.existsSync(lockFile)) {
-                        lockFile = path.resolve(repos[i].absolutePath, 'yarn.lock');
+                        lockFile = path.resolve(repos[i].absolutePath, 'pnpm-lock.yaml');
                         if (fs.existsSync(lockFile))
-                            repos[i].packageManager = 'yarn'
+                            repos[i].packageManager = 'pnpm'
                         else {
-                            try {
-                                const { error } = await exec('yarn --version');
-                                if (!error)
-                                    repos[i].packageManager = 'yarn'
-                            } catch(e) {
+                            lockFile = path.resolve(repos[i].absolutePath, 'yarn.lock');
+                            if (fs.existsSync(lockFile))
+                                repos[i].packageManager = 'yarn'
+                            else {
+                                try {
+                                    const { error } = await exec('yarn --version');
+                                    if (!error)
+                                        repos[i].packageManager = 'yarn'
+                                } catch(e) {
 
+                                }
                             }
                         }
                         packageManager = repos[i].packageManager
