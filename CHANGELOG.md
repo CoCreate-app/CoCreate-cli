@@ -1,3 +1,10 @@
+## [1.26.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.26.0...v1.26.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* repos are linked to process.cwd() ([8ffccc5](https://github.com/CoCreate-app/CoCreate-cli/commit/8ffccc52c2651c9c8079731b63dd1fce26eb2b65))
+
 # [1.26.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.25.0...v1.26.0) (2023-04-24)
 
 
