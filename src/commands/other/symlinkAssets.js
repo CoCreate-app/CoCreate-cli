@@ -21,6 +21,6 @@ function createSymlink(dir, dest){
 
 
 // createSymlink('./assets', '../../assets')
-createSymlink('./manifest.json', '../../manifest.json')
+createSymlink('./manifest.webmanifest', '../../manifest.webmanifest')
 createSymlink('./sw.js', '../../sw.js')
 createSymlink('./offline.html', '../../offline.html')
