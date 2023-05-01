@@ -1,3 +1,14 @@
+## [1.27.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.2...v1.27.3) (2023-05-01)
+
+
+### Bug Fixes
+
+* fullscreen target updated to fullscreen fullscreen-target ([857ec43](https://github.com/CoCreate-app/CoCreate-cli/commit/857ec434fd169cd604a92c360d2c024205992f0f))
+* package-lock.json and pnpm-lock.yaml added to .gitignore ([eb5977b](https://github.com/CoCreate-app/CoCreate-cli/commit/eb5977b2481b8ec105d7ff21d73bc9f25bccb026))
+* replace fontawesome with svg ([d91bada](https://github.com/CoCreate-app/CoCreate-cli/commit/d91badad896f554c416d6e67d2b1f86e7e9eccc0))
+* replace mkdir with fs.mkdirSync ([8f001a0](https://github.com/CoCreate-app/CoCreate-cli/commit/8f001a004d106708382ad265b14410e630fdff5f))
+* update manifest.json to manifest.webmanifest ([c89a88f](https://github.com/CoCreate-app/CoCreate-cli/commit/c89a88f72cb7e500c3341df000dc04df86731fdb))
+
 ## [1.27.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.1...v1.27.2) (2023-04-24)
 
 
