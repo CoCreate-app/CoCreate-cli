@@ -1,3 +1,10 @@
+## [1.27.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.3...v1.27.4) (2023-05-01)
+
+
+### Bug Fixes
+
+* update config.js and removed fontawesome ([205cc5f](https://github.com/CoCreate-app/CoCreate-cli/commit/205cc5f0fb9f1c5be903e7ec27baf55776107417))
+
 ## [1.27.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.2...v1.27.3) (2023-05-01)
 
 
