@@ -43,9 +43,10 @@ function update(MdPath) {
                     "general.cocreate.app"
                 ],
                 "directory": "/docs/${name}",
-                "content-type": "text/html",
+                "parentDirectory": "{{parentDirectory}}",
+                "content-type": "{{content-type}}",
                 "public": "true",
-                "website_id": "5ffbceb7f11d2d00103c4535"
+                "website_id": "644d4bff8036fb9d1d1fd69c"
             }
         }
     ]
