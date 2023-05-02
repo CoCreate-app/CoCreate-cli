@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.4...v1.28.0) (2023-05-02)
+
+
+### Features
+
+* symlinkPwa ([54d0136](https://github.com/CoCreate-app/CoCreate-cli/commit/54d01367e1a3f310a1711086f820e09b462bef4c))
+
 ## [1.27.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.3...v1.27.4) (2023-05-01)
 
 
