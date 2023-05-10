@@ -1,3 +1,17 @@
+## [1.28.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.28.1...v1.28.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* apikey renamed to key ([dcbe68c](https://github.com/CoCreate-app/CoCreate-cli/commit/dcbe68c0bbbfc9a3bfae6c636013539e14162e68))
+
+## [1.28.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.28.0...v1.28.1) (2023-05-10)
+
+
+### Bug Fixes
+
+* JSON.stringify options ([32c2d03](https://github.com/CoCreate-app/CoCreate-cli/commit/32c2d037ae96749beb82666a2dd3f2003a401802))
+
 # [1.28.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.27.4...v1.28.0) (2023-05-02)
 
 

@@ -1,6 +1,5 @@
 
 let fs = require('fs');
-const prettier = require("prettier");
 let list = require('../repositories.js');
 const path = require("path")
 
@@ -34,10 +33,7 @@ function addPackage(path, name) {
            "@cocreate/hosting": "^1.0.0",
         })
 
-    let str = JSON.stringify(object)
-    // console.log(str)
-    let formated = prettier.format(str, { semi: false, parser: "json" });
     // process.exit()
-    fs.writeFileSync(name, formated)
+    fs.writeFileSync(name, JSON.stringify(object, null, 4))
     console.log(name)
 }
