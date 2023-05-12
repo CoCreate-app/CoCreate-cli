@@ -7,7 +7,7 @@ module.exports = async function gitClone(repos, args) {
     const cwdPath = path.resolve(process.cwd());
 
     for (let i = 0; i < repos.length; i++) {
-        // ToDo: Check if path exist and if git.config or package.json  exist continue
+        // TODO: Check if path exist and if git.config or package.json  exist continue
         if (cwdPath !== repos[i].absolutePath) {
             if (!fs.existsSync(repos[i].directory))
                 fs.mkdirSync(repos[i].directory);
