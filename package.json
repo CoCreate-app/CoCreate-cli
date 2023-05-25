@@ -59,8 +59,8 @@
     "coc": "src/coc.js"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.7.11",
-    "@cocreate/hosting": "^1.10.3",
+    "@cocreate/docs": "^1.7.13",
+    "@cocreate/hosting": "^1.10.5",
     "colors": "latest",
     "glob": "^7.1.7",
     "prettier": "^2.3.2",
