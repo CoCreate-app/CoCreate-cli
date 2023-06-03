@@ -11,12 +11,12 @@ module.exports = async function gitClone(repos, args) {
         if (cwdPath !== repos[i].absolutePath) {
             if (!fs.existsSync(repos[i].directory))
                 fs.mkdirSync(repos[i].directory);
-    
+
             let exitCode = await spawn('git', ['clone', `https://${repos[i].repo}`], { stdio: 'inherit', cwd: repos[i].directory })
             if (exitCode !== 0) {
                 failed.push({ name: repos[i].name, des: `cloning failed` })
             }
-    
+
         }
     }
 
