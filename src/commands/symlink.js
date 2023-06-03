@@ -13,9 +13,9 @@ module.exports = async function symlink(repos, args) {
     reposLength = repos.length
 
     for (let i = 0; i < repos.length; i++) {
- 
+
         if (cwdPath === repos[i].absolutePath && !fs.existsSync(cwdNodeModulesPath)) {
-            await install(repos[i], repos)    
+            await install(repos[i], repos)
             reposLength -= 1
         } else if (repos[i].install == true) {
             reposLength -= 1
@@ -31,7 +31,7 @@ module.exports = async function symlink(repos, args) {
 async function createSymlink(repo) {
     let dpath = path.resolve(repo.absolutePath);
     if (!fs.existsSync(dpath)) {
-        failed.push({name: 'createSymlink', des: 'path doesn\'t exist:' + dpath})
+        failed.push({ name: 'createSymlink', des: 'path doesn\'t exist:' + dpath })
         return console.error(dpath, 'not exist')
     }
     let response = ''
@@ -42,37 +42,39 @@ async function createSymlink(repo) {
             if (fs.existsSync(dest)) {
                 fs.rm(dest, { recursive: true, force: true }, function (err) {
                     if (err) {
-                        console.log('failed');
-                    }
-                    erSymlink(repo.name, dest)
+                        failed.push({ name: 'symlink', des: 'with response:' + response, err })
+                        console.error(repo.name, 'failed to aquire symlink', 'with response:', response, err)
+
+                    } else
+                        runSymlink(repo.name, dest)
                 });
             } else {
-                erSymlink(repo.name, dest)
+                runSymlink(repo.name, dest)
             }
         }
     }
     catch (err) {
-        failed.push({name: 'symlink', des: 'with response:' + response + err})
+        failed.push({ name: 'symlink', des: 'with response:' + response + err })
         console.error(repo.name, 'failed to aquire symlink', 'with response:', response, err)
     }
 
 }
 
-function erSymlink(name, dest){
-    fs.symlink( cwdNodeModulesPath, dest, 'dir', (err) => {
+function runSymlink(name, dest) {
+    fs.symlink(cwdNodeModulesPath, dest, 'dir', (err) => {
         reposLength -= 1
 
         if (err)
-          console.log(err);
+            console.log(err);
         else {
-          console.log(name, "node_modules symlink added");
+            console.log(name, "node_modules symlink added");
         }
 
         if (!reposLength) {
             console.log('symlink complete')
             return failed
         }
-    
+
     })
 
 }
@@ -81,7 +83,7 @@ function erSymlink(name, dest){
 async function install(repo, repos) {
     let dpath = repo.absolutePath
     if (!fs.existsSync(dpath)) {
-        failed.push({name: 'install', des: 'path doesn\'t exist:' + dpath})
+        failed.push({ name: 'install', des: 'path doesn\'t exist:' + dpath })
         return console.error(dpath, 'not exist')
     }
     try {
@@ -91,7 +93,7 @@ async function install(repo, repos) {
             shell: true,
             stdio: 'inherit'
         });
-        
+
         if (exitCode !== 0) {
             failed.push({
                 name: repo.name,
