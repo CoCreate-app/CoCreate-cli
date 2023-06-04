@@ -1,3 +1,10 @@
+## [1.29.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.2...v1.29.3) (2023-06-04)
+
+
+### Bug Fixes
+
+* Refactor CoCreate.config.js to remove hard-coded credentials ([a332bd9](https://github.com/CoCreate-app/CoCreate-cli/commit/a332bd97114e415c36a1264d561a7efcdc51254a))
+
 ## [1.29.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.1...v1.29.2) (2023-06-04)
 
 
