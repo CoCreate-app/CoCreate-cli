@@ -1,3 +1,16 @@
+# [1.29.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.28.4...v1.29.0) (2023-06-04)
+
+
+### Bug Fixes
+
+* html formating ([0020fee](https://github.com/CoCreate-app/CoCreate-cli/commit/0020fee96b01b557492f94e5488bd2108a2dff15))
+* **semantic-release:** worklow error solved by running node version 14 ([b4b71cb](https://github.com/CoCreate-app/CoCreate-cli/commit/b4b71cb70cff5f6521cbb80e3a96713cf7372480))
+
+
+### Features
+
+* **symlink:** Update symlink command ([4d639b8](https://github.com/CoCreate-app/CoCreate-cli/commit/4d639b8f674e826a193759aa710ac479c6bb0cbd))
+
 ## [1.28.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.28.3...v1.28.4) (2023-05-25)
 
 
