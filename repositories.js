@@ -393,34 +393,34 @@ module.exports = [
 
 
 
-//     {
-//         'path': '../CoCreateWS',
-//         'repo': 'github.com/CoCreate-app/CoCreateWS.git'
-//     },
-//     {
-//         'path': '../CoCreateApi',
-//         'repo': 'github.com/CoCreate-app/CoCreateApi.git'
-//     },
-    
-//     {
-//         'path': '../CoCreateLB',
-//         'repo': 'github.com/CoCreate-app/CoCreateLB.git'
-//     },
-    
-    
-//     // Components
+    //     {
+    //         'path': '../CoCreateWS',
+    //         'repo': 'github.com/CoCreate-app/CoCreateWS.git'
+    //     },
+    //     {
+    //         'path': '../CoCreateApi',
+    //         'repo': 'github.com/CoCreate-app/CoCreateApi.git'
+    //     },
+
+    //     {
+    //         'path': '../CoCreateLB',
+    //         'repo': 'github.com/CoCreate-app/CoCreateLB.git'
+    //     },
+
+
+    //     // Components
     {
-        'path': '../CoCreate-auth',
-        'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
+        'path': '../CoCreate-authenticate',
+        'repo': 'github.com/CoCreate-app/CoCreate-authenticate.git'
+    },
+    {
+        'path': '../CoCreate-authorize',
+        'repo': 'github.com/CoCreate-app/CoCreate-authorize.git'
     },
     {
         'path': '../CoCreate-crud-server',
         'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
     },
-    // {
-    //     'path': '../CoCreate-crdt-server',
-    //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
-    // },
     {
         'path': '../CoCreate-file-server',
         'repo': 'github.com/CoCreate-app/CoCreate-file-server.git'
@@ -446,10 +446,6 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
     },
     {
-        'path': '../CoCreate-permissions',
-        'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
-    },
-    {
         'path': '../CoCreate-server-side-render',
         'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
     },
@@ -457,7 +453,7 @@ module.exports = [
         'path': '../CoCreate-socket-server',
         'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
     },
-    
+
     // Maybe depreciated
     {
         'path': '../CoCreate-keepalived',
