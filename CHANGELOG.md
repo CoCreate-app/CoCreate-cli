@@ -1,3 +1,11 @@
+## [1.29.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.1...v1.29.2) (2023-06-04)
+
+
+### Bug Fixes
+
+* replace secert GITHUB_TOKEN with GITHUB ([02ab190](https://github.com/CoCreate-app/CoCreate-cli/commit/02ab1908d70c786bb7096d3b01c7a9f6ea5c727d))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([c70f49e](https://github.com/CoCreate-app/CoCreate-cli/commit/c70f49e8e701735c5a8335ef301197bb5da5d1b9))
+
 ## [1.29.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.0...v1.29.1) (2023-06-04)
 
 
