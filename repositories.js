@@ -1,23 +1,23 @@
 module.exports = [
 
-    // {
-    //     'path': '../CoCreateJS',
-    //     'repo': 'github.com/CoCreate-app/CoCreateJS.git'
-    // },
+    {
+        'path': '../../CoCreateJS',
+        'repo': 'github.com/CoCreate-app/CoCreateJS.git'
+    },
     {
         'path': '../../CoCreateCSS',
         'repo': 'github.com/CoCreate-app/CoCreateCSS.git'
     },
-    // {
-    //     'path': '../../CoCreate-admin',
-    //     'repo': 'github.com/CoCreate-app/CoCreate-admin.git'
-    // },
+    {
+        'path': '../../CoCreate-admin',
+        'repo': 'github.com/CoCreate-app/CoCreate-admin.git'
+    },
     {
         'path': '../../CoCreate-website',
         'repo': 'github.com/CoCreate-app/CoCreate-website.git'
     },
     // {
-    //     'path': '../CoCreate-website-template',
+    //     'path': '../../CoCreate-website-template',
     //     'repo': 'github.com/CoCreate-app/CoCreate-website-template.git'
     // },
 
@@ -455,14 +455,10 @@ module.exports = [
     },
 
     // Maybe depreciated
-    {
-        'path': '../CoCreate-keepalived',
-        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
-    },
-    {
-        'path': '../CoCreate-ide',
-        'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
-    },
+    // {
+    //     'path': '../CoCreate-ide',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
+    // },
     // {
     //     'path': '../CoCreateEmail',
     //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
