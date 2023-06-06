@@ -99,6 +99,10 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-fetch.git'
     },
     {
+        'path': '../CoCreate-file',
+        'repo': 'github.com/CoCreate-app/CoCreate-file.git'
+    },
+    {
         'path': '../CoCreate-filter',
         'repo': 'github.com/CoCreate-app/CoCreate-filter.git'
     },
