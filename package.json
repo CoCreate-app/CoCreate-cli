@@ -59,9 +59,9 @@
   },
   "dependencies": {
     "@cocreate/docs": "^1.7.15",
+    "@cocreate/file": "^1.0.0",
     "colors": "latest",
     "glob": "^7.1.7",
-    "prettier": "^2.3.2",
-    "prompt": "^1.2.0"
+    "prettier": "^2.3.2"
   }
 }

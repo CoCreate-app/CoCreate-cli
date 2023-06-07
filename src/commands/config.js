@@ -6,8 +6,6 @@ const path = require('path');
 
 module.exports = async function CoCreateConfig(config = {}) {
 
-    const configFilePath = path.join(os.homedir(), 'CoCreateConfig.json');
-
     async function promptForInput(question) {
         const rl = readline.createInterface({
             input: process.stdin,
@@ -23,6 +21,7 @@ module.exports = async function CoCreateConfig(config = {}) {
     }
 
     // Check if the config file exists
+    const configFilePath = path.join(os.homedir(), 'CoCreateConfig.json');
     try {
         const configFileContent = await fs.readFile(configFilePath, 'utf8');
         config = JSON.parse(configFileContent);
