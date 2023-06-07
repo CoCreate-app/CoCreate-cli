@@ -4,5 +4,5 @@ const fs = require('fs');
 const file = require('@cocreate/file')
 
 module.exports = async function upload(repos, args) {
-    file
+    await file()
 }
