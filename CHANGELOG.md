@@ -1,3 +1,11 @@
+# [1.30.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.3...v1.30.0) (2023-06-07)
+
+
+### Features
+
+* Add @cocreate/file dependency, remove @cocreate/docs and prompt from the dependencies section, and refactor code inside the upload.js file. ([8fa20cd](https://github.com/CoCreate-app/CoCreate-cli/commit/8fa20cdbde1ab3e1d4397f41673d0d9b17c4966c))
+* Install "coc" globally if not already installed ([cad848b](https://github.com/CoCreate-app/CoCreate-cli/commit/cad848bfefe2f66fb323eca3eac292d9547e6cc6))
+
 ## [1.29.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.2...v1.29.3) (2023-06-04)
 
 
