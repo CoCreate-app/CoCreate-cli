@@ -1,11 +1,9 @@
 const readline = require('readline');
-const { promises: fs } = require("fs");
 const os = require('os');
 const path = require('path');
+const fs = require('fs');
 
-
-module.exports = async function CoCreateConfig(config = {}) {
-
+module.exports = async function CoCreateConfig(items, processEnv = true, updateGlobal = true) {
     async function promptForInput(question) {
         const rl = readline.createInterface({
             input: process.stdin,
@@ -20,47 +18,83 @@ module.exports = async function CoCreateConfig(config = {}) {
         });
     }
 
-    // Check if the config file exists
-    const configFilePath = path.join(os.homedir(), 'CoCreateConfig.json');
-    try {
-        const configFileContent = await fs.readFile(configFilePath, 'utf8');
-        config = JSON.parse(configFileContent);
-    } catch (error) {
-        // Ignore error if the file doesn't exist
-    }
+    const filterEmptyValues = (obj) => {
+        return Object.fromEntries(
+            Object.entries(obj).filter(([_, value]) => {
+                if (typeof value === 'object' && !Array.isArray(value)) {
+                    return Object.keys(value).length > 0;
+                } else if (Array.isArray(value)) {
+                    return value.length > 0;
+                } else {
+                    return value !== '';
+                }
+            })
+        );
+    };
 
-    // Prompt user for organization ID if not already stored
-    if (!config.organization_id)
-        config.organization_id = await promptForInput('Enter your organization_id: ');
+    let config = {};
+    let update = false;
 
-    if (!config.host)
-        config.host = await promptForInput('Enter the host: ');
+    async function getConfig(items) {
+        if (!Array.isArray(items)) {
+            items = [items];
+        }
+        for (let i = 0; i < items.length; i++) {
+            const { key, prompt, choices } = items[i];
+            if (!key) {
+                if (!prompt && prompt !== '' || !choices) continue;
+                const answer = await promptForInput(prompt || `${key}: `);
+                const choice = choices[answer];
+                if (choice) {
+                    await getConfig(choice);
+                }
+            } else {
 
-
-    async function promptForSignInOrKey() {
-        const option = await promptForInput('Choose an option:\n1. Sign In\n2. Enter Key\n');
-
-        if (option === '1') {
-            if (!config.email)
-                config.email = await promptForInput('Enter your email: ');
-
-            if (!config.password)
-                config.password = await promptForInput('Enter your password: ');
-
-        } else if (option === '2') {
-            if (!config.key)
-                config.key = await promptForInput('Enter the key: ');
-        } else {
-            console.log('Invalid option. Please try again.');
-            await promptForSignInOrKey();
+                if (process.env[key]) {
+                    config[key] = process.env[key];
+                } else if (localConfig[key]) {
+                    config[key] = localConfig[key];
+                } else if (globalConfig[key]) {
+                    config[key] = globalConfig[key];
+                } else if (prompt || prompt === '') {
+                    config[key] = await promptForInput(prompt || `${key}: `);
+                    if (processEnv) process.env[key] = config[key];
+                    if (updateGlobal) update = true;
+                }
+            }
         }
     }
-    if (!config.key && (!config.email || !config.password))
-        await promptForSignInOrKey();
 
+    let localConfig = {};
+    const localConfigPath = path.resolve(process.cwd(), 'CoCreate.config.js');
+    if (fs.existsSync(localConfigPath)) {
+        localConfig = require(localConfigPath);
+    }
 
-    // Save the config to the file
-    await fs.writeFile(configFilePath, JSON.stringify(config, null, 2));
+    let globalConfig = {};
+    const globalConfigPath = path.resolve(os.homedir(), 'CoCreate.config.js');
+    if (fs.existsSync(globalConfigPath)) {
+        globalConfig = require(globalConfigPath);
+    }
 
-    return config
+    if (items) {
+        await getConfig(items);
+
+        if (update) {
+            const updatedGlobalConfig = {
+                ...filterEmptyValues(globalConfig),
+                ...filterEmptyValues(config)
+            };
+
+            const globalConfigString = `module.exports = ${JSON.stringify(updatedGlobalConfig, null, 2)};`;
+            fs.writeFileSync(globalConfigPath, globalConfigString);
+        }
+    } else {
+        config = {
+            ...filterEmptyValues(globalConfig),
+            ...filterEmptyValues(localConfig)
+        };
+    }
+
+    return config;
 }
