@@ -1,3 +1,11 @@
+# [1.31.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.30.0...v1.31.0) (2023-06-09)
+
+
+### Features
+
+* exposed functions to module.exports ([1a11a4a](https://github.com/CoCreate-app/CoCreate-cli/commit/1a11a4a49041e10b31e4aa9ad358da3da0ec4c01))
+* Refactor configuration loading logic, add prompts for env variables, and allow nested choices ([63c8567](https://github.com/CoCreate-app/CoCreate-cli/commit/63c8567bfb1cd700d1f921685fe7812cb3dc1919))
+
 # [1.30.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.29.3...v1.30.0) (2023-06-07)
 
 
