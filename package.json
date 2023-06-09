@@ -53,7 +53,7 @@
     "type": "GitHub Sponsors ❤",
     "url": "https://github.com/sponsors/CoCreate-app"
   },
-  "main": "src/coc.js",
+  "main": "src/commands/index.js",
   "bin": {
     "coc": "src/coc.js"
   },
