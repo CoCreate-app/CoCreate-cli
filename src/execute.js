@@ -1,10 +1,9 @@
-const colors = require('colors');
 const path = require("path");
 const fs = require("fs");
 const spawn = require('./spawn');
 const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
-
+const { color } = require('./fonts');
 
 module.exports = async function execute(command, repos = [], config) {
     let failed = [];
@@ -15,28 +14,28 @@ module.exports = async function execute(command, repos = [], config) {
     let predefined = path.resolve(__dirname, 'commands', type + '.js');
 
     if (fs.existsSync(predefined)) {
-        console.warn(`executing a predefined command in ${predefined}`.blue);
-   
+        console.warn(color.blue + `executing a predefined command in ${predefined}` + color.reset);
+
         if (repos.length == 1)
-            console.log(`running on ${repos[0].name} repo`.blue)
+            console.log(color.blue + `running on ${repos[0].name} repo` + color.reset)
         else if (repos.length)
-            console.log('running on all repos'.blue)
+            console.log(color.blue + 'running on all repos' + color.reset)
 
         failed = require(predefined)(repos, args)
 
     } else {
-    
+
         for (let repo of repos) {
             try {
-                if (repo.exclude && repo.exclude.includes(type)) 
+                if (repo.exclude && repo.exclude.includes(type))
                     continue
-                console.log(`${repo.name}: `.green, command)
+                console.log(color.green + `${repo.name}: ` + color.reset, command)
                 let exitCode;
                 if (config.hideMessage) {
                     const { error } = await exec(command, {
                         cwd: repo.absolutePath,
                     });
-                
+
                     if (error)
                         exitCode = 1
                 } else {
@@ -56,7 +55,7 @@ module.exports = async function execute(command, repos = [], config) {
 
             }
             catch (err) {
-                console.error(`an error occured executing command in ${repo.name} repository`.red, err.message);;
+                console.error(color.red + `an error occured executing command in ${repo.name} repository` + color.reset, err.message);;
             }
         }
     }

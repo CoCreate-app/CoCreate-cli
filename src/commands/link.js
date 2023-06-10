@@ -1,5 +1,5 @@
 const spawn = require('../spawn');
-const colors = require('colors');
+const { color } = require('./fonts');
 
 module.exports = async function linkPackages(repos, args) {
     const failed = [], isLinked = {};
@@ -7,12 +7,12 @@ module.exports = async function linkPackages(repos, args) {
     try {
         for (let repo of repos) {
             if (!repo) continue;
-            if (repo.exclude && repo.exclude.includes('link')) 
+            if (repo.exclude && repo.exclude.includes('link'))
                 continue
 
             if (process.cwd() === repo.absolutePath)
                 continue
-            
+
             let exitCode = await spawn(repo.packageManager, ['link'], {
                 cwd: repo.absolutePath,
                 shell: true,
@@ -24,7 +24,7 @@ module.exports = async function linkPackages(repos, args) {
                     name: repo.name,
                     des: `${repo.packageManager} link failed`
                 })
-                console.error(`${repo.name}: ${repo.packageManager} link failed`.red)
+                console.error(color.red + `${repo.name}: ${repo.packageManager} link failed` + color.reset)
             } else {
                 console.log(repo.packageManager, 'link', repo.packageName)
 
@@ -36,9 +36,9 @@ module.exports = async function linkPackages(repos, args) {
                 if (exitCode !== 0) {
                     failed.push({
                         name: repo.name,
-                        des: `${ repo.packageManager} link ${ repo.packageName} failed`
+                        des: `${repo.packageManager} link ${repo.packageName} failed`
                     });
-                    console.error(`${repo.name}: ${ repo.packageManager} link ${ repo.packageName} failed`.red)
+                    console.error(color.red + `${repo.name}: ${repo.packageManager} link ${repo.packageName} failed` + color.reset)
                 }
             }
 
@@ -48,7 +48,7 @@ module.exports = async function linkPackages(repos, args) {
     }
     catch (err) {
         failed.push({ name: 'GENERAL', des: err.message })
-        console.error(`${err}`.red)
+        console.error(color.red + `${err}` + color.reset)
     }
 
     return failed;
@@ -70,18 +70,18 @@ async function doLink(deps, repo, repos, failed, isLinked) {
                     shell: true,
                     stdio: 'inherit'
                 });
-                
+
                 if (exitCode !== 0) {
                     failed.push({
                         name: depMeta.name,
                         des: `${packageManager} link failed`
                     })
-                    console.error(`${depMeta.name}: ${packageManager} link failed`.red)
+                    console.error(color.red + `${depMeta.name}: ${packageManager} link failed` + color.reset)
                 }
             }
 
             if (!depMeta)
-                depMeta = {packageName: dep}
+                depMeta = { packageName: dep }
             console.log(repo.packageName, 'linking', depMeta.packageName, '...')
 
             let exitCode = await spawn(packageManager, ['link', depMeta.packageName], {
@@ -94,13 +94,13 @@ async function doLink(deps, repo, repos, failed, isLinked) {
                     name: repo.name,
                     des: `${packageManager} link ${depMeta.packageName} failed`
                 });
-                console.error(`${repo.name}: ${packageManager} link ${depMeta.packageName} failed`.red)
+                console.error(color.red + `${repo.name}: ${packageManager} link ${depMeta.packageName} failed` + color.reset)
             }
 
         }
         catch (err) {
             failed.push({ name: repo.packageName, des: err.message })
-            console.error(`${err}`.red)
+            console.error(color.red + `${err}` + color.reset)
         }
 
     }

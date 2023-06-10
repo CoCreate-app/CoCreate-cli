@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require("path")
 const spawn = require('../../spawn');
-const colors = require('colors');
 const addMeta = require('../../addMeta');
 
 
@@ -32,32 +31,32 @@ module.exports = async function updateYarnLink(repos, args) {
 
 
 async function reAdd(deps, repo, failed, param = '') {
-        try {
-            if (!deps.length)
+    try {
+        if (!deps.length)
             return;
-            deps.unshift("add")
-            let packageList = deps;
-            let packageListLog = deps.join(' ');
-            console.log(`${repo.name}: `.green, `yarn ${packageListLog}`);
-            // let exitCode = await spawn(`yarn`, ['add', ...param && [param], packageList], {
-            let exitCode = await spawn(  'yarn', packageList, {
-                cwd: repo.absolutePath, stdio: 'inherit',
-            });
-            if (exitCode !== 0) {
-                failed.push({
-                    name: repo.name,
-                    des: `yarn ${param} ${packageListLog}`
-                })
-                console.error(`${repo.name}: yarn ${param} ${packageListLog}`.red)
-            }
-        }
-        catch (err) {
+        deps.unshift("add")
+        let packageList = deps;
+        let packageListLog = deps.join(' ');
+        console.log(color.green + `${repo.name}: ` + color.reset, `yarn ${packageListLog}`);
+        // let exitCode = await spawn(`yarn`, ['add', ...param && [param], packageList], {
+        let exitCode = await spawn('yarn', packageList, {
+            cwd: repo.absolutePath, stdio: 'inherit',
+        });
+        if (exitCode !== 0) {
             failed.push({
                 name: repo.name,
-                des: err.message
+                des: `yarn ${param} ${packageListLog}`
             })
-            console.error(`${repo.name}: ${err.message}`.red)
+            console.error(color.red + `${repo.name}: yarn ${param} ${packageListLog}` + color.reset)
         }
     }
+    catch (err) {
+        failed.push({
+            name: repo.name,
+            des: err.message
+        })
+        console.error(color.red + `${repo.name}: ${err.message}` + color.reset)
+    }
+}
 
 

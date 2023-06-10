@@ -1,9 +1,8 @@
 let fs = require('fs');
 const path = require("path")
-const colors = require('colors');
 const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
-
+const { color } = require('./fonts');
 
 let pathList, nameList, item = {}, failed = [];
 
@@ -55,15 +54,15 @@ function getVersions(filePath) {
             item[object.name] = `^${object.version}`
         }
     } else {
-        failed.push({name: 'get version', des: 'path doesn\'t exist:' + filePath})
+        failed.push({ name: 'get version', des: 'path doesn\'t exist:' + filePath })
     }
 }
 
 function bumpVersion(filePath, name) {
     let object = require(filePath)
     if (object) {
-        let newObject = {...object}
-    
+        let newObject = { ...object }
+
         if (!object.dependencies)
             return console.log(name, 'not updated')
         else {
@@ -73,13 +72,13 @@ function bumpVersion(filePath, name) {
                 }
             }
 
-            if (fs.existsSync(filePath)){
+            if (fs.existsSync(filePath)) {
                 fs.unlinkSync(filePath)
             }
-    
+
             fs.writeFileSync(filePath, JSON.stringify(object, null, 2))
         }
     } else {
-        failed.push({name: 'bump version', des: 'path doesn\'t exist:' + filePath})
+        failed.push({ name: 'bump version', des: 'path doesn\'t exist:' + filePath })
     }
 }
