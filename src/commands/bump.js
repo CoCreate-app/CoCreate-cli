@@ -2,7 +2,7 @@ let fs = require('fs');
 const path = require("path")
 const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
-const { color } = require('./fonts');
+const { color } = require('../fonts');
 
 let pathList, nameList, item = {}, failed = [];
 

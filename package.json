@@ -60,7 +60,7 @@
     "@cocreate/cli": "^1.29.3"
   },
   "dependencies": {
-    "@cocreate/file": "^1.2.2",
+    "@cocreate/file": "^1.2.3",
     "glob": "^7.1.7",
     "prettier": "^2.3.2"
   }
