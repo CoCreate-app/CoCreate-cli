@@ -22,7 +22,7 @@ module.exports = {
             }
         }
     ],
-    "repositoreies": [
+    "repositories": [
 
         {
             'path': '../../CoCreateJS',
