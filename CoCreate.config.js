@@ -143,10 +143,6 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-fullscreen.git'
         },
         {
-            'path': '../CoCreate-hosting',
-            'repo': 'github.com/CoCreate-app/CoCreate-hosting.git'
-        },
-        {
             'path': '../CoCreate-indexeddb',
             'repo': 'github.com/CoCreate-app/CoCreate-indexeddb.git'
         },
