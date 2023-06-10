@@ -4,6 +4,7 @@ const fs = require("fs");
 const execute = require('./execute');
 const argv = process.argv.slice(2);
 const addMeta = require('./addMeta');
+const colors = require('colors');
 
 
 if (argv.length < 1) {
@@ -57,7 +58,7 @@ if (config['c'] && fs.existsSync(config['c'])) {
     }];
     directory = path.dirname(packageJsonPath);
     console.warn(`using ${packageJsonPath} configuration`.yellow);
-} 
+}
 // else {
 //     console.error(`a configuration file can not be found`.red);
 //     process.exit(1);

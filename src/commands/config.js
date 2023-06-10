@@ -40,9 +40,28 @@ module.exports = async function CoCreateConfig(items, processEnv = true, updateG
             items = [items];
         }
         for (let i = 0; i < items.length; i++) {
-            const { key, prompt, choices } = items[i];
+            let { key, prompt, choices } = items[i];
             if (!key) {
                 if (!prompt && prompt !== '' || !choices) continue;
+                for (let choice of Object.keys(choices)) {
+                    // if (!Array.isArray(choiceItems)) {
+                    //     choiceItems = [choiceItems];
+                    // }
+                    // for (let choice of choiceItems) {
+                    let choiceKey = choices[choice].key
+                    if (process.env[choiceKey]) {
+                        config[choiceKey] = process.env[choiceKey];
+                        return;
+                    } else if (localConfig[choiceKey]) {
+                        config[choiceKey] = localConfig[choiceKey];
+                        return;
+
+                    } else if (globalConfig[choiceKey]) {
+                        config[choiceKey] = globalConfig[choiceKey];
+                        return;
+                    }
+                }
+                // }
                 const answer = await promptForInput(prompt || `${key}: `);
                 const choice = choices[answer];
                 if (choice) {
