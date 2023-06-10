@@ -56,6 +56,9 @@
   "bin": {
     "coc": "src/coc.js"
   },
+  "devdependencies": {
+    "@cocreate/cli": "^1.29.3"
+  },
   "dependencies": {
     "@cocreate/file": "^1.2.2",
     "glob": "^7.1.7",
