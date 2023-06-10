@@ -1,3 +1,11 @@
+# [1.32.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.31.2...v1.32.0) (2023-06-10)
+
+
+### Features
+
+* font.js to add color, background and font to console messages. repositores object now located in CoCreate.config.js ([e6c9dc3](https://github.com/CoCreate-app/CoCreate-cli/commit/e6c9dc384d2ecf7037c624b818a25a6c8f31f33a))
+* removed colors package in favor of simple custom ./font.js ([a754221](https://github.com/CoCreate-app/CoCreate-cli/commit/a7542215a68e1dc83960c3e4705082d42c033c1e))
+
 ## [1.31.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.31.1...v1.31.2) (2023-06-10)
 
 
