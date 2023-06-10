@@ -36,7 +36,6 @@
     "remove": "nodejs src/commands/remove.js",
     "replace": "nodejs src/commands/replace.js",
     "webpack": "nodejs src/commands/fs/webpack.js",
-    "docs": "node ./node_modules/@cocreate/docs/src/index.js",
     "permissions": "chmod +rwx /home/ubuntu/.nvm/versions/node/v19.8.1/bin/coc"
   },
   "repository": {
@@ -58,7 +57,6 @@
     "coc": "src/coc.js"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.8.13",
     "@cocreate/file": "^1.2.2",
     "colors": "latest",
     "glob": "^7.1.7",
