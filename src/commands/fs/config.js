@@ -39,7 +39,7 @@ function update(MdPath) {
                 "name": "index.html",
                 "path": "/docs/${name}/index.html",
                 "src": "{{./docs/index.html}}",
-                "hosts": [
+                "host": [
                     "general.cocreate.app"
                 ],
                 "directory": "/docs/${name}",
@@ -56,7 +56,7 @@ function update(MdPath) {
 
     if (!document_id.length)
         console.log("Document_id Undefined: ", MdPath);
-    if (document_id.length != 24 && document_id.length != 0 )
+    if (document_id.length != 24 && document_id.length != 0)
         console.log("Document_id not valid! please check your config: ", MdPath);
     else {
         console.log(MdPath, " -> document_id : ", document_id);
