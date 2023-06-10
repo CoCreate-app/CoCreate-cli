@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.31.0...v1.31.1) (2023-06-10)
+
+
+### Bug Fixes
+
+* Update file dependency version and add console colors, minor code refactoring to CoCreate Config. ([c836d3a](https://github.com/CoCreate-app/CoCreate-cli/commit/c836d3ae070c41704300f5af646b708a01f8f63b))
+
 # [1.31.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.30.0...v1.31.0) (2023-06-09)
 
 
