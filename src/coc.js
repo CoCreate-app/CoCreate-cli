@@ -28,7 +28,8 @@ command = argv
 
 function getRepositories(path) {
     try {
-        return require(path);
+        const config = require(path);
+        return config.repositories;
     }
     catch (err) {
         console.error(color.red + 'can not read repository file in' + color.reset, path, color.red + 'error:' + color.reset, err.message);
@@ -36,7 +37,7 @@ function getRepositories(path) {
     }
 }
 
-const currentRepoPath = path.resolve(process.cwd(), "./repositories.js");
+const currentRepoPath = path.resolve(process.cwd(), "./CoCreate.config.js");
 let packageJsonPath = path.resolve(process.cwd(), './package.json');
 let directory
 
