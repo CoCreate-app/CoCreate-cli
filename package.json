@@ -58,8 +58,8 @@
     "coc": "src/coc.js"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.8.2",
-    "@cocreate/file": "^1.1.0",
+    "@cocreate/docs": "^1.8.13",
+    "@cocreate/file": "^1.2.2",
     "colors": "latest",
     "glob": "^7.1.7",
     "prettier": "^2.3.2"
