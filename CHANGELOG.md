@@ -1,3 +1,10 @@
+# [1.33.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.32.2...v1.33.0) (2023-06-11)
+
+
+### Features
+
+* bump.js will iterate through both dependencies and devDependencies ([b537963](https://github.com/CoCreate-app/CoCreate-cli/commit/b537963fb11b6e5f8c505b02f609d6879f87ecb7))
+
 ## [1.32.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.32.1...v1.32.2) (2023-06-11)
 
 
