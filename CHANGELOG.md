@@ -1,3 +1,10 @@
+## [1.33.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.2...v1.33.3) (2023-06-11)
+
+
+### Bug Fixes
+
+* postintall error ([b255b5c](https://github.com/CoCreate-app/CoCreate-cli/commit/b255b5cf83f9af59994c40b7da966e17f94a8cf5))
+
 ## [1.33.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.1...v1.33.2) (2023-06-11)
 
 
