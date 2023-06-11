@@ -71,14 +71,21 @@ module.exports = async function CoCreateConfig(items, processEnv = true, updateG
 
                 if (process.env[key]) {
                     config[key] = process.env[key];
-                } else if (localConfig[key]) {
-                    config[key] = localConfig[key];
-                } else if (globalConfig[key]) {
-                    config[key] = globalConfig[key];
-                } else if (prompt || prompt === '') {
-                    config[key] = await promptForInput(prompt || `${key}: `);
-                    if (processEnv) process.env[key] = config[key];
-                    if (updateGlobal) update = true;
+                } else {
+                    if (localConfig[key]) {
+                        config[key] = localConfig[key];
+                    } else if (globalConfig[key]) {
+                        config[key] = globalConfig[key];
+                    } else if (prompt || prompt === '') {
+                        config[key] = await promptForInput(prompt || `${key}: `);
+                        if (updateGlobal) update = true;
+                    }
+                    if (processEnv) {
+                        if (typeof config[key] === 'object')
+                            process.env[key] = JSON.stringify(config[key]);
+                        else
+                            process.env[key] = config[key];
+                    }
                 }
             }
         }

@@ -40,6 +40,18 @@ async function createSymlink(repo) {
         let dest = path.resolve(dpath, 'node_modules');
         if (dest) {
             if (fs.existsSync(dest)) {
+
+                if (!cwdNodeModulesPath.includes('/CoCreateJS')) {
+                    let isSymlink = await isSymlinkDirectory(dest)
+                    if (isSymlink) {
+                        const targetPath = await getSymlinkTargetPath(dest);
+                        if (targetPath.includes('/CoCreateJS')) {
+                            console.warn('symlink already exists with CoCreateJS')
+                            return
+                        }
+                    }
+                }
+
                 fs.rm(dest, { recursive: true, force: true }, function (err) {
                     if (err) {
                         failed.push({ name: 'symlink', des: 'with response:' + response, err })
@@ -111,3 +123,23 @@ async function install(repo, repos) {
     }
 
 }
+
+async function isSymlinkDirectory(path) {
+    try {
+        const stats = await fs.promises.lstat(path);
+        return stats.isSymbolicLink();
+    } catch (err) {
+        throw err;
+    }
+}
+
+async function getSymlinkTargetPath(symlinkPath) {
+    try {
+        const target = await fs.promises.readlink(symlinkPath);
+        const targetPath = fs.realpathSync(target);
+        return targetPath;
+    } catch (err) {
+        throw err;
+    }
+}
+
