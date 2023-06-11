@@ -1,3 +1,10 @@
+## [1.33.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.5...v1.33.6) (2023-06-11)
+
+
+### Bug Fixes
+
+* [@cocreate](https://github.com/cocreate) ([7334909](https://github.com/CoCreate-app/CoCreate-cli/commit/73349097604ceab943a1deaf33e3635166178141))
+
 ## [1.33.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.4...v1.33.5) (2023-06-11)
 
 
