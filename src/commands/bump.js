@@ -9,7 +9,7 @@ let pathList, nameList, item = {}, failed = [];
 module.exports = async function bump(repos, args) {
     pathList = repos.map(o => o.absolutePath)
     if (repos.length <= 1) {
-        let packageJsonPath = path.resolve(process.cwd(), './package.json');
+        let packageJsonPath = path.resolve(process.cwd(), 'package.json');
 
         if (fs.existsSync(packageJsonPath)) {
             let json = require(packageJsonPath)
@@ -33,15 +33,14 @@ module.exports = async function bump(repos, args) {
 
     } else {
         nameList = pathList.map(fn => path.basename(fn).toLowerCase());
-        console.log('namelist', nameList)
         for (let [index, name] of nameList.entries()) {
-            getVersions(pathList[index] + '/package.json', `@${name}`)
+            getVersions(path.resolve(pathList[index], 'package.json'), `@${name}`)
         }
 
         console.log('bump versions', item)
 
         for (let [index, name] of nameList.entries()) {
-            bumpVersion(pathList[index] + '/package.json', name)
+            bumpVersion(path.resolve(pathList[index], 'package.json'), name)
         }
 
     }
@@ -62,28 +61,31 @@ function getVersions(filePath) {
 }
 
 function bumpVersion(filePath, name) {
-    let object = require(filePath)
-    if (object) {
-        let newObject = { ...object }
-        let dependencies = object.dependencies || {}
-        let devDependencies = object.devDependencies || {}
-        for (const name of Object.keys(dependencies)) {
-            if (item[name]) {
-                newObject.dependencies[name] = item[name]
+    if (fs.existsSync(filePath)) {
+
+        let object = require(filePath)
+        if (object) {
+            let newObject = { ...object }
+            let dependencies = object.dependencies || {}
+            let devDependencies = object.devDependencies || {}
+            for (const name of Object.keys(dependencies)) {
+                if (item[name]) {
+                    newObject.dependencies[name] = item[name]
+                }
             }
-        }
 
-        for (const name of Object.keys(devDependencies)) {
-            if (item[name]) {
-                newObject.devDependencies[name] = item[name]
+            for (const name of Object.keys(devDependencies)) {
+                if (item[name]) {
+                    newObject.devDependencies[name] = item[name]
+                }
             }
-        }
 
-        if (fs.existsSync(filePath)) {
-            fs.unlinkSync(filePath)
-        }
+            if (fs.existsSync(filePath)) {
+                fs.unlinkSync(filePath)
+            }
 
-        fs.writeFileSync(filePath, JSON.stringify(object, null, 2))
+            fs.writeFileSync(filePath, JSON.stringify(object, null, 2))
+        }
     } else {
         failed.push({ name: 'bump version', des: 'path doesn\'t exist:' + filePath })
     }

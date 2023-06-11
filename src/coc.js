@@ -37,8 +37,8 @@ function getRepositories(path) {
     }
 }
 
-const currentRepoPath = path.resolve(process.cwd(), "./CoCreate.config.js");
-let packageJsonPath = path.resolve(process.cwd(), './package.json');
+const currentRepoPath = path.resolve(process.cwd(), "CoCreate.config.js");
+let packageJsonPath = path.resolve(process.cwd(), 'package.json');
 let directory
 
 if (config['c'] && fs.existsSync(config['c'])) {
