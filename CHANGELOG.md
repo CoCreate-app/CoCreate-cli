@@ -1,3 +1,10 @@
+## [1.33.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.4...v1.33.5) (2023-06-11)
+
+
+### Bug Fixes
+
+* testing workflow ([d314e8d](https://github.com/CoCreate-app/CoCreate-cli/commit/d314e8d9f67fce253a0f923e343f5cdc377d9181))
+
 ## [1.33.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.3...v1.33.4) (2023-06-11)
 
 
