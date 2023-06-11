@@ -8,7 +8,7 @@ try {
     // If "coc" command does not exist, install it globally
     console.log('"coc" command not found. Installing globally...');
     try {
-        execSync('npm install -g coc', { stdio: 'inherit' });
+        execSync('npm install -g @cocreate/cli', { stdio: 'inherit' });
         console.log('"coc" has been installed globally.');
     } catch (error) {
         console.error('Failed to install "coc" globally:', error);
