@@ -39,6 +39,8 @@ async function createSymlink(repo) {
     try {
         let dest = path.resolve(dpath, 'node_modules');
         if (dest) {
+            // let exists = await fs.promises.access(filePath, fs.constants.F_OK);
+
             if (fs.existsSync(dest)) {
 
                 if (!cwdNodeModulesPath.includes('/CoCreateJS')) {
