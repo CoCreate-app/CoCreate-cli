@@ -429,7 +429,7 @@ module.exports = {
 
         // Server
         {
-            'path': '../CoCreateWS',
+            'path': '../../CoCreateWS',
             'repo': 'github.com/CoCreate-app/CoCreateWS.git'
         },
 
