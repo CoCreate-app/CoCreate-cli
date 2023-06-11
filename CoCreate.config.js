@@ -416,11 +416,6 @@ module.exports = {
         },
 
 
-
-        //     {
-        //         'path': '../CoCreateWS',
-        //         'repo': 'github.com/CoCreate-app/CoCreateWS.git'
-        //     },
         //     {
         //         'path': '../CoCreateApi',
         //         'repo': 'github.com/CoCreate-app/CoCreateApi.git'
@@ -432,7 +427,13 @@ module.exports = {
         //     },
 
 
-        //     // Components
+        // Server
+        {
+            'path': '../CoCreateWS',
+            'repo': 'github.com/CoCreate-app/CoCreateWS.git'
+        },
+
+        // Server Components
         {
             'path': '../CoCreate-authenticate',
             'repo': 'github.com/CoCreate-app/CoCreate-authenticate.git'
