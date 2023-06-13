@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.9...v1.34.0) (2023-06-13)
+
+
+### Features
+
+* coc config --keyName=value ([472326f](https://github.com/CoCreate-app/CoCreate-cli/commit/472326faba5ff39de53e9edcb537f252c2c695e6))
+
 ## [1.33.9](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.33.8...v1.33.9) (2023-06-11)
 
 
