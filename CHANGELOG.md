@@ -1,3 +1,11 @@
+## [1.34.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.34.1...v1.34.2) (2023-06-14)
+
+
+### Bug Fixes
+
+* fonts path ([11186ee](https://github.com/CoCreate-app/CoCreate-cli/commit/11186eecce7c47623d860e6dd5f78b7cee2097f8))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([ba5d796](https://github.com/CoCreate-app/CoCreate-cli/commit/ba5d79620a0e4700eb6c6dcf6bed19393dff5bc6))
+
 ## [1.34.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.34.0...v1.34.1) (2023-06-14)
 
 
