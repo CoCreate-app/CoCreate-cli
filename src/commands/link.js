@@ -1,5 +1,5 @@
 const spawn = require('../spawn');
-const { color } = require('./fonts');
+const { color } = require('../fonts');
 
 module.exports = async function linkPackages(repos, args) {
     const failed = [], isLinked = {};
