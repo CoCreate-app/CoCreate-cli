@@ -1,3 +1,10 @@
+## [1.35.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.35.0...v1.35.1) (2023-06-16)
+
+
+### Bug Fixes
+
+* removed coc-check ([2dd089b](https://github.com/CoCreate-app/CoCreate-cli/commit/2dd089b1d105840c305177027b23e4573fc26239))
+
 # [1.35.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.34.4...v1.35.0) (2023-06-16)
 
 
