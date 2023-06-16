@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require("path")
-const util = require('node:util');
 const spawn = require('../spawn');
 
 const cwdPath = path.resolve(process.cwd());
@@ -9,7 +8,7 @@ let cwdNodeModulesPath = path.resolve(cwdPath, 'node_modules')
 
 let reposLength, failed = [];
 
-module.exports = async function symlink(repos, args) {
+module.exports = async function (repos, args) {
     reposLength = repos.length
 
     for (let i = 0; i < repos.length; i++) {
@@ -25,6 +24,10 @@ module.exports = async function symlink(repos, args) {
         }
 
     }
+
+    console.log('symlink complete');
+    return failed;
+
 }
 
 
@@ -39,8 +42,6 @@ async function createSymlink(repo) {
     try {
         let dest = path.resolve(dpath, 'node_modules');
         if (dest) {
-            // let exists = await fs.promises.access(filePath, fs.constants.F_OK);
-
             if (fs.existsSync(dest)) {
 
                 if (!cwdNodeModulesPath.includes('/CoCreateJS')) {
@@ -53,18 +54,10 @@ async function createSymlink(repo) {
                         }
                     }
                 }
-
-                fs.rm(dest, { recursive: true, force: true }, function (err) {
-                    if (err) {
-                        failed.push({ name: 'symlink', des: 'with response:' + response, err })
-                        console.error(repo.name, 'failed to aquire symlink', 'with response:', response, err)
-
-                    } else
-                        runSymlink(repo.name, dest)
-                });
-            } else {
-                runSymlink(repo.name, dest)
             }
+
+            await symlink(repo.name, dest)
+
         }
     }
     catch (err) {
@@ -74,23 +67,18 @@ async function createSymlink(repo) {
 
 }
 
-function runSymlink(name, dest) {
-    fs.symlink(cwdNodeModulesPath, dest, 'dir', (err) => {
-        reposLength -= 1
+async function symlink(name, dest) {
+    try {
+        if (fs.existsSync(dest))
+            await fs.promises.rm(dest, { recursive: true, force: true });
 
-        if (err)
-            console.log(err);
-        else {
-            console.log(name, "node_modules symlink added");
-        }
+        await fs.promises.symlink(cwdNodeModulesPath, dest, 'dir');
+        console.log(name, 'node_modules symlink added');
 
-        if (!reposLength) {
-            console.log('symlink complete')
-            return failed
-        }
-
-    })
-
+    } catch (err) {
+        failed.push({ name: 'symlink', des: 'with response: ' + response, err });
+        console.error(repo.name, 'failed to acquire symlink', 'with response:', response, err);
+    }
 }
 
 
@@ -145,3 +133,4 @@ async function getSymlinkTargetPath(symlinkPath) {
     }
 }
 
+// module.exports = { symlink }
