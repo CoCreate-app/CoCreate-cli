@@ -1,3 +1,10 @@
+# [1.35.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.34.4...v1.35.0) (2023-06-16)
+
+
+### Features
+
+* Add symlink and linkPackages functionality ([a1a8e90](https://github.com/CoCreate-app/CoCreate-cli/commit/a1a8e9067e8232ebe127f0114fc547aeca869bf2))
+
 ## [1.34.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.34.3...v1.34.4) (2023-06-15)
 
 
