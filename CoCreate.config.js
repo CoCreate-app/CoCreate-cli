@@ -414,11 +414,6 @@ module.exports = {
             'path': '../../CoCreate-plugins/CoCreate-twitter',
             'repo': 'github.com/CoCreate-app/CoCreate-twitter.git'
         },
-        {
-            'path': '../../CoCreate-plugins/CoCreate-uppy',
-            'repo': 'github.com/CoCreate-app/CoCreate-uppy.git'
-        },
-
 
         //     {
         //         'path': '../CoCreateApi',
