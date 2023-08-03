@@ -14,14 +14,14 @@ function globUpdater(er, files) {
 
 function update(MdPath) {
     let name = path.basename(path.resolve(path.dirname(MdPath), './')).substring(9);
-    let document_id = '';
+    let object = '';
     let replaceContent = fs.readFileSync(MdPath).toString();
 
 
     let content_source = replaceContent.substring(replaceContent.indexOf("sources"));
-    let content1 = content_source.substring(content_source.indexOf("document_id"));
+    let content1 = content_source.substring(content_source.indexOf("object"));
     let content2 = content1.substring(content1.indexOf(':'));
-    document_id = content2.substring(3, content2.indexOf(',') - 4);
+    object = content2.substring(3, content2.indexOf(',') - 4);
 
 
     let fileContent = `module.exports = {
@@ -33,9 +33,9 @@ function update(MdPath) {
     
     "sources": [
         {
-            "collection": "files",
-            "document": {
-                "_id": "${document_id}",
+            "array": "files",
+            "object": {
+                "_id": "${object}",
                 "name": "index.html",
                 "path": "/docs/${name}/index.html",
                 "src": "{{./docs/index.html}}",
@@ -54,12 +54,12 @@ function update(MdPath) {
 
 `;
 
-    if (!document_id.length)
-        console.log("Document_id Undefined: ", MdPath);
-    if (document_id.length != 24 && document_id.length != 0)
-        console.log("Document_id not valid! please check your config: ", MdPath);
+    if (!object.length)
+        console.log("object Undefined: ", MdPath);
+    if (object.length != 24 && object.length != 0)
+        console.log("object not valid! please check your config: ", MdPath);
     else {
-        console.log(MdPath, " -> document_id : ", document_id);
+        console.log(MdPath, " -> object : ", object);
         if (fs.existsSync(MdPath))
             fs.unlinkSync(MdPath);
         fs.writeFileSync(MdPath, fileContent);
