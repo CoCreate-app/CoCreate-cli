@@ -135,10 +135,6 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-floating-label.git'
         },
         {
-            'path': '../CoCreate-form',
-            'repo': 'github.com/CoCreate-app/CoCreate-form.git'
-        },
-        {
             'path': '../CoCreate-fullscreen',
             'repo': 'github.com/CoCreate-app/CoCreate-fullscreen.git'
         },
@@ -213,10 +209,6 @@ module.exports = {
         {
             'path': '../CoCreate-render',
             'repo': 'github.com/CoCreate-app/CoCreate-render.git'
-        },
-        {
-            'path': '../CoCreate-render-json',
-            'repo': 'github.com/CoCreate-app/CoCreate-render-json.git'
         },
         {
             'path': '../CoCreate-resize',
