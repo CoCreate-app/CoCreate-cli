@@ -1,3 +1,20 @@
+# [1.36.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.35.2...v1.36.0) (2023-08-16)
+
+
+### Bug Fixes
+
+* comment out creating pwa symlink in admin and website ([03231cc](https://github.com/CoCreate-app/CoCreate-cli/commit/03231cca9a699cf207d5773538fd9d0d5f7c2c92))
+* crud attributes renamed ([381f3a0](https://github.com/CoCreate-app/CoCreate-cli/commit/381f3a0f01fb2b816a48a5e53dd5f059a153e754))
+* Refactored *-target to *-selector ([6b66d9a](https://github.com/CoCreate-app/CoCreate-cli/commit/6b66d9ae0ed84c52385fcea6e6a6849dc23186dd))
+* Remove unnecessary dependencies from CoCreate.config.js ([8463408](https://github.com/CoCreate-app/CoCreate-cli/commit/8463408415aa6d13e1ebbfa6c57629adc2ecc2f6))
+* webpack.config and package.json make use of mode=production instead of process.env ([bb6d483](https://github.com/CoCreate-app/CoCreate-cli/commit/bb6d483f062a1220417b4ed178db1d13e56740ad))
+
+
+### Features
+
+* create symlink for service worker, offline page, and manifest ([eaad236](https://github.com/CoCreate-app/CoCreate-cli/commit/eaad2369868c07293617dfb8f34e26252e75f6e9))
+* name attribute and variable renamed to key ([3dec7ba](https://github.com/CoCreate-app/CoCreate-cli/commit/3dec7baffd61cb3200158e85f36070c00a362eb3))
+
 ## [1.35.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.35.1...v1.35.2) (2023-06-16)
 
 
