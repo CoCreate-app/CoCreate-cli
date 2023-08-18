@@ -1,65 +1,63 @@
 {
-  "name": "@cocreate/cli",
-  "version": "1.37.0",
-  "description": "Polyrepo management bash CLI tool. Run all git commands and yarn commands on multiple repositories. Also includes a few custom macros for cloning, installing, etc.",
-  "keywords": [
-    "cli",
-    "cocreate",
-    "low-code-framework",
-    "no-code-framework",
-    "cocreatejs",
-    "cocreatejs-component",
-    "cocreate-framework",
-    "no-code",
-    "low-code",
-    "collaborative-framework",
-    "realtime",
-    "realtime-framework",
-    "collaboration",
-    "shared-editing",
-    "html5-framework",
-    "javascript-framework"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "automated": "nodejs src/commands/fs/automated.js",
-    "bump": "node src/commands/fs/bump.js",
-    "config": "nodejs src/commands/fs/config.js",
-    "contribution": "nodejs src/commands/fs/contribution.js",
-    "gitignore": "nodejs src/commands/fs/gitignore.js",
-    "manual": "nodejs src/commands/fs/manual.js",
-    "package": "nodejs src/commands/fs/package.js",
-    "readme": "nodejs src/commands/fs/readme.js",
-    "remove": "nodejs src/commands/remove.js",
-    "replace": "nodejs src/commands/replace.js",
-    "webpack": "nodejs src/commands/fs/webpack.js",
-    "permissions": "chmod +rwx /home/ubuntu/.nvm/versions/node/v19.8.1/bin/coc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CoCreate-app/CoCreate-cli.git"
-  },
-  "author": "CoCreate LLC",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CoCreate-app/CoCreate-cli/issues"
-  },
-  "homepage": "https://cocreate.app/docs/cli",
-  "funding": {
-    "type": "GitHub Sponsors ❤",
-    "url": "https://github.com/sponsors/CoCreate-app"
-  },
-  "main": "src/commands/index.js",
-  "bin": {
-    "coc": "src/coc.js"
-  },
-  "dependencies": {
-    "@cocreate/config": "^1.2.0",
-    "@cocreate/file": "^1.4.0",
-    "glob": "^7.1.7",
-    "prettier": "^2.3.2"
-  }
+    "name": "@cocreate/cli",
+    "version": "1.37.0",
+    "description": "Polyrepo management bash CLI tool. Run all git commands and yarn commands on multiple repositories. Also includes a few custom macros for cloning, installing, etc.",
+    "keywords": [
+        "cli",
+        "cocreate",
+        "low-code-framework",
+        "no-code-framework",
+        "cocreatejs",
+        "cocreatejs-component",
+        "cocreate-framework",
+        "no-code",
+        "low-code",
+        "collaborative-framework",
+        "realtime",
+        "realtime-framework",
+        "collaboration",
+        "shared-editing",
+        "html5-framework",
+        "javascript-framework"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "automated": "nodejs src/commands/fs/automated.js",
+        "bump": "node src/commands/fs/bump.js",
+        "config": "nodejs src/commands/fs/config.js",
+        "contribution": "nodejs src/commands/fs/contribution.js",
+        "gitignore": "nodejs src/commands/fs/gitignore.js",
+        "manual": "nodejs src/commands/fs/manual.js",
+        "package": "nodejs src/commands/fs/package.js",
+        "readme": "nodejs src/commands/fs/readme.js",
+        "webpack": "nodejs src/commands/fs/webpack.js",
+        "permissions": "chmod +rwx /home/ubuntu/.nvm/versions/node/v19.8.1/bin/coc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CoCreate-app/CoCreate-cli.git"
+    },
+    "author": "CoCreate LLC",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/CoCreate-app/CoCreate-cli/issues"
+    },
+    "homepage": "https://cocreate.app/docs/cli",
+    "funding": {
+        "type": "GitHub Sponsors ❤",
+        "url": "https://github.com/sponsors/CoCreate-app"
+    },
+    "main": "src/commands/index.js",
+    "bin": {
+        "coc": "src/coc.js"
+    },
+    "dependencies": {
+        "@cocreate/config": "^1.2.0",
+        "@cocreate/file": "^1.4.0",
+        "glob": "^7.1.7",
+        "prettier": "^2.3.2"
+    }
 }
