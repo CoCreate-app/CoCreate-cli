@@ -1,6 +1,5 @@
 let glob = require("glob");
 let fs = require('fs');
-const path = require("path")
 
 function globUpdater(er, files) {
 
@@ -8,12 +7,19 @@ function globUpdater(er, files) {
         console.log(files, 'glob resolving issue')
     else
         files.forEach(filename => {
-            update(filename + '/automated.yml')
+            update(filename + 'automated.yml')
         })
     console.log('Completed')
 }
 
 function update(YmlPath) {
+    let build = `- name: Build
+        run: yarn build`
+
+    let webpackPath = YmlPath.replace('.github/workflows/automated.yml', 'webpack.config.js')
+    if (!fs.existsSync(webpackPath))
+        build = ''
+
     let fileContent = `name: Automated Workflow
 on:
   push:
@@ -74,8 +80,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - name: Install dependencies
         run: yarn install
-      - name: Build
-        run: yarn build
+      ${build}
       - name: Set Environment Variables
         run: |
           echo "organization_id=\${{ secrets.COCREATE_ORGANIZATION_ID }}" >> $GITHUB_ENV
@@ -85,7 +90,6 @@ jobs:
         run: coc upload
 
 `;
-    // process.exit()
     if (fs.existsSync(YmlPath))
         fs.unlinkSync(YmlPath)
     fs.writeFileSync(YmlPath, fileContent)
@@ -96,10 +100,10 @@ jobs:
 
 // glob("/home/cocreate/CoCreate/CoCreate-components/CoCreate-actions/.github/workflows", globUpdater)
 glob("/home/cocreate/CoCreate/CoCreate-components/*/.github/workflows/", globUpdater)
-glob("/home/cocreate/CoCreate/CoCreate-apps/*/.github/workflows/", globUpdater)
-glob("/home/cocreate/CoCreate/CoCreate-plugins/*/.github/workflows/", globUpdater)
+// glob("/home/cocreate/CoCreate/CoCreate-apps/*/.github/workflows/", globUpdater)
+// glob("/home/cocreate/CoCreate/CoCreate-plugins/*/.github/workflows/", globUpdater)
 
-glob("/home/cocreate/CoCreate/CoCreate-admin/.github/workflows/", globUpdater)
-glob("/home/cocreate/CoCreate/CoCreateCSS/.github/workflows/", globUpdater)
-glob("/home/cocreate/CoCreate/CoCreateJS/.github/workflows/", globUpdater)
-glob("/home/cocreate/CoCreate/CoCreate-wesite/.github/workflows/", globUpdater)
+// glob("/home/cocreate/CoCreate/CoCreate-admin/.github/workflows/", globUpdater)
+// glob("/home/cocreate/CoCreate/CoCreateCSS/.github/workflows/", globUpdater)
+// glob("/home/cocreate/CoCreate/CoCreateJS/.github/workflows/", globUpdater)
+// glob("/home/cocreate/CoCreate/CoCreate-wesite/.github/workflows/", globUpdater)
