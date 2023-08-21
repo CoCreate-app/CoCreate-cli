@@ -58,8 +58,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - name: Install dependencies
         run: yarn install
-      - name: Build
-        run: yarn build
+
       - name: Set Environment Variables
         run: |
           echo "organization_id=${{ secrets.COCREATE_ORGANIZATION_ID }}" >> $GITHUB_ENV
