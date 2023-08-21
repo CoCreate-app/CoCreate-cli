@@ -1,3 +1,21 @@
+# [1.38.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.37.0...v1.38.0) (2023-08-21)
+
+
+### Bug Fixes
+
+* /dist/CoCreate.js updated to https://CoCreate.app/dist/CoCreate.js ([54d696f](https://github.com/CoCreate-app/CoCreate-cli/commit/54d696fee5fb5b6a40145f4d029e3bebdfa27244))
+* if -- remove from arg ([c6afdc0](https://github.com/CoCreate-app/CoCreate-cli/commit/c6afdc034e92950e7431b3eed51a67ffa8252267))
+* replace cdn with /dist ([11fb652](https://github.com/CoCreate-app/CoCreate-cli/commit/11fb652063021b429e951bd6cea0ba6e6f287964))
+* update automated syntax ([de581dd](https://github.com/CoCreate-app/CoCreate-cli/commit/de581dd6fc7119249a4f0286b66b8a820429c809))
+* update file uploader ([8abf683](https://github.com/CoCreate-app/CoCreate-cli/commit/8abf683a261977e28ec497d0e4de1c6603ade116))
+
+
+### Features
+
+* add loaders/replace-unicode.js ([9b226ed](https://github.com/CoCreate-app/CoCreate-cli/commit/9b226edb42f48b301116ade0dce924c15ffcfcda))
+* create a spawn for letsencrypt and extract the txt value that needs to be added in the dns ([5b505cd](https://github.com/CoCreate-app/CoCreate-cli/commit/5b505cd29ac917c7297725d30640c1fa48cfffc5))
+* option support to define a custom configPath ([64a5363](https://github.com/CoCreate-app/CoCreate-cli/commit/64a53630e0d26843ac0e951a89f496da72e344a9))
+
 # [1.37.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.36.0...v1.37.0) (2023-08-17)
 
 
