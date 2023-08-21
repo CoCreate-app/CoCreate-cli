@@ -1,3 +1,10 @@
+## [1.39.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.2...v1.39.3) (2023-08-21)
+
+
+### Bug Fixes
+
+* removed build as no webpack.config exist ([bd09c96](https://github.com/CoCreate-app/CoCreate-cli/commit/bd09c965986b952f69abe20fa628dd19f6738a30))
+
 ## [1.39.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.1...v1.39.2) (2023-08-21)
 
 
