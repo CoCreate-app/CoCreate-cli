@@ -1,3 +1,10 @@
+## [1.39.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.1...v1.39.2) (2023-08-21)
+
+
+### Bug Fixes
+
+* missing configPath ([d50fb8f](https://github.com/CoCreate-app/CoCreate-cli/commit/d50fb8f1f1ea6bc5f2999cdf227a0d3aa1a1508f))
+
 ## [1.39.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.0...v1.39.1) (2023-08-21)
 
 
