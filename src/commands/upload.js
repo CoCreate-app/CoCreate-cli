@@ -5,15 +5,15 @@ const fs = require('fs');
 module.exports = async function upload(repos, args) {
     let CoCreateConfig
     if (!args.length) {
-        let configFile = path.resolve(process.cwd(), 'CoCreate.config.js');
-        if (!CoCreateConfig && fs.existsSync(configFile)) {
-            CoCreateConfig = require(configFile);
+        let configPath = path.resolve(process.cwd(), 'CoCreate.config.js');
+        if (!CoCreateConfig && fs.existsSync(configPath)) {
+            CoCreateConfig = require(configPath);
         } else {
             console.log('CoCreate.config.js could not be found.')
             process.exit()
         }
 
-        await file(CoCreateConfig)
+        await file(CoCreateConfig, configPath)
 
     } else {
         for (let arg of args) {
