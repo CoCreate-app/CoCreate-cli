@@ -1,3 +1,10 @@
+# [1.40.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.4...v1.40.0) (2023-09-07)
+
+
+### Features
+
+* coc upload -w and coc upload '../' -w to watch files for changes and upload. Replaces watch.js ([236eaba](https://github.com/CoCreate-app/CoCreate-cli/commit/236eabaa87038e9535f33e7e55a21bab72404d1d))
+
 ## [1.39.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.3...v1.39.4) (2023-08-21)
 
 
