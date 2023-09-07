@@ -2,13 +2,22 @@ const fs = require('fs');
 const path = require('path');
 const file = require('@cocreate/file')
 
-module.exports = async function fileWatch(repos, args) {
-    const parentDirectory = path.join(__dirname, '..');
-    console.log('Watching: ', parentDirectory)
+module.exports = async function fileWatch(directory, args) {
+    if (!directory || Array.isArray(directory))
+        directory = process.cwd()
 
-    fs.watch(parentDirectory, { recursive: true }, async (eventType, filename) => {
+    if (args && args[0]) {
+        if (path.isAbsolute(args[0]))
+            directory = args[0]
+        else
+            directory = path.resolve(directory, args[0]);
+    }
+
+    console.log('Watching: ', directory)
+
+    fs.watch(directory, { recursive: true }, async (eventType, filename) => {
         if (!filename.includes('CoCreate.config.js')) {
-            const filePath = path.resolve(parentDirectory, filename);
+            const filePath = path.resolve(directory, filename);
             if (!filePath.includes('node_modules')) {
                 const configPath = findClosestConfig(filePath);
                 if (configPath) {
