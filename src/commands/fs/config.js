@@ -37,16 +37,15 @@ function update(MdPath) {
             "object": {
                 "_id": "${object}",
                 "name": "index.html",
-                "path": "/docs/${name}/index.html",
+                 "path": "/docs/${name}",
+                "pathname": "/docs/${name}/index.html",
                 "src": "{{./docs/index.html}}",
                 "host": [
                     "general.cocreate.app"
                 ],
-                "directory": "/docs/${name}",
-                "parentDirectory": "{{parentDirectory}}",
+                "directory": "${name}",
                 "content-type": "{{content-type}}",
-                "public": "true",
-                "website_id": "644d4bff8036fb9d1d1fd69c"
+                "public": "true"
             }
         }
     ]
