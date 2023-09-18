@@ -1,3 +1,11 @@
+## [1.40.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.40.0...v1.40.1) (2023-09-18)
+
+
+### Bug Fixes
+
+*  Add path and pathname ([dd625ef](https://github.com/CoCreate-app/CoCreate-cli/commit/dd625ef2f6fcbf95c168810fc9b40489890611cb))
+* Update dCoCreate dpendencies to latest versions ([b5f56cb](https://github.com/CoCreate-app/CoCreate-cli/commit/b5f56cb54d4f6cc355dc00678927a5167cbde3be))
+
 # [1.40.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.39.4...v1.40.0) (2023-09-07)
 
 
