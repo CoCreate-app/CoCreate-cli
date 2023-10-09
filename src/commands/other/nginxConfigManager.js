@@ -13,7 +13,7 @@ async function createServer(hosts) {
     for (let host of hosts) {
         const hostParts = host.split('.')
         const domain = hostParts[0];
-        const tld =  hostParts[1];
+        const tld = hostParts[1];
         const server = `
 server {
     server_name  ~^(?<sub>.+)\.${domain}\.${tld} ${host};
@@ -24,22 +24,9 @@ server {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme;
-            fastcgi_buffers 16 16k;
-            fastcgi_buffer_size 32k;
-            proxy_buffer_size 128k;
-            proxy_buffers 4 256k;
-            proxy_busy_buffers_size 256k;
-
-    }
-
-    location /ws/ {
-            proxy_pass http://localhost:3000;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "Upgrade";
+
             fastcgi_buffers 16 16k;
             fastcgi_buffer_size 32k;
             proxy_buffer_size 128k;
@@ -71,10 +58,10 @@ server {
 
 `;
         fs.writeFileSync(`${available}${host}`, server)
-      
+
         if (!fs.existsSync(`${enabled}${host}`))
             await exec(`sudo ln -s ${available}${host} ${enabled}`);
-        
+
         let test = await exec(`sudo nginx -t`);
         if (test.stderr.includes('test is successful')) {
             await exec(`sudo systemctl reload nginx`);
@@ -96,7 +83,7 @@ server {
             server_name _;
             return 301 https://$host$request_uri;
         }`
-        
+
         fs.writeFileSync(`${available}main`, main)
         await exec(`sudo ln -s ${available}main ${enabled}`);
 
@@ -104,7 +91,7 @@ server {
             fs.unlinkSync(`${enabled}default`)
         if (fs.existsSync(`${available}default`))
             fs.unlinkSync(`${available}default`)
-        
+
         let test = await exec(`sudo nginx -t`);
         if (test.stderr.includes('test is successful')) {
             await exec(`sudo systemctl reload nginx`);
@@ -114,7 +101,7 @@ server {
             console.log('main test failed')
             response['main'] = false
         }
-    
+
     }
 
     return response
@@ -129,10 +116,10 @@ async function deleteServer(hosts) {
             fs.unlinkSync(`${enabled}${host}`)
         if (fs.existsSync(`${available}${host}`))
             fs.unlinkSync(`${available}${host}`)
-            
+
         response[host] = true
     }
     return response
 }
 
-module.exports = {createServer, deleteServer}
+module.exports = { createServer, deleteServer }

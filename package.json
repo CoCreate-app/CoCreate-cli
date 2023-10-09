@@ -55,8 +55,8 @@
     "coc": "src/coc.js"
   },
   "dependencies": {
-    "@cocreate/config": "^1.6.1",
-    "@cocreate/file": "^1.9.1",
+    "@cocreate/config": "^1.6.4",
+    "@cocreate/file": "^1.9.4",
     "glob": "^7.1.7",
     "prettier": "^2.3.2"
   }
