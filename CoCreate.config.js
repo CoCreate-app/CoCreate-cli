@@ -230,6 +230,10 @@ module.exports = {
             "repo": "github.com/CoCreate-app/CoCreate-selection.git"
         },
         {
+            "path": "../CoCreate-signup-animation",
+            "repo": "github.com/CoCreate-app/CoCreate-signup-animation.git"
+        },
+        {
             "path": "../CoCreate-socket-client",
             "repo": "github.com/CoCreate-app/CoCreate-socket-client.git"
         },
