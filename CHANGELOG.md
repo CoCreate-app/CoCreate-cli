@@ -1,3 +1,11 @@
+## [1.42.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.1...v1.42.2) (2023-10-09)
+
+
+### Bug Fixes
+
+* bump dependencies ([6a0c858](https://github.com/CoCreate-app/CoCreate-cli/commit/6a0c85895363879a8dc08e5400fd44a539ba06ab))
+* update nginx config to route ws traffic to / ([8bc0775](https://github.com/CoCreate-app/CoCreate-cli/commit/8bc0775887e4abe3808e22186408f8dbb5090c15))
+
 ## [1.42.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.0...v1.42.1) (2023-10-09)
 
 
