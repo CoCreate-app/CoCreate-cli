@@ -150,10 +150,6 @@ module.exports = {
             "repo": "github.com/CoCreate-app/CoCreate-link.git"
         },
         {
-            "path": "../CoCreate-message-client",
-            "repo": "github.com/CoCreate-app/CoCreate-message-client.git"
-        },
-        {
             "path": "../CoCreate-modal",
             "repo": "github.com/CoCreate-app/CoCreate-modal.git"
         },
