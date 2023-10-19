@@ -1,3 +1,11 @@
+## [1.42.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.2...v1.42.3) (2023-10-19)
+
+
+### Bug Fixes
+
+* removed '@cocreate/message' client and server ([62e3e5e](https://github.com/CoCreate-app/CoCreate-cli/commit/62e3e5e632d12c6d8cf2ad5a4f4de0d1976fb800))
+* removed '@cocreate/message' client and server ([9f71217](https://github.com/CoCreate-app/CoCreate-cli/commit/9f71217857c9731e20fc34d39ebc79ed03b7204c))
+
 ## [1.42.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.1...v1.42.2) (2023-10-09)
 
 
