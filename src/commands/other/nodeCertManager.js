@@ -21,8 +21,8 @@ async function checkDns(host) {
                 }
                 if (err)
                     console.log(host, err);
-            });   
-        } catch(err) {
+            });
+        } catch (err) {
             console.log('certificate', err)
         }
     });
@@ -33,20 +33,20 @@ async function createCert(host) {
         // let hosts = await exec(`sudo openssl x509 -dates -noout -in /etc/letsencrypt/live/${host}/fullchain.pem`);
         // console.log('hostst check', hosts)
         let test = await checkDns(host)
-        console.log('checked dns from creatCert', test)
+        console.log('checked dns from createCert', test)
         if (test) {
             await exec(`sudo certbot certonly --manual -d *.${host} -d  ${host} --agree-tos --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory`);
             let exitCode = await spawn('sudo', ['certbot', 'certonly', '--manual', '-d', `*.${host}`, '-d', host, '--agree-tos', '--preferred-challenges', 'dns-01', '--server', 'https://acme-v02.api.letsencrypt.org/directory'], { stdio: 'inherit', cwd: process.cwd() })
             if (exitCode !== 0) {
                 failed.push({ name: false, des: `creating directory failed` })
-            } else 
+            } else
                 console.log(true)
 
             // return true
-        } else 
+        } else
             return false
-    } catch(err) {
-       return false
+    } catch (err) {
+        return false
     }
 }
 
@@ -54,8 +54,8 @@ async function deleteCert(host) {
     try {
         await exec(`sudo certbot delete --cert-name ${host}`);
         return true
-    } catch(err) {
-       return false
+    } catch (err) {
+        return false
     }
 }
 
@@ -74,10 +74,10 @@ async function checkCert(host) {
             let currentDate = new Date()
 
             if (!issued || !expires)
-                console.log('not defined', {issued, expires})
+                console.log('not defined', { issued, expires })
             else if (!isNaN(expires)) {
                 if (currentDate < expires) {
-                    certificates.set(host, {issued, expires})
+                    certificates.set(host, { issued, expires })
                     return true
                 } else {
                     let cert = await createCert(host)
@@ -88,23 +88,23 @@ async function checkCert(host) {
                 return cert
             }
         }
-    } catch(err) {
+    } catch (err) {
         let cert = await createCert(host)
         if (cert)
-            certificates.set(host, {issued, expires})
+            certificates.set(host, { issued, expires })
         return cert
     }
 }
 
 async function test(host) {
     try {
-        
+
 
         await exec(`sudo certbot certonly --manual --test-cert -d *.${host} -d  ${host} --agree-tos --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory`);
         let exitCode = await spawn('sudo', ['certbot', 'certonly', '--manual', '--test-cert', '-d', `*.${host}`, '-d', host, '--agree-tos', '--preferred-challenges', 'dns-01', '--server', 'https://acme-v02.api.letsencrypt.org/directory'], { stdio: 'inherit', cwd: process.cwd() })
         if (exitCode !== 0) {
             failed.push({ name: false, des: `creating directory failed` })
-        } else 
+        } else
             console.log(true)
 
         // let child = exec('su -')
@@ -113,9 +113,9 @@ async function test(host) {
         // child.stdout.on('data', (data) => {
         //     console.log(`stdout: "${data}"`);
         // });
-        
+
         // child.stdin.end(); // EOF
-        
+
         // child.on('close', (code) => {
         //     console.log(`Child process exited with code ${code}.`);
         // });
@@ -136,13 +136,13 @@ async function test(host) {
 
         // return true
         // return false
-    } catch(err) {
+    } catch (err) {
         process.exit(1)
-    //    return false
+        //    return false
     }
 }
 
 
 test('cocreate.app')
 
-module.exports = {checkDns, checkCert, createCert, deleteCert}
+module.exports = { checkDns, checkCert, createCert, deleteCert }
