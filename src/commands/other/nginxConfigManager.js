@@ -35,21 +35,6 @@ server {
 
     }
 
-    location /api/ {
-            proxy_pass http://localhost:3002;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "Upgrade";
-            fastcgi_buffers 16 16k;
-            fastcgi_buffer_size 32k;
-            proxy_buffer_size 128k;
-            proxy_buffers 4 256k;
-            proxy_busy_buffers_size 256k;
-    }
-
     listen 443 ssl http2;
     ssl_certificate /etc/letsencrypt/live/${host}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${host}/privkey.pem;
