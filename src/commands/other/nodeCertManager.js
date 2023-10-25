@@ -35,8 +35,8 @@ async function createCert(host) {
         let test = await checkDns(host)
         console.log('checked dns from createCert', test)
         if (test) {
-            await exec(`sudo certbot certonly --manual -d *.${host} -d  ${host} --agree-tos --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory`);
-            let exitCode = await spawn('sudo', ['certbot', 'certonly', '--manual', '-d', `*.${host}`, '-d', host, '--agree-tos', '--preferred-challenges', 'dns-01', '--server', 'https://acme-v02.api.letsencrypt.org/directory'], { stdio: 'inherit', cwd: process.cwd() })
+            await exec(`sudo certbot certonly -d ${host}`);
+            // let exitCode = await spawn('sudo', ['certbot', 'certonly', '--manual', '-d', `*.${host}`, '-d', host, '--agree-tos', '--preferred-challenges', 'dns-01', '--server', 'https://acme-v02.api.letsencrypt.org/directory'], { stdio: 'inherit', cwd: process.cwd() })
             if (exitCode !== 0) {
                 failed.push({ name: false, des: `creating directory failed` })
             } else
@@ -143,6 +143,6 @@ async function test(host) {
 }
 
 
-test('cocreate.app')
+// test('cocreate.app')
 
 module.exports = { checkDns, checkCert, createCert, deleteCert }
