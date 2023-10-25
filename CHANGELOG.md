@@ -1,3 +1,10 @@
+## [1.42.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.5...v1.42.6) (2023-10-25)
+
+
+### Bug Fixes
+
+* cerbot using basic command ([1a96cf1](https://github.com/CoCreate-app/CoCreate-cli/commit/1a96cf15032edb4bee3146a1f03fffb88bfc5683))
+
 ## [1.42.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.4...v1.42.5) (2023-10-25)
 
 
