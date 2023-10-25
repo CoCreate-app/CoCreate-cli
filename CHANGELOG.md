@@ -1,3 +1,11 @@
+## [1.42.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.4...v1.42.5) (2023-10-25)
+
+
+### Bug Fixes
+
+* log ([46b9ffe](https://github.com/CoCreate-app/CoCreate-cli/commit/46b9ffe2de732e2b9f76de1a8512a3b2dfc4675d))
+* update template ([225c779](https://github.com/CoCreate-app/CoCreate-cli/commit/225c77908847d8e2b42b3adedc253a67376992db))
+
 ## [1.42.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.3...v1.42.4) (2023-10-25)
 
 
