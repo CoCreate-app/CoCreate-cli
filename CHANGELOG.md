@@ -1,3 +1,11 @@
+## [1.42.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.6...v1.42.7) (2023-11-03)
+
+
+### Bug Fixes
+
+* added CoCreate-cache ([0245307](https://github.com/CoCreate-app/CoCreate-cli/commit/024530704bf3c648082bd2556517b24f01d69c22))
+* update dependencies to the lates versions ([1b1695d](https://github.com/CoCreate-app/CoCreate-cli/commit/1b1695dcf2602eba937dbf036d8d5430718a29ec))
+
 ## [1.42.6](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.5...v1.42.6) (2023-10-25)
 
 
