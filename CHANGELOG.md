@@ -1,3 +1,10 @@
+## [1.42.8](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.7...v1.42.8) (2023-11-09)
+
+
+### Bug Fixes
+
+* meta name typo ([430a697](https://github.com/CoCreate-app/CoCreate-cli/commit/430a6978abf2664b7740bc47fc912d85f6d66414))
+
 ## [1.42.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.6...v1.42.7) (2023-11-03)
 
 
