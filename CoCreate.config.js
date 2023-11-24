@@ -174,8 +174,8 @@ module.exports = {
             "repo": "github.com/CoCreate-app/CoCreate-parallax.git"
         },
         {
-            "path": "../CoCreate-pass",
-            "repo": "github.com/CoCreate-app/CoCreate-pass.git"
+            "path": "../CoCreate-state",
+            "repo": "github.com/CoCreate-app/CoCreate-state.git"
         },
         {
             "path": "../CoCreate-position",
