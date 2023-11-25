@@ -402,8 +402,8 @@ module.exports = {
             "repo": "github.com/CoCreate-app/CoCreate-loadtest.git"
         },
         {
-            "path": "../CoCreate-metrics-server",
-            "repo": "github.com/CoCreate-app/CoCreate-metrics-server.git"
+            "path": "../CoCreate-metrics",
+            "repo": "github.com/CoCreate-app/CoCreate-metrics.git"
         },
         {
             "path": "../CoCreate-mongodb",

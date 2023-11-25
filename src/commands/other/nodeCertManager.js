@@ -6,6 +6,10 @@ const spawn = child_process.spawn;
 
 const localip = '3.231.17.247'
 const certificates = new Map()
+const certbotPath = `/etc/letsencrypt/live/`;
+const fullchainPath = `${certbotPath}/fullchain.pem`;
+const privkeyPath = `${certbotPath}/privkey.pem`;
+const combinedPath = `${certbotPath}/haproxy.pem`;
 
 
 async function checkDns(host) {
@@ -95,6 +99,36 @@ async function checkCert(host) {
         return cert
     }
 }
+
+const combineCertificate = (host) => {
+    const certbotPath = `/etc/letsencrypt/live/${host}`;
+    const fullchainPath = `${certbotPath}/fullchain.pem`;
+    const privkeyPath = `${certbotPath}/privkey.pem`;
+    const combinedPath = `${certbotPath}/haproxy.pem`;
+
+    fs.readFile(fullchainPath, (err, fullchainData) => {
+        if (err) {
+            console.error('Error reading fullchain.pem:', err);
+            return;
+        }
+
+        fs.readFile(privkeyPath, (err, privkeyData) => {
+            if (err) {
+                console.error('Error reading privkey.pem:', err);
+                return;
+            }
+
+            const combinedData = `${fullchainData}\n${privkeyData}`;
+            fs.writeFile(combinedPath, combinedData, (err) => {
+                if (err) {
+                    console.error('Error writing combined haproxy.pem:', err);
+                } else {
+                    console.log('Successfully combined certificates for HAProxy.');
+                }
+            });
+        });
+    });
+};
 
 async function test(host) {
     try {
