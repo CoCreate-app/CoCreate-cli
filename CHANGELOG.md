@@ -1,3 +1,16 @@
+# [1.44.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.43.0...v1.44.0) (2023-11-25)
+
+
+### Bug Fixes
+
+* pass attributes renamed to state ([b0cc9f6](https://github.com/CoCreate-app/CoCreate-cli/commit/b0cc9f6f935d7b6467d02dfdd5d0a75b3b9ddac6))
+* update nav, edit button and css path ([30420e6](https://github.com/CoCreate-app/CoCreate-cli/commit/30420e6f7f227038ec726a19943565bbfee5aebf))
+
+
+### Features
+
+* upgrade dependencies for latest features and fixes ([8459d64](https://github.com/CoCreate-app/CoCreate-cli/commit/8459d64841d404893d45062c70836fb81a5a85b6))
+
 # [1.43.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.42.9...v1.43.0) (2023-11-19)
 
 
