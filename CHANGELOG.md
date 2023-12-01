@@ -1,3 +1,10 @@
+## [1.45.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.1...v1.45.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* metrics-server renamed to metrics ([6e3604d](https://github.com/CoCreate-app/CoCreate-cli/commit/6e3604d6fa8881e903cb9f24d27a6dd14043e88d))
+
 ## [1.45.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.0...v1.45.1) (2023-11-26)
 
 
