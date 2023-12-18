@@ -1,3 +1,10 @@
+## [1.45.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.2...v1.45.3) (2023-12-18)
+
+
+### Bug Fixes
+
+* coc upload with no args ([a638868](https://github.com/CoCreate-app/CoCreate-cli/commit/a638868b991f39c5a3bdcdcf12285d69f43824f6))
+
 ## [1.45.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.1...v1.45.2) (2023-12-01)
 
 
