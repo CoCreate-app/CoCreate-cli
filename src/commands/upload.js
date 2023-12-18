@@ -28,65 +28,62 @@ module.exports = async function upload(directory, args) {
         console.log('Watching: ', directory)
         fs.watch(directory, { recursive: true }, async (eventType, filename) => {
             if (!filename.includes('CoCreate.config.js')) {
-                const filePath = path.resolve(directory, filename);
-                if (!filePath.includes('node_modules')) {
-                    const configPath = findClosestConfig(filePath);
-                    if (configPath) {
-                        const config = require(configPath);
-
-                        if (config) {
-                            await file(config, configPath, filePath)
-                        } else {
-                            console.log('Failed to read or parse CoCreate.config.js.');
-                        }
-                    } else {
-                        console.log('No CoCreate.config file found in parent directories.');
-                    }
+                const { config, configPath, filePath } = await getConfig(directory, filename);
+                if (config) {
+                    await file(config, configPath, filePath)
+                } else {
+                    console.log('Failed to read or parse CoCreate.config.js.');
                 }
             }
         });
 
     } else {
-        let CoCreateConfig
         if (!args.length) {
-            let configPath = path.resolve(process.cwd(), 'CoCreate.config.js');
-            if (!CoCreateConfig && fs.existsSync(configPath)) {
-                CoCreateConfig = require(configPath);
+            directory = process.cwd()
+            const { config, configPath, filePath } = await getConfig(directory);
+            if (config) {
+                await file(config, configPath, filePath)
             } else {
-                console.log('CoCreate.config.js could not be found.')
-                process.exit()
+                console.log('Failed to read or parse CoCreate.config.js.');
             }
-
-            await file(CoCreateConfig, configPath)
 
         } else {
             for (let arg of args) {
+                let CoCreateConfig
+
                 try {
                     CoCreateConfig = JSON.parse(arg)
                 } catch (error) { }
 
 
                 if (!CoCreateConfig) {
-                    try {
-                        let configPath = path.resolve(process.cwd(), arg)
-                        if (fs.existsSync(configPath)) {
-                            CoCreateConfig = require(configPath);
-                            if (CoCreateConfig)
-                                await file(CoCreateConfig, configPath)
-
-                        } else {
-                            console.log(arg + ' could not be found.')
-                            process.exit()
-                        }
-
-                    } catch (error) { }
+                    const { config, configPath, filePath } = await getConfig(arg);
+                    if (config) {
+                        await file(config, configPath, filePath)
+                    } else {
+                        console.log('Failed to read or parse CoCreate.config.js.');
+                    }
                 }
             }
         }
     }
 
+    async function getConfig(directory, filename = '') {
+        const filePath = path.resolve(directory, filename);
+        if (!filePath.includes('node_modules')) {
+            const configPath = findClosestConfig(filePath)
+            if (configPath) {
+                return { config: require(configPath), configPath, filePath };
+
+            } else {
+                console.log('No CoCreate.config file found in parent directories.');
+            }
+        }
+
+    }
+
     function findClosestConfig(filePath) {
-        let currentDir = path.dirname(filePath);
+        let currentDir = filePath;
 
         while (currentDir !== '/' && currentDir !== '.') {
             let configFile = path.join(currentDir, 'CoCreate.config.js');
