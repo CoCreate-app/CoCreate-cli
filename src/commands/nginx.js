@@ -1,4 +1,4 @@
-const {createServer, deleteServer} = require('./other/nginxConfigManager.js')
+const { createServer, deleteServer } = require('@cocreate/nginx')
 
 module.exports = async function nginx(repos, args) {
     let failed = [];
@@ -11,13 +11,13 @@ module.exports = async function nginx(repos, args) {
             } else if (args[0] === 'delete') {
                 args.shift()
                 await deleteServer(args);
-             } else
+            } else
                 await createServer(args);
         }
     } catch (err) {
         failed.push({ name: 'GENERAL', des: err.message });
         console.error(err.red);
-    } finally  {
+    } finally {
         return failed;
     }
 
