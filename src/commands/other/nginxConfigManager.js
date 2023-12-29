@@ -107,4 +107,25 @@ async function deleteServer(hosts) {
     return response
 }
 
+async function hasServer(hosts) {
+    if (!Array.isArray(hosts))
+        hosts = [hosts]
+    for (let host of hosts) {
+        const { stdout, stderr } = await exec(`grep -Ri 'server_name.*${host}' /etc/nginx/sites-enabled`)
+        if (err) {
+            console.error(`exec error: ${err}`);
+            return;
+        }
+        if (stdout) {
+            console.log(`Host found in the following configuration file(s):\n${stdout}`);
+
+        } else {
+            console.log('Host not found in Nginx configurations.');
+        }
+
+        if (stderr) console.error(`stderr: ${stderr}`);
+
+    }
+}
+
 module.exports = { createServer, deleteServer }
