@@ -1,3 +1,18 @@
+# [1.46.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.3...v1.46.0) (2023-12-31)
+
+
+### Bug Fixes
+
+* relocated to '@cocreate/webpack' ([05941f1](https://github.com/CoCreate-app/CoCreate-cli/commit/05941f1370f5b91f2968d90e12cd1780b9e2b31f))
+* relocated to thier relative modules ([3635e50](https://github.com/CoCreate-app/CoCreate-cli/commit/3635e50076ee2763aed28194c2b4d099591f82ce))
+* require '@cocreate/nginx' ([acab9d3](https://github.com/CoCreate-app/CoCreate-cli/commit/acab9d3da10de5193dd573ad7198b7356ed35283))
+
+
+### Features
+
+* add '@cocreate/acme' and '@cocreate/nginx' ([0eb81e8](https://github.com/CoCreate-app/CoCreate-cli/commit/0eb81e88a54931bc2fc78663393b15338a62740f))
+* coc acme to manage certs ([13049fa](https://github.com/CoCreate-app/CoCreate-cli/commit/13049fa7316269d1fc64b0f9c378b10937c0e7b7))
+
 ## [1.45.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.2...v1.45.3) (2023-12-18)
 
 
