@@ -1,3 +1,10 @@
+## [1.46.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.46.0...v1.46.1) (2024-01-03)
+
+
+### Bug Fixes
+
+* add fs module ([c367f37](https://github.com/CoCreate-app/CoCreate-cli/commit/c367f374ca5ec5ff58c8d050977151b6a3bf3021))
+
 # [1.46.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.45.3...v1.46.0) (2023-12-31)
 
 
