@@ -1,3 +1,11 @@
+# [1.47.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.46.1...v1.47.0) (2024-01-08)
+
+
+### Features
+
+* bumped CoCreate dependencies to their latest versions ([ae609a8](https://github.com/CoCreate-app/CoCreate-cli/commit/ae609a859ef5620acfa998292feea25d37262534))
+* nfs.js to mount disk ([69efc0a](https://github.com/CoCreate-app/CoCreate-cli/commit/69efc0a97cb1d0c5ec670c02295e8975cec4bd22))
+
 ## [1.46.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.46.0...v1.46.1) (2024-01-03)
 
 
