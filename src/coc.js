@@ -37,6 +37,38 @@ function getRepositories(path) {
     }
 }
 
+// TODO: handle getting closest config
+async function getConfig(directory, filename = '') {
+    const filePath = path.resolve(directory, filename);
+    if (!filePath.includes('node_modules')) {
+        const configPath = findClosestConfig(filePath)
+        if (configPath) {
+            return { config: require(configPath), configPath, filePath };
+
+        } else {
+            console.log('No CoCreate.config file found in parent directories.');
+        }
+    }
+
+}
+
+function findClosestConfig(filePath) {
+    let currentDir = filePath;
+
+    while (currentDir !== '/' && currentDir !== '.') {
+        let configFile = path.join(currentDir, 'CoCreate.config.js');
+
+        if (fs.existsSync(configFile)) {
+            return configFile;
+        }
+
+        currentDir = path.dirname(currentDir);
+    }
+
+    return null;
+}
+
+
 const currentRepoPath = path.resolve(process.cwd(), "CoCreate.config.js");
 let packageJsonPath = path.resolve(process.cwd(), 'package.json');
 let directory
