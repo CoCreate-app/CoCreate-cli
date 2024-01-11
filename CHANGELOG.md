@@ -1,3 +1,11 @@
+## [1.47.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.0...v1.47.1) (2024-01-11)
+
+
+### Bug Fixes
+
+*  TODO handle getting closest config ([e7aae1b](https://github.com/CoCreate-app/CoCreate-cli/commit/e7aae1bfe33952b6c5f27db1f3679ad2a65438cd))
+* added TODO use crud to clone storage, database, array, index, object to a new or existing storage, database, array, index, object ([c157b0b](https://github.com/CoCreate-app/CoCreate-cli/commit/c157b0bdb5690801c0f8d5d7e5aaadaa97c868c4))
+
 # [1.47.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.46.1...v1.47.0) (2024-01-08)
 
 
