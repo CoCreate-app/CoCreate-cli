@@ -32,7 +32,7 @@ module.exports = async function upload(directory, args) {
                 if (config) {
                     await file(config, configPath, filePath)
                 } else {
-                    console.log('Failed to read or parse CoCreate.config.js.');
+                    console.log(`Failed to read or parse CoCreate.config.js for file: ${filename}`);
                 }
             }
         });
@@ -69,17 +69,18 @@ module.exports = async function upload(directory, args) {
     }
 
     async function getConfig(directory, filename = '') {
+        let config, configPath
         const filePath = path.resolve(directory, filename);
-        if (!filePath.includes('node_modules')) {
-            const configPath = findClosestConfig(filePath)
+        if (!filePath.includes('node_modules/')) {
+            configPath = findClosestConfig(filePath)
             if (configPath) {
-                return { config: require(configPath), configPath, filePath };
-
+                config = require(configPath)
             } else {
                 console.log('No CoCreate.config file found in parent directories.');
             }
         }
 
+        return { config, configPath, filePath };
     }
 
     function findClosestConfig(filePath) {
