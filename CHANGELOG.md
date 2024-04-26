@@ -1,3 +1,10 @@
+## [1.47.3](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.2...v1.47.3) (2024-04-26)
+
+
+### Bug Fixes
+
+* getConfig  and node_moules/ exclusion ([468b15f](https://github.com/CoCreate-app/CoCreate-cli/commit/468b15f047b81c0b0b9700a48fe4c548af3aad55))
+
 ## [1.47.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.1...v1.47.2) (2024-01-30)
 
 
