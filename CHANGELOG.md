@@ -1,3 +1,10 @@
+## [1.47.5](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.4...v1.47.5) (2024-06-23)
+
+
+### Bug Fixes
+
+* demo css ([91a31c7](https://github.com/CoCreate-app/CoCreate-cli/commit/91a31c71c1c86f80eb5f0a7924189bd623464afb))
+
 ## [1.47.4](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.3...v1.47.4) (2024-05-08)
 
 
