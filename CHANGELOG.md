@@ -1,3 +1,10 @@
+# [1.48.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.7...v1.48.0) (2024-09-21)
+
+
+### Features
+
+* repo url will add https if not present ([76dca35](https://github.com/CoCreate-app/CoCreate-cli/commit/76dca35470b20351dfff6105ce8495cb8d787128))
+
 ## [1.47.7](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.6...v1.47.7) (2024-06-23)
 
 
