@@ -1,26 +1,65 @@
-let glob = require("glob");
-let fs = require('fs');
+const fs = require("fs");
+const path = require("path");
 
-function globUpdater(er, files) {
+function findDirectories(startPath, callback, fileName) {
+  // Resolve relative paths to absolute paths if needed
+  const resolvedPath =
+    startPath.startsWith("./") || startPath.startsWith("../")
+      ? path.resolve(startPath)
+      : startPath;
 
-    if (er)
-        console.log(files, 'glob resolving issue')
-    else
-        files.forEach(filename => {
-            update(filename + 'automated.yml')
-        })
-    console.log('Completed')
+  const segments = resolvedPath.split("/"); // Split path by '/'
+  let currentPath = "/"; // Start from root
+
+  for (let i = 0; i < segments.length; i++) {
+    const segment = segments[i];
+    const isWildcard = segment === "*";
+
+    if (isWildcard) {
+      // Get all directories at this level
+      const directories = fs
+        .readdirSync(currentPath)
+        .filter((file) =>
+          fs.statSync(path.join(currentPath, file)).isDirectory()
+        );
+
+      // Process each directory and continue along the path
+      directories.forEach((dir) => {
+        findDirectories(
+          path.join(currentPath, dir, ...segments.slice(i + 1)),
+          callback,
+          fileName
+        );
+      });
+      return; // Stop further processing in the loop for wildcard case
+    } else {
+      // Continue to the next part of the path
+      currentPath = path.join(currentPath, segment);
+
+      // If a segment doesn’t exist or isn’t a directory, log an error and stop
+      if (
+        !fs.existsSync(currentPath) ||
+        !fs.statSync(currentPath).isDirectory()
+      ) {
+        console.log(`Directory not found: ${currentPath}`);
+        return;
+      }
+    }
+  }
+
+  // If we reach the end of the path without wildcards, we have a valid directory
+  callback(currentPath, fileName);
 }
 
-function update(YmlPath) {
-    let build = `- name: Build
-        run: yarn build`
+function createOrUpdateFile(directoryPath, fileName) {
+  let buildStep = `- name: Build\n        run: yarn build`;
 
-    let webpackPath = YmlPath.replace('.github/workflows/automated.yml', 'webpack.config.js')
-    if (!fs.existsSync(webpackPath))
-        build = ''
+  // Check if webpack config exists to include build step
+  const webpackPath = filePath.replace(fileName, "webpack.config.js");
+  if (!fs.existsSync(webpackPath)) buildStep = "";
 
-    let fileContent = `name: Automated Workflow
+  // Define file content (e.g., for YAML or other configuration)
+  const fileContent = `name: Automated Workflow
 on:
   push:
     branches:
@@ -80,7 +119,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=\${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - name: Install dependencies
         run: yarn install
-      ${build}
+      ${buildStep}
       - name: Set Environment Variables
         run: |
           echo "organization_id=\${{ secrets.COCREATE_ORGANIZATION_ID }}" >> $GITHUB_ENV
@@ -88,22 +127,33 @@ jobs:
           echo "host=\${{ secrets.COCREATE_HOST }}" >> $GITHUB_ENV
       - name: CoCreate Upload
         run: coc upload
-
 `;
-    if (fs.existsSync(YmlPath))
-        fs.unlinkSync(YmlPath)
-    fs.writeFileSync(YmlPath, fileContent)
 
+  const filePath = path.join(directoryPath, fileName);
+  // Create or update the file
+  if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+  fs.writeFileSync(filePath, fileContent);
 }
 
+// Define the directories with wildcards
+const directories = [
+  "../../../../../CoCreate-components/*/",
+  "../../../../../CoCreate-apps/*/",
+  "../../../../../CoCreate-plugins/*/",
+  "../../../../../CoCreateCSS/",
+  "../../../../../CoCreateJS/",
+  "../../../../../CoCreateWS/",
+  "../../../../../YellowOracle/",
+  "../../../../../CoCreate-website/",
+  "../../../../../CoCreate-admin/",
+  "../../../../../CoCreate-website-old/",
+  "../../../../../CoCreate-superadmin/",
+];
+const fileName = "automated.yml";
 
+// Execute directory search and create/update file if the directory exists
+directories.forEach((directory) => {
+  findDirectories(directory, createOrUpdateFile, fileName);
+});
 
-// glob("/home/cocreate/CoCreate/CoCreate-components/CoCreate-actions/.github/workflows", globUpdater)
-glob("/home/cocreate/CoCreate/CoCreate-components/*/.github/workflows/", globUpdater)
-// glob("/home/cocreate/CoCreate/CoCreate-apps/*/.github/workflows/", globUpdater)
-// glob("/home/cocreate/CoCreate/CoCreate-plugins/*/.github/workflows/", globUpdater)
-
-// glob("/home/cocreate/CoCreate/CoCreate-admin/.github/workflows/", globUpdater)
-// glob("/home/cocreate/CoCreate/CoCreateCSS/.github/workflows/", globUpdater)
-// glob("/home/cocreate/CoCreate/CoCreateJS/.github/workflows/", globUpdater)
-// glob("/home/cocreate/CoCreate/CoCreate-wesite/.github/workflows/", globUpdater)
+console.log("Finished");
