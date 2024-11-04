@@ -53,21 +53,21 @@ function findDirectories(startPath, callback, fileName) {
 
 function createOrUpdateFile(directoryPath, fileName) {
   const fileContent = `module.exports = {
-    tabWidth: 4,
-    semi: true,
-    trailingComma: "none",
-    bracketSameLine: true,
-    useTabs: true,
-    overrides: [
-      {
-        files: ["*.json", "*.yml", "*.yaml"],
-        options: {
-          tabWidth: 2,
-        },
-      }
-    ],
-  };
-`;
+        tabWidth: 4,
+        semi: true,
+        trailingComma: "none",
+        bracketSameLine: true,
+        useTabs: true,
+        overrides: [
+            {
+                files: ["*.json", "*.yml", "*.yaml"],
+                options: {
+                    tabWidth: 2,
+                    useTabs: false
+                },
+            }
+        ],  
+    };`;
 
   const filePath = path.join(directoryPath, fileName);
   // Create or update the file
