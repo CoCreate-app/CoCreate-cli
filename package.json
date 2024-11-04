@@ -58,8 +58,6 @@
     "@cocreate/acme": "^1.2.12",
     "@cocreate/config": "^1.12.5",
     "@cocreate/file": "^1.2.1",
-    "@cocreate/nginx": "^1.3.5",
-    "glob": "^7.1.7",
-    "prettier": "^2.3.2"
+    "@cocreate/nginx": "^1.3.5"
   }
 }
