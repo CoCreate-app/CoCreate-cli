@@ -1,3 +1,21 @@
+# [1.49.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.48.0...v1.49.0) (2024-11-04)
+
+
+### Bug Fixes
+
+* formating ([4fa8f1b](https://github.com/CoCreate-app/CoCreate-cli/commit/4fa8f1bc145c9b42eb9c18795fe3c9e78e7c9ac5))
+* formating ([d7c6940](https://github.com/CoCreate-app/CoCreate-cli/commit/d7c694035d9be72cabf557a50a743d8d1dec4287))
+* prettier.config options ([9c7ed78](https://github.com/CoCreate-app/CoCreate-cli/commit/9c7ed787cc7f4e9ab20ceb6ffa22fcc75384147a))
+* removed glob and prittier package ([568016b](https://github.com/CoCreate-app/CoCreate-cli/commit/568016bdc513a0aa3c10f9e3bfa22374182ef41c))
+* removed loadtest, moved mongodb to plugins ([9cea5db](https://github.com/CoCreate-app/CoCreate-cli/commit/9cea5dbd156f7b5900f43269cf94a7e1bbf77011))
+* usertab false added to tempalte ([8dc0843](https://github.com/CoCreate-app/CoCreate-cli/commit/8dc0843c31f49c0c0bd125ad73ebdbc95dba5adc))
+
+
+### Features
+
+* add prettier.config.js and format files ([47de18c](https://github.com/CoCreate-app/CoCreate-cli/commit/47de18c2170889e7f64d8eca34f46b3df166e434))
+* support wildcards, removed glob ([3533c23](https://github.com/CoCreate-app/CoCreate-cli/commit/3533c23b339fa893f7400c13cf0d83624572c0b5))
+
 # [1.48.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.47.7...v1.48.0) (2024-09-21)
 
 
