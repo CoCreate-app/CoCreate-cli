@@ -55,9 +55,9 @@
     "coc": "src/coc.js"
   },
   "dependencies": {
-    "@cocreate/acme": "^1.2.12",
-    "@cocreate/config": "^1.12.5",
-    "@cocreate/file": "^1.2.1",
-    "@cocreate/nginx": "^1.3.5"
+    "@cocreate/acme": "^1.3.0",
+    "@cocreate/config": "^1.13.0",
+    "@cocreate/file": "^1.19.3",
+    "@cocreate/nginx": "^1.4.0"
   }
 }
