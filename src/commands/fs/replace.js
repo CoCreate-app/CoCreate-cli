@@ -1,43 +1,35 @@
 let glob = require("glob");
-let fs = require('fs');
-const path = require("path")
+let fs = require("fs");
+const path = require("path");
 
 function globUpdater(er, files) {
-    if (er)
-        console.log(files, 'glob resolving issue')
-    else
-        files.forEach(filename => update(filename))
+  if (er) console.log(files, "glob resolving issue");
+  else files.forEach((filename) => update(filename));
 }
-
 
 function update(mdPath) {
-    // component name
-        // console.log(mdPath);
-    let nameDir = mdPath;
-    do{
-        nameDir = path.dirname(nameDir);
-    }while(! path.basename(nameDir).startsWith('CoCreate-'))
-    let name = path.basename(nameDir).substring(9);
-    // console.log(name);
-    // process.exit();
-    let replaceContent = fs.readFileSync(mdPath).toString()
+  // component name
+  // console.log(mdPath);
+  let nameDir = mdPath;
+  do {
+    nameDir = path.dirname(nameDir);
+  } while (!path.basename(nameDir).startsWith("CoCreate-"));
+  let name = path.basename(nameDir).substring(9);
+  // console.log(name);
+  // process.exit();
+  let replaceContent = fs.readFileSync(mdPath).toString();
 
-    console.log(replaceContent, name);
-    let replaced = replaceContent.replace(/boilerplate/ig, name)
+  console.log(replaceContent, name);
+  let replaced = replaceContent.replace(/boilerplate/gi, name);
 
-
-    if (fs.existsSync(mdPath))
-        fs.unlinkSync(mdPath)
-    fs.writeFileSync(mdPath, replaced)
-
-
+  if (fs.existsSync(mdPath)) fs.unlinkSync(mdPath);
+  fs.writeFileSync(mdPath, replaced);
 }
 
-
-glob("./docs/", globUpdater)
+glob("./docs/", globUpdater);
 // glob("../CoCreate-docs/docs/*.html", globUpdater)
-// glob("../CoCreate-components/*/docs/*.html", globUpdater)
+// glob("../CoCreate-modules/*/docs/*.html", globUpdater)
 // glob("../CoCreate-apps/*/docs/*.html", globUpdater)
 // glob("../CoCreate-plugins/*/docs/*.html", globUpdater)
 
-console.log('finished')
+console.log("finished");

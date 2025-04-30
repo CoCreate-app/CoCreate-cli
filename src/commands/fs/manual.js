@@ -1,26 +1,21 @@
 let glob = require("glob");
-let fs = require('fs');
-const path = require("path")
+let fs = require("fs");
+const path = require("path");
 
 function globUpdater(er, files) {
-
-  if (er)
-    console.log(files, 'glob resolving issue')
+  if (er) console.log(files, "glob resolving issue");
   else
-    files.forEach(filename => {
-
-      console.log(filename + '/manual.yml', 'glob resolving issue')
-      update(filename + '/manual.yml')
-    })
-
+    files.forEach((filename) => {
+      console.log(filename + "/manual.yml", "glob resolving issue");
+      update(filename + "/manual.yml");
+    });
 }
-
-
-
 
 function update(Path) {
   // component name
-  let name = path.basename(path.resolve(path.dirname(Path), '../..')).substring(9);
+  let name = path
+    .basename(path.resolve(path.dirname(Path), "../.."))
+    .substring(9);
   let fileContent = `name: Manual Workflow
 on:
   workflow_dispatch:
@@ -68,19 +63,14 @@ jobs:
 
 `;
 
-
-  if (fs.existsSync(Path))
-    fs.unlinkSync(Path)
-  fs.writeFileSync(Path, fileContent)
-
+  if (fs.existsSync(Path)) fs.unlinkSync(Path);
+  fs.writeFileSync(Path, fileContent);
 }
 
-
-
-// glob("../CoCreate-components/CoCreate-action/.github/workflows", globUpdater)
-glob("../CoCreate-components/*/.github/workflows/", globUpdater)
-glob("../CoCreate-apps/*/.github/workflows/", globUpdater)
-glob("../CoCreate-plugins/*/.github/workflows/", globUpdater)
+// glob("../CoCreate-modules/CoCreate-action/.github/workflows", globUpdater)
+glob("../CoCreate-modules/*/.github/workflows/", globUpdater);
+glob("../CoCreate-apps/*/.github/workflows/", globUpdater);
+glob("../CoCreate-plugins/*/.github/workflows/", globUpdater);
 
 // substrin (9) removes CoCreateC leving namme as SS
 // glob("../CoCreateCSS/.github/workflows/", globUpdater)
@@ -88,4 +78,4 @@ glob("../CoCreate-plugins/*/.github/workflows/", globUpdater)
 // does not need to add name... will require for name to be removed from destination
 // glob("../CoCreateJS/.github/workflows/", globUpdater)
 
-console.log('finished')
+console.log("finished");

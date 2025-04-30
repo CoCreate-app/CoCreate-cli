@@ -111,7 +111,7 @@ function createOrUpdateFile(directoryPath, fileName) {
 
 // Define the directories with wildcards
 const directories = [
-  "../../../../../CoCreate-components/*/",
+  "../../../../../CoCreate-modules/*/",
   "../../../../../CoCreate-apps/*/",
   "../../../../../CoCreate-plugins/*/",
   "../../../../../CoCreateCSS/",

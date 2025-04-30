@@ -137,7 +137,7 @@ jobs:
 
 // Define the directories with wildcards
 const directories = [
-  "../../../../../CoCreate-components/*/",
+  "../../../../../CoCreate-modules/*/",
   "../../../../../CoCreate-apps/*/",
   "../../../../../CoCreate-plugins/*/",
   "../../../../../CoCreateCSS/",
