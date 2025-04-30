@@ -1,3 +1,25 @@
+# [1.50.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.49.0...v1.50.0) (2025-04-30)
+
+
+### Bug Fixes
+
+* added missing plugin repos to config ([5452746](https://github.com/CoCreate-app/CoCreate-cli/commit/54527462a68db9416cd726b2978c33dbf84529e0))
+* apply missing repositories ([7eed1d3](https://github.com/CoCreate-app/CoCreate-cli/commit/7eed1d3656b074a942f551ff7e98b8c1b67112c0))
+* CoCreate-docs excludded from fs/webpack ([d6b6b81](https://github.com/CoCreate-app/CoCreate-cli/commit/d6b6b81b3322e8bbb33582145e2d7eb515b3e804))
+* enhance debug output and improve failed retry handling ([1acee5d](https://github.com/CoCreate-app/CoCreate-cli/commit/1acee5df1a6ad17752df4ed4435273ff7dbdb412))
+* facebook typo ([5fcbc8c](https://github.com/CoCreate-app/CoCreate-cli/commit/5fcbc8c713c3e6ff751d67f71fe76bf68318cced))
+* improved handeling of webpack config generation ([4743b98](https://github.com/CoCreate-app/CoCreate-cli/commit/4743b98f0f7d2c67678d487f5cbfd42fc5f3ea63))
+* index as entry ([1a2a0dd](https://github.com/CoCreate-app/CoCreate-cli/commit/1a2a0ddcaa4fafd72ac9a5014b4def6d2ea88a93))
+* renamed CoCreate-components to CoCreate-modules ([81f3a28](https://github.com/CoCreate-app/CoCreate-cli/commit/81f3a28308781326ffff7f68564ae98d33617a22))
+* update query attributes ([730bd25](https://github.com/CoCreate-app/CoCreate-cli/commit/730bd250acc7797d8e16449eb417c088aa83666d))
+* updated dependencies ([27a046c](https://github.com/CoCreate-app/CoCreate-cli/commit/27a046c826eec832a68ebf3679b66e920137d0f6))
+* webpack.config and devdependencies ([a42ee03](https://github.com/CoCreate-app/CoCreate-cli/commit/a42ee0378c557101aed823d4b3ee959408661d32))
+
+
+### Features
+
+* Implement automated version updates and improve file handling ([7164e4e](https://github.com/CoCreate-app/CoCreate-cli/commit/7164e4ed5913dc83f1b1641d704339e27b829a24))
+
 # [1.49.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.48.0...v1.49.0) (2024-11-04)
 
 
