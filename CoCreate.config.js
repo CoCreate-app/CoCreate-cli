@@ -330,7 +330,7 @@ module.exports = {
 			repo: "github.com/CoCreate-app/CoCreate-fabric.git"
 		},
 		{
-			path: "../../CoCreate-plugins/CoCreate-facebopok",
+			path: "../../CoCreate-plugins/CoCreate-facebook",
 			repo: "github.com/CoCreate-app/CoCreate-facebook.git"
 		},
 		{
