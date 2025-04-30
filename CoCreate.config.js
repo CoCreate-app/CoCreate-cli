@@ -105,7 +105,8 @@ module.exports = {
 		},
 		{
 			path: "../CoCreate-docs",
-			repo: "github.com/CoCreate-app/CoCreate-docs.git"
+			repo: "github.com/CoCreate-app/CoCreate-docs.git",
+			exclude: ["fs/webpack"]
 		},
 		{
 			path: "../CoCreate-element-config",
@@ -432,7 +433,7 @@ module.exports = {
 			exclude: ["fs/webpack"]
 		},
 		{
-			path: "../CoCreate-nginx",
+			path: "../../CoCreate-plugins/CoCreate-nginx",
 			repo: "github.com/CoCreate-app/CoCreate-nginx.git",
 			exclude: ["fs/webpack"]
 		},
