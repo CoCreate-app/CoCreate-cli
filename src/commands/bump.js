@@ -72,7 +72,7 @@ function getVersions(filePath) {
 				const promise = exec(`npm view ${key} version`)
 					.then((versionObj) => versionObj.stdout.trim())
 					.catch((error) => {
-						failed.push({ name: key, des: error.message });
+						failed.push({ name: key, error: error.message });
 						console.error(
 							`Failed fetching version for ${key}: ${error.message}`
 						);
@@ -85,7 +85,7 @@ function getVersions(filePath) {
 		const errorMessage = `Path doesn't exist: ${filePath}`;
 		failed.push({
 			name: "get version",
-			des: errorMessage
+			error: errorMessage
 		});
 		console.error(errorMessage);
 	}
@@ -147,7 +147,7 @@ function updateVersion(filePath) {
 		const errorMessage = `Path doesn't exist: ${filePath}`;
 		failed.push({
 			name: "update version",
-			des: errorMessage
+			error: errorMessage
 		});
 		console.error(errorMessage);
 	}

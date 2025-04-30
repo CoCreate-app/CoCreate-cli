@@ -66,10 +66,12 @@ async function main(config = {}, repos = null, directory = null) {
 			const repoUrl =
 				packageObj.repository &&
 				packageObj.repository.url.substring(12);
+			const repoEntry = packageObj.main;
 			repos = [
 				{
 					path: repoPath,
-					repo: repoUrl
+					repo: repoUrl,
+					entry: repoEntry
 				}
 			];
 			directory = path.dirname(packageJsonPath);
@@ -98,7 +100,7 @@ async function main(config = {}, repos = null, directory = null) {
 		);
 		for (const failure of failed) {
 			console.log(
-				color.red + `${failure.name}: ${failure.des}` + color.reset
+				color.red + `${failure.name}: ${failure.error}` + color.reset
 			);
 		}
 
