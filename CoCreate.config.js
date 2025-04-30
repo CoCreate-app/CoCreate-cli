@@ -310,12 +310,28 @@ module.exports = {
 			repo: "github.com/CoCreate-app/CoCreate-charts.git"
 		},
 		{
+			path: "../../CoCreate-plugins/CoCreate-alpha-vantage",
+			repo: "github.com/CoCreate-app/CoCreate-alpha-vantage.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-aos",
+			repo: "github.com/CoCreate-app/CoCreate-aos.git"
+		},
+		{
 			path: "../../CoCreate-plugins/CoCreate-croppie",
 			repo: "github.com/CoCreate-app/CoCreate-croppie.git"
 		},
 		{
 			path: "../../CoCreate-plugins/CoCreate-domain",
 			repo: "github.com/CoCreate-app/CoCreate-domain.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-fabric",
+			repo: "github.com/CoCreate-app/CoCreate-fabric.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-facebopok",
+			repo: "github.com/CoCreate-app/CoCreate-facebook.git"
 		},
 		{
 			path: "../../CoCreate-plugins/CoCreate-fullcalendar",
@@ -347,9 +363,17 @@ module.exports = {
 			repo: "github.com/CoCreate-app/CoCreate-linkedin.git"
 		},
 		{
+			path: "../../CoCreate-plugins/CoCreate-marked",
+			repo: "github.com/CoCreate-app/CoCreate-marked.git"
+		},
+		{
 			path: "../../CoCreate-plugins/CoCreate-mongodb",
 			repo: "github.com/CoCreate-app/CoCreate-mongodb.git",
 			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-openai",
+			repo: "github.com/CoCreate-app/CoCreate-openai.git"
 		},
 		{
 			path: "../../CoCreate-plugins/CoCreate-pickr",
@@ -460,6 +484,11 @@ module.exports = {
 		{
 			path: "../CoCreate-url-uploader",
 			repo: "github.com/CoCreate-app/CoCreate-url-uploader.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-usage",
+			repo: "github.com/CoCreate-app/CoCreate-usage.git",
 			exclude: ["fs/webpack"]
 		},
 		{
