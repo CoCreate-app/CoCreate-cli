@@ -1,3 +1,10 @@
+## [1.51.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.51.1...v1.51.2) (2025-05-01)
+
+
+### Bug Fixes
+
+* config ([3d94a02](https://github.com/CoCreate-app/CoCreate-cli/commit/3d94a02438b162d787d9614d13ab3829d12d7241))
+
 ## [1.51.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.51.0...v1.51.1) (2025-05-01)
 
 
