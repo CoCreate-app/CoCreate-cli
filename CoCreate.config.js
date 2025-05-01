@@ -304,198 +304,198 @@ module.exports = {
 			path: "../../CoCreate-apps/CoCreate-sandbox",
 			repo: "github.com/CoCreate-app/CoCreate-sandbox.git",
 			exclude: ["fs/webpack"]
-		}
+		},
 
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-charts",
-		// 	repo: "github.com/CoCreate-app/CoCreate-charts.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-alpha-vantage",
-		// 	repo: "github.com/CoCreate-app/CoCreate-alpha-vantage.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-aos",
-		// 	repo: "github.com/CoCreate-app/CoCreate-aos.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-croppie",
-		// 	repo: "github.com/CoCreate-app/CoCreate-croppie.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-domain",
-		// 	repo: "github.com/CoCreate-app/CoCreate-domain.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-fabric",
-		// 	repo: "github.com/CoCreate-app/CoCreate-fabric.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-facebook",
-		// 	repo: "github.com/CoCreate-app/CoCreate-facebook.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-fullcalendar",
-		// 	repo: "github.com/CoCreate-app/CoCreate-fullcalendar.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-ffmpeg",
-		// 	repo: "github.com/CoCreate-app/CoCreate-ffmpeg.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-google-maps",
-		// 	repo: "github.com/CoCreate-app/CoCreate-google-maps.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-google-auth",
-		// 	repo: "github.com/CoCreate-app/CoCreate-google-auth.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-instagram",
-		// 	repo: "github.com/CoCreate-app/CoCreate-instagram.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-lighthouse",
-		// 	repo: "github.com/CoCreate-app/CoCreate-lighthouse.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-linkedin",
-		// 	repo: "github.com/CoCreate-app/CoCreate-linkedin.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-marked",
-		// 	repo: "github.com/CoCreate-app/CoCreate-marked.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-mongodb",
-		// 	repo: "github.com/CoCreate-app/CoCreate-mongodb.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-openai",
-		// 	repo: "github.com/CoCreate-app/CoCreate-openai.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-pickr",
-		// 	repo: "github.com/CoCreate-app/CoCreate-pickr.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-pinterest",
-		// 	repo: "github.com/CoCreate-app/CoCreate-pinterest.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-plaid",
-		// 	repo: "github.com/CoCreate-app/CoCreate-plaid.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-prism",
-		// 	repo: "github.com/CoCreate-app/CoCreate-prism.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-sendgrid",
-		// 	repo: "github.com/CoCreate-app/CoCreate-sendgrid.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-shipengine",
-		// 	repo: "github.com/CoCreate-app/CoCreate-shipengine.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-stripe",
-		// 	repo: "github.com/CoCreate-app/CoCreate-stripe.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-twilio",
-		// 	repo: "github.com/CoCreate-app/CoCreate-twilio.git"
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-twitter",
-		// 	repo: "github.com/CoCreate-app/CoCreate-twitter.git"
-		// },
-		// {
-		// 	path: "../../CoCreateWS",
-		// 	repo: "github.com/CoCreate-app/CoCreateWS.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-acme",
-		// 	repo: "github.com/CoCreate-app/CoCreate-acme.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-authenticate",
-		// 	repo: "github.com/CoCreate-app/CoCreate-authenticate.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-authorize",
-		// 	repo: "github.com/CoCreate-app/CoCreate-authorize.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-cron-jobs",
-		// 	repo: "github.com/CoCreate-app/CoCreate-cron-jobs.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-crud-server",
-		// 	repo: "github.com/CoCreate-app/CoCreate-crud-server.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-file-server",
-		// 	repo: "github.com/CoCreate-app/CoCreate-file-server.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-metrics",
-		// 	repo: "github.com/CoCreate-app/CoCreate-metrics.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-node-autoscaler",
-		// 	repo: "github.com/CoCreate-app/CoCreate-node-autoscaler.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-nginx",
-		// 	repo: "github.com/CoCreate-app/CoCreate-nginx.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-server",
-		// 	repo: "github.com/CoCreate-app/CoCreate-server.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-server-side-render",
-		// 	repo: "github.com/CoCreate-app/CoCreate-server-side-render.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-socket-server",
-		// 	repo: "github.com/CoCreate-app/CoCreate-socket-server.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-sitemap",
-		// 	repo: "github.com/CoCreate-app/CoCreate-sitemap.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-url-uploader",
-		// 	repo: "github.com/CoCreate-app/CoCreate-url-uploader.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../CoCreate-usage",
-		// 	repo: "github.com/CoCreate-app/CoCreate-usage.git",
-		// 	exclude: ["fs/webpack"]
-		// },
-		// {
-		// 	path: "../../CoCreate-plugins/CoCreate-webpack",
-		// 	repo: "github.com/CoCreate-app/CoCreate-webpack.git",
-		// 	exclude: ["fs/webpack"]
-		// }
+		{
+			path: "../../CoCreate-plugins/CoCreate-charts",
+			repo: "github.com/CoCreate-app/CoCreate-charts.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-alpha-vantage",
+			repo: "github.com/CoCreate-app/CoCreate-alpha-vantage.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-aos",
+			repo: "github.com/CoCreate-app/CoCreate-aos.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-croppie",
+			repo: "github.com/CoCreate-app/CoCreate-croppie.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-domain",
+			repo: "github.com/CoCreate-app/CoCreate-domain.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-fabric",
+			repo: "github.com/CoCreate-app/CoCreate-fabric.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-facebook",
+			repo: "github.com/CoCreate-app/CoCreate-facebook.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-fullcalendar",
+			repo: "github.com/CoCreate-app/CoCreate-fullcalendar.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-ffmpeg",
+			repo: "github.com/CoCreate-app/CoCreate-ffmpeg.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-google-maps",
+			repo: "github.com/CoCreate-app/CoCreate-google-maps.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-google-auth",
+			repo: "github.com/CoCreate-app/CoCreate-google-auth.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-instagram",
+			repo: "github.com/CoCreate-app/CoCreate-instagram.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-lighthouse",
+			repo: "github.com/CoCreate-app/CoCreate-lighthouse.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-linkedin",
+			repo: "github.com/CoCreate-app/CoCreate-linkedin.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-marked",
+			repo: "github.com/CoCreate-app/CoCreate-marked.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-mongodb",
+			repo: "github.com/CoCreate-app/CoCreate-mongodb.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-openai",
+			repo: "github.com/CoCreate-app/CoCreate-openai.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-pickr",
+			repo: "github.com/CoCreate-app/CoCreate-pickr.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-pinterest",
+			repo: "github.com/CoCreate-app/CoCreate-pinterest.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-plaid",
+			repo: "github.com/CoCreate-app/CoCreate-plaid.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-prism",
+			repo: "github.com/CoCreate-app/CoCreate-prism.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-sendgrid",
+			repo: "github.com/CoCreate-app/CoCreate-sendgrid.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-shipengine",
+			repo: "github.com/CoCreate-app/CoCreate-shipengine.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-stripe",
+			repo: "github.com/CoCreate-app/CoCreate-stripe.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-twilio",
+			repo: "github.com/CoCreate-app/CoCreate-twilio.git"
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-twitter",
+			repo: "github.com/CoCreate-app/CoCreate-twitter.git"
+		},
+		{
+			path: "../../CoCreateWS",
+			repo: "github.com/CoCreate-app/CoCreateWS.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-acme",
+			repo: "github.com/CoCreate-app/CoCreate-acme.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-authenticate",
+			repo: "github.com/CoCreate-app/CoCreate-authenticate.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-authorize",
+			repo: "github.com/CoCreate-app/CoCreate-authorize.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-cron-jobs",
+			repo: "github.com/CoCreate-app/CoCreate-cron-jobs.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-crud-server",
+			repo: "github.com/CoCreate-app/CoCreate-crud-server.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-file-server",
+			repo: "github.com/CoCreate-app/CoCreate-file-server.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-metrics",
+			repo: "github.com/CoCreate-app/CoCreate-metrics.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-node-autoscaler",
+			repo: "github.com/CoCreate-app/CoCreate-node-autoscaler.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-nginx",
+			repo: "github.com/CoCreate-app/CoCreate-nginx.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-server",
+			repo: "github.com/CoCreate-app/CoCreate-server.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-server-side-render",
+			repo: "github.com/CoCreate-app/CoCreate-server-side-render.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-socket-server",
+			repo: "github.com/CoCreate-app/CoCreate-socket-server.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-sitemap",
+			repo: "github.com/CoCreate-app/CoCreate-sitemap.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-url-uploader",
+			repo: "github.com/CoCreate-app/CoCreate-url-uploader.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../CoCreate-usage",
+			repo: "github.com/CoCreate-app/CoCreate-usage.git",
+			exclude: ["fs/webpack"]
+		},
+		{
+			path: "../../CoCreate-plugins/CoCreate-webpack",
+			repo: "github.com/CoCreate-app/CoCreate-webpack.git",
+			exclude: ["fs/webpack"]
+		}
 	]
 };
