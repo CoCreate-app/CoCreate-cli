@@ -1,3 +1,10 @@
+# [1.51.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.50.0...v1.51.0) (2025-05-01)
+
+
+### Features
+
+* retry failed repositories ([94ddaed](https://github.com/CoCreate-app/CoCreate-cli/commit/94ddaeda55fd6e19d684165f9b739c0281c3c2d1))
+
 # [1.50.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.49.0...v1.50.0) (2025-04-30)
 
 
