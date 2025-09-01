@@ -1,3 +1,10 @@
+# [1.52.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.51.2...v1.52.0) (2025-09-01)
+
+
+### Features
+
+* Refactor command-line argument handling and configuration loading ([4abf92a](https://github.com/CoCreate-app/CoCreate-cli/commit/4abf92a986dee120987c6f5899b429edf9cc8946))
+
 ## [1.51.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.51.1...v1.51.2) (2025-05-01)
 
 
