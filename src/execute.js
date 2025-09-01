@@ -3,9 +3,11 @@ const fs = require("fs");
 const spawn = require("./spawn");
 const util = require("node:util");
 const exec = util.promisify(require("node:child_process").exec);
+const { getConfig } = require("./getConfig");
+
 const { color } = require("./fonts");
 
-module.exports = async function execute(command, repos = [], config) {
+module.exports = async function execute(command, config) {
 	let failed = [];
 	let [filename, ...args] = command.replaceAll("'", '"').trim().split(" ");
 
@@ -22,7 +24,7 @@ module.exports = async function execute(command, repos = [], config) {
 	let isPredefined = fs.existsSync(predefined);
 	let repositories = [];
 
-	for (let repo of repos) {
+	for (let repo of config.repositories || []) {
 		try {
 			if (
 				repo.exclude &&
@@ -71,7 +73,7 @@ module.exports = async function execute(command, repos = [], config) {
 	}
 
 	if (isPredefined) {
-		failed = require(predefined)(repositories, args);
+		failed = await require(predefined)(repositories, args);
 	}
 
 	return failed;
