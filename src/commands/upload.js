@@ -10,9 +10,10 @@ module.exports = async function upload(directory, args) {
 	if (directory && typeof directory === "string") {
 		if (["-w", "--watch"].includes(directory)) {
 			isWatch = true;
-			directory = process.cwd();
 		}
-	} else directory = process.cwd();
+	}
+
+	directory = process.cwd();
 
 	if (isWatch || args.includes("-w") || args.includes("--watch")) {
 		for (let i = 0; i < args.length; i++) {
@@ -52,6 +53,7 @@ module.exports = async function upload(directory, args) {
 			}
 		} else {
 			for (let arg of args) {
+				arg = path.resolve(directory, arg);
 				let CoCreateConfig;
 
 				try {
