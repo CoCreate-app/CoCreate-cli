@@ -78,7 +78,7 @@ module.exports = async function translateHtml(html, languages, options = {}) {
 async function generateTranslationObject(html, model, languages) {
 	const langList = languages.map((l) => `"${l}"`).join(", ");
 	const prompt = `
-You are an expert web localization AI. Given the following HTML file, extract all translatable content (titles, meta tags, headers, buttons, video/image alt/title, labels, aria-label, and all aria-* attributes) and generate a JSON object in the following format:
+You are an expert web localization AI. Given the following HTML file, extract all translatable content (titles, meta tags, headers, buttons, video/image alt/title, labels, aria-label, all aria-* attributes, and placeholders) and generate a JSON object in the following format:
 
 {
   "translations": [
@@ -100,7 +100,8 @@ You are an expert web localization AI. Given the following HTML file, extract al
         "label": { ${langList} },
         "aria-label": { ${langList} },
         "aria-*": { ${langList} },
-        "title": { ${langList} }
+        "title": { ${langList} },
+        "placeholder": { ${langList} }
       }
     },
     // Example for structured data translation:
@@ -117,7 +118,7 @@ You are an expert web localization AI. Given the following HTML file, extract al
   ]
 }
 
-Do not add any extra keys or key names not shown in this structure. Only use the keys: name, directory, path, content-type, translations, selector, innerHTML, attributes, alt, label, aria-label, aria-*, title, and the language codes (${languages.join(
+Do not add any extra keys or key names not shown in this structure. Only use the keys: name, directory, path, content-type, translations, selector, innerHTML, attributes, alt, label, aria-label, aria-*, title, placeholder, and the language codes (${languages.join(
 		", "
 	)}).
 
@@ -137,7 +138,7 @@ ${html}
 		jsonText = jsonText
 			.replace(/^```json\s*([\s\S]*?)\s*```$/i, "$1")
 			.trim();
-		return JSON.parse(jsonText);
+		return JSON.parse(jsonText).translations;
 	} catch (err) {
 		console.error(`AI error:`, err);
 		return null;
