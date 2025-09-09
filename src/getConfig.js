@@ -3,13 +3,14 @@ const path = require("path");
 
 async function getConfig(directory, filename = "CoCreate.config.js") {
 	let config;
-	let configPath = path.resolve(directory, filename);
+	let configPathname = path.resolve(directory, filename);
+	let configPath = configPathname;
 	if (!configPath.includes("node_modules/")) {
 		configPath = findClosestConfig(configPath, "CoCreate.config.js");
 		if (configPath) {
 			config = require(configPath);
 			config.configPath = configPath;
-			config.filePath = directory;
+			config.filePath = configPathname;
 		} else {
 			console.log("No CoCreate.config file found in parent directories.");
 		}
