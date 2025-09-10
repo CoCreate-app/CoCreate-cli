@@ -135,12 +135,13 @@ ${html}
 	try {
 		const result = await model.generateContent(prompt);
 		let jsonText = result.response.candidates[0].content.parts[0].text;
-		jsonText = jsonText
-			.replace(/^```json\s*([\s\S]*?)\s*```$/i, "$1")
-			.trim();
+		// Extract the first JSON object from the response
+		const match = jsonText.match(/\{[\s\S]*\}/);
+		if (!match) throw new Error("No JSON object found in AI response");
+		jsonText = match[0];
 		return JSON.parse(jsonText).translations;
 	} catch (err) {
-		console.error(`AI error:`, err);
+		console.log(`AI error:`, err);
 		return null;
 	}
 }
