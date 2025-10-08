@@ -1,3 +1,18 @@
+# [1.53.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.52.0...v1.53.0) (2025-10-08)
+
+
+### Bug Fixes
+
+* Correct directory handling in upload and getConfig functions ([1af7531](https://github.com/CoCreate-app/CoCreate-cli/commit/1af7531a157dd3ce430776c2b669c6976b06cdc6))
+* Improve JSON extraction from AI response and update getConfig function for clarity ([8f22fc1](https://github.com/CoCreate-app/CoCreate-cli/commit/8f22fc15991615b47ef3dfad8c0532e023a5e412))
+* Update config file path handling in getConfig function ([e32e20a](https://github.com/CoCreate-app/CoCreate-cli/commit/e32e20a87124aca74f02a9cd56f13adbcb784569))
+
+
+### Features
+
+* Add translation functionality to upload command and integrate translate module ([a9ff96a](https://github.com/CoCreate-app/CoCreate-cli/commit/a9ff96ac873f6f2ed14001a5877db4a7bbab0cd8))
+* Enhance translation object structure to include placeholders in generated JSON ([6257ed1](https://github.com/CoCreate-app/CoCreate-cli/commit/6257ed18ea9152c052e32a13c43b4c51e1646cfc))
+
 # [1.52.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.51.2...v1.52.0) (2025-09-01)
 
 
