@@ -1,3 +1,10 @@
+# [1.54.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.53.0...v1.54.0) (2025-10-11)
+
+
+### Features
+
+* Implement symlink creation command with error handling and path validation ([dce81f2](https://github.com/CoCreate-app/CoCreate-cli/commit/dce81f23900388bbc26cfbbfa9501dedd1e02596))
+
 # [1.53.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.52.0...v1.53.0) (2025-10-08)
 
 
