@@ -1,3 +1,11 @@
+## [1.54.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.54.0...v1.54.1) (2026-02-02)
+
+
+### Bug Fixes
+
+* automation yaml ([f40ec08](https://github.com/CoCreate-app/CoCreate-cli/commit/f40ec08c74770a5276c551ee1d5270bdf2dfcf87))
+* readme ([ee622d0](https://github.com/CoCreate-app/CoCreate-cli/commit/ee622d0d4e3e5989dd4afa0ce9a099db4f7ff19f))
+
 # [1.54.0](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.53.0...v1.54.0) (2025-10-11)
 
 
