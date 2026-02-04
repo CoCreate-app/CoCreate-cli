@@ -1,3 +1,10 @@
+## [1.54.2](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.54.1...v1.54.2) (2026-02-04)
+
+
+### Bug Fixes
+
+* missing package and update dependencies ([5d71624](https://github.com/CoCreate-app/CoCreate-cli/commit/5d716248e62c7349b8ea4f508bb1cca095b924ad))
+
 ## [1.54.1](https://github.com/CoCreate-app/CoCreate-cli/compare/v1.54.0...v1.54.1) (2026-02-02)
 
 
